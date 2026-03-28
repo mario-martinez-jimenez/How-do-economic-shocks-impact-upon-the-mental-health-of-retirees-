@@ -404,9 +404,30 @@ In terms of macroeconomic conditions, we use the annual unemployment rate within
 
 Table 1 provides descriptive statistics of sociodemographic characteristics of our sample according to occupational status, specifically differentiating between employed individuals and retirees. The last column contains standard t-tests to assess statistically significant differences in the means of the observed variables across the two groups.\footnote{These are t-tests for mean differences in aged-adjusted variables, where variables are balanced on age, age squared and four age dummies.} Retirees, on average, are seven years older than their employed counterparts. Furthermore, retirees are significantly more likely to be above the statutory pension age compared to employees; however, approximately 37\% of employees within our sample are also above this age threshold. In terms of wealth, retirees have higher total state pension wealth compared to employees who are still in the process of accumulating their state pension benefits. In terms of health behaviours, employees have a greater prevalence of engaging in vigorous physical activity at least once per week, and they are also more likely to hold private health insurance, most likely as it is often provided by employers. Moreover, our analysis reveals statistically significant differences in the regional characteristics of the living areas of retirees compared to those of employees.\footnote{Appendix C, Figures C3-C5, shows maps of the regional distribution of key socioeconomic variables by region over a period of time across regions. This can be seen in Figure A5 (see Appendix), plotting the percentage point changes in unemployment rates for each regional unit analysed during our sample period—calculated as the difference between the maximum and the minimum unemployment rate for each region in our sample period.}
 
-\begin{center}
-[Table 1 around here]
-\end{center}
+\begin{table}[htb!]
+\centering
+\caption{Descriptive statistics by employment status}
+\label{tab_descriptive_compact}
+\resizebox{0.88\textwidth}{!}{%
+\begin{tabular}{lccc}
+\toprule
+Variable & Employed & Retired & Mean difference \\
+\midrule
+Female & 0.461 & 0.503 & 0.042 \\
+Age & 61.17 & 68.49 & 7.32*** \\
+Married/cohabiting & 0.770 & 0.731 & -0.039*** \\
+At or above state pension age & 0.372 & 0.887 & 0.515*** \\
+State pension wealth (\pounds/week) & 62.49 & 173.90 & 111.41*** \\
+Financial strain & 0.044 & 0.027 & -0.017*** \\
+Moderate/vigorous activity at least weekly & 0.385 & 0.344 & -0.041*** \\
+Private health insurance & 0.191 & 0.096 & -0.095*** \\
+\midrule
+Observations & 8,900 & 6,588 &  \\
+\bottomrule
+\end{tabular}%
+}
+\scriptsize{\singlespacing \emph{Notes:} Weighted means are reported separately for respondents who remain employed and respondents who are retired. The final column reports the difference in means between retirees and workers. Significance levels: *** $p<0.01$, ** $p<0.05$, * $p<0.1$. The full descriptive table, including education and regional controls, is available in the replication package.}
+\end{table}
 
 
 \section{Empirical Approach } \label{sec:literature}
@@ -547,17 +568,97 @@ New psychiatric diagnosis & 0.016 & 0.023 & 0.485 & 6,479 &  \\
 \scriptsize{\singlespacing \emph{Notes:} Panel A reports the main first-stage diagnostics for the short-run all-sample specification. ``Partial F'' is the F-statistic for the individual excluded instrument listed in the row, while ``Joint F'' is the F-statistic for the excluded-instrument block in the corresponding first-stage equation. Panel B reports placebo reduced-form regressions estimated in the pre-crisis sample (waves 2--4) using an interaction between statutory pension-age eligibility and future crisis exposure. Additional placebo evidence for the broader well-being outcomes is reported in the appendix.}
 \end{table}
 
-Detailed subgroup estimates suggest that the reduction in new psychiatric diagnoses is concentrated among white-collar workers, but these subgroup results are based on smaller samples and are therefore secondary to the all-sample results reported above.
+Table \ref{tab_short_heterogeneity} keeps the most relevant short-run subgroup estimates in the main text without reproducing the very large legacy tables. The reduction in new psychiatric diagnosis is somewhat larger for white-collar workers, but the broader pattern remains one of imprecise heterogeneity outside the all-sample estimate.
 
-The longer-run estimates, reported in Appendix C, do not show a persistent improvement in new psychiatric diagnoses. If anything, the longer-run evidence is more consistent with short-run relief fading over time, particularly for women and blue-collar workers on some distress measures.
+\begin{table}[htb!]
+\centering
+\caption{Short-run crisis-interaction estimates by key subgroup}
+\label{tab_short_heterogeneity}
+\resizebox{0.98\textwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+ & All sample & White-collar & Blue-collar & Women \\
+\midrule
+\multicolumn{5}{l}{\textbf{Panel A. Retirement $\times$ high unemployment}} \\
+\midrule
+Depression symptoms (CES-D, 0--8) & 0.286 & 0.428 & 0.076 & 0.498 \\
+ & (0.218) & (0.335) & (0.295) & (0.328) \\
+New psychiatric diagnosis & -0.049** & -0.062* & -0.030 & -0.044 \\
+ & (0.023) & (0.037) & (0.030) & (0.035) \\
+\midrule
+\multicolumn{5}{l}{\textbf{Panel B. Min. weak-ID F-statistic}} \\
+\midrule
+Depression symptoms (CES-D, 0--8) & 53.30 & 16.17 & 51.78 & 29.42 \\
+New psychiatric diagnosis & 53.30 & 13.87 & 43.13 & 27.44 \\
+\bottomrule
+\end{tabular}%
+}
+\scriptsize{\singlespacing \emph{Notes:} Panel A reports IV-FE coefficients on $RET_{it}\times HIT_{jt}$ from Equation \ref{eq2} in the short-run sample (2009--2013). Panel B reports the smaller of the two excluded-instrument weak-identification F-statistics from the corresponding first stages, so each entry is a conservative summary of first-stage strength for that column and outcome. Standard errors clustered at the individual level are in parentheses.}
+\end{table}
+
+The longer-run estimates in Table \ref{tab_longrun_compact} do not show a persistent improvement in new psychiatric diagnoses. If anything, the longer-run evidence is more consistent with short-run relief fading over time, particularly for women and blue-collar workers on some distress measures.
+
+\begin{table}[htb!]
+\centering
+\caption{Longer-run crisis-interaction estimates by key subgroup}
+\label{tab_longrun_compact}
+\resizebox{0.98\textwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+ & All sample & White-collar & Blue-collar & Women \\
+\midrule
+\multicolumn{5}{l}{\textbf{Panel A. Retirement $\times$ high unemployment}} \\
+\midrule
+Depression symptoms (CES-D, 0--8) & 0.340** & 0.325* & 0.301* & 0.471** \\
+ & (0.125) & (0.177) & (0.179) & (0.192) \\
+New psychiatric diagnosis & -0.008 & -0.004 & -0.010 & -0.001 \\
+ & (0.006) & (0.010) & (0.009) & (0.021) \\
+\midrule
+\multicolumn{5}{l}{\textbf{Panel B. Min. weak-ID F-statistic}} \\
+\midrule
+Depression symptoms (CES-D, 0--8) & 106.59 & 40.09 & 92.31 & 61.39 \\
+New psychiatric diagnosis & 106.59 & 35.43 & 80.67 & 59.40 \\
+\bottomrule
+\end{tabular}%
+}
+\scriptsize{\singlespacing \emph{Notes:} Panel A reports IV-FE coefficients on $RET_{it}\times HIT_{jt}$ from Equation \ref{eq2} in the longer-run sample (2009--2019). Panel B reports the conservative minimum weak-identification F-statistic across the two endogenous components in the corresponding interaction-IV design. Standard errors clustered at the individual level are in parentheses.}
+\end{table}
 
 \subsection{Moderator analysis} \label{sec:moderators}
 
-Appendix C reports moderator analyses for financial resources, co-residence, physical activity, and retirement timing. Because these exercises involve many additional tests and narrower samples, we treat them as suggestive mechanism evidence rather than as part of the paper's main causal contribution.
+Table \ref{tab_moderators_compact} summarizes the moderator analysis in a format that is easier to interpret than the earlier very wide supplementary exhibit. We keep attention on the two main outcomes and on the interaction coefficient from Equation \ref{eq2}. The most consistent suggestive pattern is that new psychiatric diagnoses fall more for men who are financially secure, live with others, retire before the statutory pension age, or remain physically active. The early-retirement margin stands out most clearly, with a 30.5 percentage point reduction in new psychiatric diagnosis for men in the short run.
 
-Results in column (a) reveal that individuals with higher financial wealth decrease their probability of reporting a new depression or anxiety diagnosis when retiring in an economically severely hit area by 14.4 percentage points. This suggests that financially wealthier retirees are better positioned to maintain their mental health when retiring during an economic crisis, as financial security reduces the stress associated with economic uncertainty and provides access to resources that support well-being, such as healthcare and leisure activities. Social interactions, particularly through household companionship, are shown to be another protective factor. Retirees with strong social support systems are less likely to report a new psychiatric condition by 5.5 percentage points, suggesting that lower exposure to isolation may contribute to better mental health. Moreover, healthy lifestyle behaviours, such as regular physical activity, play a significant role in enhancing mental well-being during retirement in an economic crisis. In particular, those moving into retirement in an economically severely hit area decrease their likelihood of being diagnosed with depression or anxiety by 7.4 percentage points. This suggests that healthy lifestyle behaviours may contribute to psychological resilience.
+The moderator evidence should still be read cautiously. Some strata, especially the high-wealth female subsample, have weak first stages, and the overall number of moderator tests is large relative to the paper's primary outcome family. For that reason, we use these estimates to discipline the interpretation of mechanisms rather than to expand the paper's main causal claim.
 
-Finally, flexibility in retirement timing emerges as a potentially important factor, with early retirees appearing to benefit more from retirement in economically distressed regions. Specifically, for those retiring when severely hit by the recession, there is a reduction in the probability of reporting a new psychiatric diagnosis by 30.5 percentage points. However, because these moderator estimates are based on narrower samples and a larger collection of subgroup tests, we interpret them as suggestive mechanisms rather than definitive causal contrasts. In this sense, the moderator evidence is best viewed as consistent with the idea that financial security, social support, and healthier behaviours may cushion retirement transitions during downturns.
+\begin{table}[htb!]
+\centering
+\caption{Moderator patterns in the short-run crisis interaction}
+\label{tab_moderators_compact}
+\resizebox{0.98\textwidth}{!}{%
+\begin{tabular}{lcccc}
+\toprule
+ & High wealth & Co-residence & Early retirement & Physically active \\
+\midrule
+\multicolumn{5}{l}{\textbf{Panel A. Men}} \\
+\midrule
+Depression symptoms (CES-D, 0--8) & 0.962 & 0.162 & -0.726 & -0.021 \\
+ & (1.094) & (0.285) & (1.049) & (0.273) \\
+New psychiatric diagnosis & -0.144* & -0.055* & -0.305** & -0.074** \\
+ & (0.084) & (0.029) & (0.131) & (0.030) \\
+Min. weak-ID F-statistic & 7.36 & 25.97 & 21.99 & 21.88 \\
+\midrule
+\multicolumn{5}{l}{\textbf{Panel B. Women}} \\
+\midrule
+Depression symptoms (CES-D, 0--8) & -0.258 & 0.361 & -5.572 & 0.482 \\
+ & (1.246) & (0.351) & (30.220) & (0.347) \\
+New psychiatric diagnosis & -0.166 & -0.035 & -0.077 & -0.033 \\
+ & (0.189) & (0.036) & (0.091) & (0.036) \\
+Min. weak-ID F-statistic & 1.75 & 52.94 & 10.08 & 23.08 \\
+\bottomrule
+\end{tabular}%
+}
+\scriptsize{\singlespacing \emph{Notes:} Entries are IV-FE coefficients on $RET_{it}\times HIT_{jt}$ from Equation \ref{eq2} in the short-run sample (2009--2013). ``High wealth'' refers to respondents in the top quartile of benefit-unit net financial wealth; ``co-residence'' indicates living with at least one other adult or child; ``early retirement'' indicates retirement before the statutory pension age; and ``physically active'' indicates moderate or vigorous activity. The reported weak-identification statistic is the minimum of the two excluded-instrument F-statistics for the corresponding moderator-specific specification. Standard errors clustered at the individual level are in parentheses.}
+\end{table}
 
 \subsection{Robustness checks} \label{sec:robustness}
 
@@ -610,7 +711,7 @@ No ethics approval was needed to perform this analysis.
 \clearpage
 
 
-
+\iffalse
 \section*{Supplementary Tables} \label{sec:fig}
 \addcontentsline{toc}{section}{Supplementary Tables}
 \clearpage
@@ -859,6 +960,7 @@ Hit by high unemployment & \begin{tabular}[c]{@{}c@{}}-0.015\\ (0.013)\end{tabul
 
 \end{table}
 
+\fi
 \clearpage
 \appendix
 \section*{Appendix}
