@@ -12,7 +12,6 @@
  \usepackage{booktabs}
   \usepackage{multirow}
 \usepackage{graphicx}
-\usepackage[font=small,labelfont=bf]{caption}
 \usepackage[bottom]{footmisc}
 \usepackage{setspace}
 \renewcommand{\footnotelayout}{\setstretch{0.75}}
@@ -68,7 +67,6 @@
 %%                  the twocolumn substyle.
 %%   times        : uses times font instead of the default
 %%   linenumbers  : turn on lineno package.
-%%   trackchanges : required to see the revision mark up and print its output
 %%   longauthor   : Do not use the more compressed footnote style (default) for 
 %%                  the author/collaboration/affiliations. Instead print all
 %%                  affiliation information after each name. Creates a much 
@@ -80,7 +78,7 @@
 %%
 %% these can be used in any combination, e.g.
 %%
-%% \documentclass[twocolumn,linenumbers,trackchanges]{aastex631}
+%% \documentclass[twocolumn,linenumbers]{aastex631}
 %%
 %% AASTeX v6.* now includes \hyperref support. While we have built in specific
 %% defaults into the classfile you can manually override them with the
@@ -105,7 +103,6 @@
 
 %% Reintroduced the \received and \accepted commands from AASTeX v5.2
 %%\received{March 1, 2021}
-%%\revised{April 1, 2021}
 %%\accepted{\today}
 %%\date{\today}
 %% Command to document which AAS Journal the manuscript was submitted to.
@@ -247,12 +244,15 @@
 \author[0000-0001-6189-6494]{Mario Martínez-Jiménez}
 \affiliation{Department of Health Policy, Stanford University, Stanford, California, United States of America}
 \affiliation{Department of Economics \& Public Policy, Imperial Business School, London, United Kingdom}
+\affiliation{Centre for Health Economics \& Policy Innovation, Imperial Business School, London, United Kingdom}
 
 \author[0000-0002-4314-6523]{Bruce Hollingsworth}
 \affiliation{Division of Health Research, Lancaster University, Lancaster, United Kingdom}
 
 \author[0000-0003-3883-5006]{Eugenio Zucchelli}
-\affiliation{AESARA Inc., NC, USA; Lancaster University, United Kingdom; IZA, Germany}
+\affiliation{Department of Economic Analysis, Universidad Autónoma de Madrid (UAM), Spain}
+\affiliation{Lancaster University, United Kingdom}
+\affiliation{IZA, Germany}
 
 
 
@@ -280,16 +280,16 @@
 
 \noindent\begin{minipage}{0.85\textwidth}
 \vspace{0.5cm}
-\footnotesize{Economic crises are common, but their timing is uncertain. This paper examines whether the mental-health effects of retirement change in the presence of major economic shocks. Using longitudinal data from the English Longitudinal Study of Ageing (ELSA), we estimate fixed-effects instrumental-variables models that exploit statutory pension-age eligibility and its interaction with regional crisis exposure. The main paper focuses on two core outcomes: depression symptoms and new psychiatric diagnosis, while broader well-being measures are reported in the appendix. In raw estimates, retiring in a region-year severely hit by rising unemployment lowers the probability of reporting a new psychiatric diagnosis by around 5 percentage points in the short run (2009--2013). Once we adjust for multiple inference over the two main outcomes, this estimate remains suggestive rather than definitive. The interaction instrument is strong in the relevant first stage, and placebo interaction tests in the pre-crisis period do not indicate direct pre-crisis effects for the two main outcomes. Overall, the evidence points to heterogeneity in the mental-health consequences of retirement during downturns, but it also cautions against broad claims that retirement uniformly improves mental health in crisis-hit areas.}\\
+\footnotesize{Economic crises may alter how retirement affects mental health. This paper studies whether the mental health consequences of retirement differ when older workers retire in region-years more exposed to the Great Recession. Using longitudinal data from the English Longitudinal Study of Ageing (ELSA) for 2002--2019, we estimate fixed-effects and instrumental-variables fixed-effects models that exploit the statutory pension age and its interaction with local crisis intensity. We focus on two mental health outcomes: a binary depression indicator based on the eight-item CES-D scale and a new psychiatric diagnosis indicator. In the short run (2009--2013), retirement in high-unemployment region-years is associated with a 5.1 percentage point reduction in the probability of reporting a new psychiatric diagnosis, while evidence for the depression indicator is weaker and points in the opposite direction. In the longer run (2009--2019), the short-run decline in psychiatric diagnoses does not persist, and retirement in harder-hit regions is associated with higher depression prevalence. These results suggest that macroeconomic conditions shape the mental health consequences of retirement and that short-run relief from clinical diagnoses need not translate into broader or lasting improvements in depressive symptoms.}\\
 \vspace{-0.25cm}\\
-\noindent\textbf{Keywords:} retirement; mental health; wellbeing; economic shocks; causal inference\\
+\noindent\textbf{Keywords:} retirement; mental health; depression; economic shocks; causal inference\\
 \noindent\textbf{JEL Codes:} J14; J26; I10\\
 \end{minipage}
-\vspace{-0.25cm}\\
+
 \firstpageruleack{\\
 Corresponding author: \emph{Mario Martínez-Jiménez}. Email: \texttt{mmarjim3@stanford.edu}. 
 \\
- We would like to thank the UK Data Service for providing the data. We thank participants at the 2020 UK Health Economist's Study Group (HESG) winter meeting in Newcastle, the 2021 LolaHESG (lowlands Health Economic Study Group) conference and attendants to seminars at Lancaster University, UK, and the PHE Public Health Research and Science Conference 2021, for valuable comments. This work was supported by the NIHR School of Public Health Research (SPHR), Liverpool and Lancaster Collaboration for Public Health Research (LiLaC). 
+ We would like to thank the UK Data Service for providing the data. We thank participants at the 2020 UK Health Economist's Study Group (HESG) winter meeting in Newcastle, the 2021 LolaHESG (lowlands Health Economic Study Group) conference and attendants to seminars at Lancaster University, UK, and the PHE Public Health Research and Science Conference 2021, for valuable comments. We also would like to thank Katharina Janke and members of the Health Economics at Lancaster (HEAL) research group for their useful suggestions. This work was supported by the NIHR School of Public Health Research (SPHR), Liverpool and Lancaster Collaboration for Public Health Research (LiLaC). One of the authors acknowledges funding from the Spanish Ministry of Science, Innovation and Universities (Grant PID2022-137819NB-I00). 
 %\vspace{5cm}
 }
 \end{abstract}
@@ -327,15 +327,15 @@ Corresponding author: \emph{Mario Martínez-Jiménez}. Email: \texttt{mmarjim3@s
 
 \section{Introduction} \label{sec:introduction}
 
-The population in high-income countries is ageing rapidly. In 2014, 17.6\% of the UK population was aged 65 or older, rising to 19\% by 2022 and projected to rise to 27\% of the population by 2027 \citep{park2023population}. Older adults often face health challenges and major life transitions that heighten their risk of mental health conditions \citep{national2018healthy}, though no singular cause is identifiable. A growing body of research explores the health effects of retirement (e.g., \cite{bonsang2012retirement}; \cite{eibich2015understanding}; \cite{fitzpatrick2018mortality}; \cite{ebeid2023short}), but findings remain inconsistent, varying with methodologies, datasets, and timeframes. This paper seeks to address the challenges associated with the ageing population and the increasing prevalence of mental health issues among retirees by gaining insights into how economic conditions and social contexts influence the mental health and overall well-being of individuals during retirement.
+The population in high-income countries is ageing rapidly. In 2014, 17.6\% of the UK population was aged 65 or older, rising to 19\% by 2022 and projected to rise further in the coming decades \citep{park2023population}. Older adults often face health challenges and major life transitions that heighten their risk of mental health problems \citep{national2018healthy}. A growing literature studies the health effects of retirement (e.g., \cite{bonsang2012retirement}; \cite{eibich2015understanding}; \cite{fitzpatrick2018mortality}; \cite{ebeid2023short}), but findings remain mixed across settings, methodologies, and outcomes. One reason is that the mental health effect of retirement may depend on the macroeconomic environment in which retirement occurs.
 
 This paper examines whether the effect of retirement on mental health differs in the presence of economic shocks, highlighting the importance of understanding which socioeconomic factors moderate this relationship. This is relevant in policy terms, especially in the light of devising policies aimed at retaining an ageing workforce. Previous literature on the impact of economic shocks on health also presents varying and inconclusive results (e.g., \cite{di2001preferences}; \cite{modrek2013review}; \cite{karanikolos2013financial}). \cite{ruhm2000recessions} seminal work on the effects of macroeconomic conditions on health shows that in the US mortality appears to be procyclical and this is confirmed by other studies using data from different countries, including Spain \citep{granados2005recessions}; Germany \citep{neumayer2004recessions}; France \citep{buchmueller2007unemployment}; Canada \citep{ariizumi2012recessions}; and Mexico \citep{gonzalez2011macroeconomic}. However, a more recent strand of the literature finds that mortality is either countercyclical or unaffected by macroeconomic shocks (\cite{ruhm2015recessions}; \cite{tekin2013health}). The inconsistent findings in the retirement--health literature may partly reflect differences in economic conditions at the time of retirement. In this paper, we study whether regional economic shocks during the Great Recession provide a plausible explanation for the heterogeneous effects reported in earlier studies.
 
-This paper explores the extent to which severe economic shocks influence the mental-health effects of retirement. Using causal inference methods, we estimate whether retiring in regions severely impacted by economic crises alters mental health outcomes. Our analysis draws on longitudinal data from eight waves (2002--2019) of the English Longitudinal Study of Ageing (ELSA), leveraging regional variation in unemployment rates to capture the differential severity of economic shocks. To address potential endogeneity concerns, we apply an instrumental-variable fixed-effects approach that exploits the exogenous variation in retirement behaviour induced by statutory pension-age eligibility \citep{stuart2011matchit}. In the revised analysis, the main paper focuses on depression symptoms and new psychiatric diagnosis, while broader well-being outcomes are moved to the appendix. We complement the main estimates with multiple-testing adjustments and validation exercises for the interaction instrument. We hypothesise that retiring in economically distressed regions may serve as a relief from job-related stress, yet this relief may vary depending on individual financial and social circumstances. To account for potential heterogeneity, we report subgroup analyses by gender and occupational status and examine moderators related to financial conditions, age at retirement, health behaviours, and social circumstances.
+This paper asks whether the mental health effect of retirement changes during a severe economic downturn. Using longitudinal data from eight waves (2002--2019) of the English Longitudinal Study of Ageing (ELSA), we combine regional variation in unemployment during and after the Great Recession with panel methods that absorb time-invariant individual heterogeneity. To address endogeneity in retirement timing, we estimate instrumental-variables fixed-effects models that exploit the statutory pension age and its interaction with crisis exposure. We focus on two mental health outcomes: a binary depression indicator defined as reporting four or more symptoms on the eight-item CES-D scale, and a new psychiatric diagnosis indicator. We interpret the continuous CES-D count as an alternative outcome and report it in the appendix.
 
-Our findings show that the mental-health effects of retirement are influenced by the presence of economic shocks, with notable variation depending on the outcome considered, individual circumstances, and time horizons. In the short run, the most precise crisis-interaction estimate is for new psychiatric diagnosis, where retiring in a severely hit region-year lowers the probability of a new diagnosis by roughly 5 percentage points. Depression symptoms are estimated less precisely, so the paper's main claim is best understood as outcome-specific rather than broad-based. The first-stage evidence for the interaction design is strong for the interacted endogenous regressor, and pre-crisis placebo exercises do not indicate direct pre-crisis effects of the interaction instrument on the two main outcomes. In longer-run analyses the short-run gains do not persist, and depression symptoms increase for some groups, indicating that any initial relief from job-related stress is not sustained over time. These findings suggest that financial and social circumstances and timely access to retirement shape how economic distress interacts with retirement.
+Our findings point to a more nuanced mental health pattern than a simple ``retirement improves mental health during crises'' interpretation. In the short run, retirement in harder-hit region-years is associated with a lower probability of reporting a new psychiatric diagnosis, but the same interaction does not deliver broader improvement in depressive symptoms. In the longer run, the short-run reduction in psychiatric diagnoses disappears, while the depression indicator increases in high-unemployment region-years. Subgroup estimates suggest that the short-run decline in psychiatric diagnoses is concentrated among men and white-collar workers, but these heterogeneous patterns are less precisely estimated than the main all-sample results and are interpreted cautiously.
 
-This paper offers several contributions to the literature. First, we extend the literature on the health effects of retirement by providing new evidence on the impact of retirement on mental health and well-being shortly after the Great Recession, a recent major economic shock. This is especially relevant in policy terms, as most OECD countries are currently experiencing rapid trends in population aging \citep{oecd2019education}, with increasing proportions of individuals near retirement age coupled with a succession of economic shocks, such as the Great Recession and the one induced by the COVID-19 pandemic. Given this, it is important to provide evidence to policy makers about the main drivers of retirement choices during periods of economic (and health-related) shocks, which will inevitably reoccur. 
+This paper offers three contributions. First, it provides new evidence on how the mental health consequences of retirement vary with local exposure to a major macroeconomic shock. Second, it studies England, where private pension exposure and labour-market conditions make the Great Recession a particularly informative setting for the retirement--mental-health relationship. Third, it distinguishes between clinically reported psychiatric diagnoses and a broader depression-symptom indicator, showing that these outcomes need not move together. This distinction is important for policy because it suggests that short-run relief from clinical diagnoses may coexist with later deterioration in broader depressive symptoms.
 
 Secondly, our study highlights England, an economy severely impacted by its financial system during this time. The UK's pension system heavily relies on private pension schemes linked to financial markets, making retirees more vulnerable to economic downturns. Compared to countries with larger state pension systems, such as France or Germany, where public pensions form the primary source of retirement income, the UK's approach involves a significant degree of market exposure and investment risk. This reliance on market-dependent pensions amplifies the financial strain on retirees during recessions, offering a unique context to assess the health impacts of retirement in economic crises. 
 
@@ -343,12 +343,12 @@ Thirdly, our longitudinal data enable us to emphasise the circumstances that inf
 
 
 \section{Background} \label{sec:background}
-\subsection{Related Literature} \label{sec:related_literature}
+\subsection{Related Literature} \label{sec:literature}
 Empirical studies on the causal impact of retirement on health often present conflicting results. This might be due to differences in the methods and data used as well as the varying institutional incentives or ability to retire across different countries. More specifically, studies using an instrumental variable (IV) approach (often exploiting statutory retirement age) tend to find positive impacts of retirement on health (e.g., \cite{bound2007estimating}; \cite{neuman2008quit}; \cite{bonsang2012retirement}), whereas studies employing panel data methods tend to find negative effects (e.g., \cite{dave2006effects}; \cite{bamia2007age}). 
 
-\cite{gorry2018does} use eligibility for social security as an instrument for retirement on US data from the Health and Retirement Study and find that retirement improves self-reported general health, mental health, and life satisfaction. Results from Coe and Zamarro (2011) obtained by exploiting country-specific early and full retirement ages as instruments for retirement and data from SHARE suggest no significant effects of retirement on health. \cite{eibich2015understanding} and \cite{rose2020retirement} use a Regression Discontinuity Design (RDD) based on financial incentives in the German and English pension systems, respectively. Both studies find that retirement improves subjective general health status. Studies evaluating the effects of changes to the State Pension age on health also report mixed results. \cite{ebeid2023short}, using a nonparametric fuzzy RDD, find that retirement has a negative effect on cognitive function and depression symptoms in the short term. Recently, \cite{carrino2020later} used data from Understanding Society between 2009-2016 and the raising of the state pension age among women as an instrument. They find that raising the state pension age leads to a decline in mental health among women in lower occupational groups.\footnote{Other studies evaluating the effects of lowering the State Pension age report either negative effects \citep{bloemen2017causal} or no effects on mortality \citep{hernaes2013does}.}
+\cite{gorry2018does} use eligibility for social security as an instrument for retirement on US data from the Health and Retirement Study and find that retirement improves self-reported health and mental health. Results from Coe and Zamarro (2011) obtained by exploiting country-specific early and full retirement ages as instruments for retirement and data from SHARE suggest no significant effects of retirement on health. \cite{eibich2015understanding} and \cite{rose2020retirement} use a Regression Discontinuity Design (RDD) based on financial incentives in the German and English pension systems, respectively. Both studies find that retirement improves subjective health status. Studies evaluating the effects of changes to the State Pension age on health also report mixed results. \cite{ebeid2023short}, using a nonparametric fuzzy RDD, find that retirement has a negative effect on cognitive function and depression symptoms in the short term. Recently, \cite{carrino2020later} used data from Understanding Society between 2009-2016 and the raising of the state pension age among women as an instrument. They find that raising the state pension age leads to a decline in mental health among women in lower occupational groups.\footnote{Other studies evaluating the effects of lowering the State Pension age report either negative effects \citep{bloemen2017causal} or no effects on mortality \citep{hernaes2013does}.}
 
-Estimates on the impact of labour market status on health during economic shocks are also inconsistent (\citep{browning2012effect; avdic2021economic}). A strand of studies finds that economic shocks can negatively affect health outcomes by increasing the stress associated with job loss and reducing monetary and non-monetary benefits (e.g., by reducing the availability of flexible time, periods of leave, mentoring and childcare-related programs) and that these effects vary by age, sex and occupational status (e.g. \cite{eliason2009does; sullivan2009job; jofre2018impact}; \cite{black2022whose}). Previous literature has so far paid less attention to the impact of economic shocks on the health of older individuals. \cite{mcinerney2012recessions} estimate that during economic shocks, the mental health of older individuals appears to deteriorate and that such individuals are also less likely to engage in healthy behaviours. \cite{ruhm2002does} also find that older individuals tend to engage less in potentially risky behaviours during periods of recessions. Overall, this indicates that the health effects associated with retirement may vary according to the macroeconomic conditions present at the time of retirement.
+Estimates on the impact of labour market status on health during economic shocks are also inconsistent (\cite{browning2012effect}; \cite{avdic2021economic}). A strand of studies finds that economic shocks can negatively affect health outcomes by increasing the stress associated with job loss and reducing monetary and non-monetary benefits (e.g., by reducing the availability of flexible time, periods of leave, mentoring and childcare-related programs) and that these effects vary by age, sex and occupational status (e.g. \cite{eliason2009does}; \cite{sullivan2009job}; \cite{jofre2018impact}; \cite{black2022whose}). Previous literature has so far paid less attention to the impact of economic shocks on the health of older individuals. \cite{mcinerney2012recessions} estimate that during economic shocks, the mental health of older individuals appears to deteriorate and that such individuals are also less likely to engage in healthy behaviours. \cite{ruhm2002does} also find that older individuals tend to engage less in potentially risky behaviours during periods of recessions. Overall, this indicates that the health effects associated with retirement may vary according to the macroeconomic conditions present at the time of retirement.
 
 However, some individuals are more protected from these risks due to differences in occupational status. In particular, white-collar workers are often shielded from financial uncertainty as they near retirement because their pension funds are typically de-risked in the years leading up to retirement, with investments shifting from equities to lower-risk assets such as bonds or cash. This transition helps protect their pension savings from stock market downturns, ensuring that an economic shock does not directly impact their retirement income. In contrast, those in lower-paid or precarious jobs may have less access to such structured pension protections, rendering them more vulnerable to financial instability and its associated health risks as they approach retirement. This paper examines whether the effects of retirement and economic shocks on older individuals' health differ depending on key moderators.
 
@@ -358,25 +358,21 @@ However, some individuals are more protected from these risks due to differences
 
 Standard models of health investment (\cite{grossman1972concept}; \cite{grossman2000human}) suggest that while the depreciation rate on an individual’s health stock increases with age, individuals would still invest in their own health. For instance, individuals may still invest in their health capital post-retirement, even though this will no longer increase their labour productivity or earnings, as “healthy time” also enters the utility function directly as a consumption good \citep{dave2006effects}. According to this interpretation, the direction of the effect of retirement on health is ambiguous and would also depend on the marginal value of time after retirement.
 
-At older ages, mental health is shaped not only by physical and social environments but also by experiencing stressful events, such as retirement \citep{minkler1981research}. Several studies suggest that changes in labour market conditions may affect health by increasing psychological distress from income and wealth shocks \citep{black2022whose}. Therefore, it is plausible that retiring during or immediately after an economic downturn could enhance mental well-being by alleviating job-related strain. However, economic crises frequently result in decreased pensions, diminished savings, and rising living expenses, worsening financial insecurity for retirees with limited savings. Importantly, the extent of financial vulnerability in retirement depends on occupational status and the structure of pension schemes. In the UK, where market-linked pensions play a significant role, those in lower-paid or precarious jobs may be more exposed to financial instability, as their pension savings may depreciate with inflation. In contrast, many white-collar workers benefit from automatic pension de-risking, where funds shift to lower-risk assets such as bonds or cash in the years leading up to retirement, shielding their savings from stock market shocks. Compared to countries such as France and Germany, where public pensions provide a more stable income base, the UK's system may leave certain groups more vulnerable. The uncertainty that accompanies economic downturns can also heighten feelings of anxiety and depression, particularly among those who struggle to maintain healthy coping strategies in retirement.
+At older ages, mental health is shaped not only by physical and social environments but also by experiencing stressful events, such as retirement \citep{minkler1981research}. Several studies suggest that changes in labour market conditions may affect health by increasing psychological distress from income and wealth shocks \citep{black2022whose}. Therefore, it is plausible that retiring during or immediately after an economic downturn could improve mental health by alleviating job-related strain. However, economic crises frequently result in decreased pensions, diminished savings, and rising living expenses, worsening financial insecurity for retirees with limited savings. Importantly, the extent of financial vulnerability in retirement depends on occupational status and the structure of pension schemes. In the UK, where market-linked pensions play a significant role, those in lower-paid or precarious jobs may be more exposed to financial instability, as their pension savings may depreciate with inflation. In contrast, many white-collar workers benefit from automatic pension de-risking, where funds shift to lower-risk assets such as bonds or cash in the years leading up to retirement, shielding their savings from stock market shocks. Compared to countries such as France and Germany, where public pensions provide a more stable income base, the UK's system may leave certain groups more vulnerable. The uncertainty that accompanies economic downturns can also heighten feelings of anxiety and depression, particularly among those who struggle to maintain healthy coping strategies in retirement.
 
 To the best of our knowledge, the study by \cite{belloni2016effect} is the only one attempting to estimate the impact of retirement on health while accounting for the geographical differences in the intensity of the economic crisis in European countries. They find that retiring immediately after an economic shock improves mental health, although only among blue-collar men living in the most severely affected regions. While their findings highlight important heterogeneity in the retirement--mental health relationship by occupation and local crisis intensity, the study does not examine whether financial, social, or behavioural factors moderate these effects. In particular, blue-collar workers may need to retire later than the state pension age due to financial constraints, whereas white-collar workers can often retire earlier due to their private pensions, potentially influencing the observed health effects of retirement. Our analysis differs from this paper by focusing on the actual age at which these population subgroups retire during the same macroeconomic shock while providing insights into the longer-term effects of retirement on health during an economic crisis.
 
 \section{Data} \label{sec:data}
 
-The English Longitudinal Study of Ageing (ELSA) provides valuable individual-level health and socioeconomic data from a representative sample of the English population aged 50 and older, collected between March 2002 and July 2019; see Appendix A, Tables A1--A2 for details. The dataset contains comprehensive information regarding mental and physical health, along with detailed socioeconomic aspects related to employment, wealth, and pensions.
+The English Longitudinal Study of Ageing (ELSA) provides rich individual-level health and socioeconomic data from a representative sample of the English population aged 50 and older, collected between March 2002 and July 2019; see Appendix A, Tables A1--A2 for details. The dataset contains detailed information on mental health, employment, wealth, pensions, and local area conditions.
 
 We focus on a group of individuals employed during the first wave (March 2002 – March 2003). Our starting sample comprises employees or self-employed individuals who were engaged in ‘work’ or ‘paid work during the last month’ in this first wave. We exclude those who, despite being classified as ‘in paid work’, also identify as ‘retired’, ‘caring for home or family’, ‘semi-retired’, ‘unemployed’, or ‘disabled’. Our analysis focuses on retirement occurring between consecutive waves, which we define as dependent on employment in the previous wave. Retiree individuals will classify themselves as ‘retired’ and ‘not in work during the last month’ in the subsequent wave. We consider only the initial exits from the labour market and, therefore, perceive retirement as an “absorbing state." Consequently, our retirement variable is a binary indicator, marked as 1 if the individual retires between waves and 0 if still employed between consecutive waves. The main analysis uses an unbalanced sample, with 2,638 individuals; refer to Appendix A, Tables A3--A4 for more details.
 
-Attrition in the English Longitudinal Study of Ageing may be a matter of concern if it may affect mental health through sample selection bias. If the likelihood of respondents participating in the survey is negatively related to their mental health, this can skew the retention rate based on our variable of interest. To assess selective attrition, we follow the methodology proposed by \cite{lindeboom2002econometric} and perform two informal tests. The first test involves a regression analysis that relates the chances of newly diagnosed psychiatric conditions to an attrition dummy (coded as 1 if the respondent is absent from the panel for any wave), the retirement dummy, and several control variables, including individual fixed effects. The findings indicate that neither the attrition dummy nor its interaction with the retirement dummy shows statistical significance. In the second test, we regress the attrition dummy against newly diagnosed psychiatric conditions, controlling for additional variables and individual fixed effects, and again find no significant relationship. This suggests that those experiencing a decline in mental health are not more likely to exit the panel. More details can be found in Appendix A, Table A5.
+Attrition in the English Longitudinal Study of Ageing may be a matter of concern if it affects mental health through sample selection bias. If the likelihood of respondents participating in the survey is negatively related to their mental health, this can skew the retention rate based on our variable of interest. To assess selective attrition, we follow the methodology proposed by \cite{lindeboom2002econometric} and perform two informal tests. The first test relates new psychiatric diagnosis to an attrition dummy (coded as 1 if the respondent is absent from the panel for any wave), the retirement dummy, and several control variables, including individual fixed effects. The findings indicate that neither the attrition dummy nor its interaction with retirement is statistically significant. In the second test, we regress the attrition dummy on new psychiatric diagnosis, again controlling for additional variables and individual fixed effects, and find no significant relationship. This suggests that those experiencing a decline in mental health are not more likely to exit the panel. More details can be found in Appendix A, Table A5.
 
-\subsection{Health outcomes and other key variables} \label{sec:health_outcomes}
+\subsection{Health outcomes and other key variables} \label{sec:literature}
 
-Focusing on mental health and well-being outcomes enables an effective evaluation of retirement's health effects during an economic crisis. While the physical health consequences of retirement may take time to emerge, mental health impacts can be felt right away \citep{fleischmann2020mental}. Specifically, we examine two aspects of mental health alongside two additional dimensions to reflect overall well-being.
-
-We first measure depression symptoms using the 8-item version of the Centre for Epidemiological Studies Depression Scale (CES-D) \citep{radloff1977}. This psychometrically validated measure records whether respondents experienced each of eight symptoms in the past week, and we use the total score, ranging from 0 to 8, as our first outcome. We then use a binary indicator for a new psychiatric diagnosis, defined as a newly reported physician diagnosis of depression or anxiety after an earlier wave without that diagnosis. This clinically salient measure is useful for separating new-onset conditions from broader self-reported distress.\footnote{This variable might still underestimate prevalence if some individuals do not report diagnoses during face-to-face interviews.}
-
-We also construct broader well-being outcomes for loneliness and life satisfaction. The loneliness measure is an indicator based on the ELSA social connectedness questions and takes the value 1 when respondents report feeling lonely sometimes or often. The life-satisfaction measure used in the regression data is likewise a binary indicator equal to 1 when respondents agree that, in most ways, their life is close to their ideal. These broader well-being outcomes are discussed in the appendix rather than in the paper's main evidentiary core, because they are conceptually more diffuse and empirically less robust than the two headline mental-health outcomes.
+We focus on mental health outcomes, which are likely to respond more quickly than physical health to the transition out of work \citep{fleischmann2020mental}. Our first outcome is a binary depression indicator based on the 8-item Centre for Epidemiological Studies Depression Scale (CES-D): it equals one when respondents report four or more symptoms and zero otherwise. The underlying symptom count ranges from 0 to 8 and is reported as an alternative outcome in Appendix C. Our second outcome is a new psychiatric diagnosis indicator, which captures whether the respondent reports a new depression or anxiety diagnosis after retirement. This diagnosis measure helps distinguish new onset conditions from persistent pre-retirement mental health problems, although it may still understate prevalence if respondents do not report diagnoses during the interview.\footnote{The diagnosis measure may still underestimate prevalence because some individuals may not report their condition during face-to-face interviews.}
 
 Our analysis controls for a variety of characteristics at the individual, household, and regional levels. These include age, gender, marital status (whether individuals are married or cohabiting), household size (which encompasses both children and adults), outright homeownership, and educational attainment based on the International Standard Classification of Education (ISCED). In terms of pension characteristics, we focus on private pension scheme membership, the total state pension income (measured in pounds per week), and the statutory pension age. We also assess health behaviours by determining whether individuals are current smokers, whether they engage in vigorous or moderate physical activities less than once a week, and if they have health insurance. Moreover, we consider geographical factors, such as area-level deprivation quintiles derived from a multiple deprivation index and population density quintiles based on postcode.
 
@@ -388,7 +384,7 @@ From 2002 to 2019, the eligibility rules for state pensions in the UK saw consid
 
 \begin{figure}[htb!]\caption{Retirement age distribution, state pension age eligibility: 2004–2019, men and women}
 \begin{center}
-\label{fig_spa_distribution}
+\label{fig1}
 \includegraphics[width=0.725\textwidth]{male.png}
 %\hspace{\fill}
 \includegraphics[width=0.725\textwidth]{female.png}
@@ -402,287 +398,77 @@ In terms of macroeconomic conditions, we use the annual unemployment rate within
 
 \subsection{Descriptive statistics}
 
-Table 1 provides descriptive statistics of sociodemographic characteristics of our sample according to occupational status, specifically differentiating between employed individuals and retirees. The last column contains standard t-tests to assess statistically significant differences in the means of the observed variables across the two groups.\footnote{These are t-tests for mean differences in aged-adjusted variables, where variables are balanced on age, age squared and four age dummies.} Retirees, on average, are seven years older than their employed counterparts. Furthermore, retirees are significantly more likely to be above the statutory pension age compared to employees; however, approximately 37\% of employees within our sample are also above this age threshold. In terms of wealth, retirees have higher total state pension wealth compared to employees who are still in the process of accumulating their state pension benefits. In terms of health behaviours, employees have a greater prevalence of engaging in vigorous physical activity at least once per week, and they are also more likely to hold private health insurance, most likely as it is often provided by employers. Moreover, our analysis reveals statistically significant differences in the regional characteristics of the living areas of retirees compared to those of employees.\footnote{Appendix D reports regional maps of unemployment, deprivation, and population density over the sample period, together with the distribution of regional unemployment changes around the Great Recession.}
+Table 1 reports descriptive statistics for the two labour-market states observed in the panel and includes the full set of individual and area-level controls used in the regressions, together with the main heterogeneity variables used later in the paper. Retirees are substantially older and much more likely to be above the statutory pension age, but they also differ from employed observations in household structure, housing tenure, pension income, financial strain, physical activity, and local labour-market conditions. The table makes clear that retirement is correlated with a broad set of observed characteristics, which motivates the fixed-effects design and the use of statutory pension-age eligibility as an instrument for retirement timing.
 
-\begin{table}[htb!]
-\centering
-\caption{Descriptive statistics by employment status}
-\label{tab_descriptive_compact}
-\resizebox{0.88\textwidth}{!}{%
-\begin{tabular}{lccc}
-\toprule
-Variable & Employed & Retired & Mean difference \\
-\midrule
-Female & 0.461 & 0.503 & 0.042 \\
-Age & 61.17 & 68.49 & 7.32*** \\
-Married/cohabiting & 0.770 & 0.731 & -0.039*** \\
-At or above state pension age & 0.372 & 0.887 & 0.515*** \\
-State pension wealth (\pounds/week) & 62.49 & 173.90 & 111.41*** \\
-Financial strain & 0.044 & 0.027 & -0.017*** \\
-Moderate/vigorous activity at least weekly & 0.385 & 0.344 & -0.041*** \\
-Private health insurance & 0.191 & 0.096 & -0.095*** \\
-\midrule
-Observations & 8,900 & 6,588 &  \\
-\bottomrule
-\end{tabular}%
-}
-\scriptsize{\singlespacing \emph{Notes:} Weighted means are reported separately for respondents who remain employed and respondents who are retired. The final column reports the difference in means between retirees and workers. Significance levels: *** $p<0.01$, ** $p<0.05$, * $p<0.1$. The full descriptive table, including education and regional controls, is available in the replication package.}
-\end{table}
+\begin{center}
+[Table 1 around here]
+\end{center}
 
 
-\section{Empirical Approach } \label{sec:empirical_approach}
+\section{Empirical Approach } \label{sec:literature}
 
-In an ideal scenario, a randomised trial would be conducted involving an experimental group of employees nearing retirement and a control group of those who are recently retired. However, since this is currently unfeasible, analysing observational panel data with rich controls is our best option for studying whether retirement causally affects mental health and how this effect varies across local economic conditions. We therefore estimate fixed-effects (FE) and instrumental-variables fixed-effects (IV-FE) specifications.\footnote{We also implement complementary event-study, difference-in-differences, triple-difference, and propensity-score-weighted difference-in-differences specifications. Details and supporting results are reported in Appendix C.} The baseline within-individual specification is
+Our empirical design compares changes in mental health within individuals as they move from work into retirement and asks whether those changes differ in region-years more exposed to the Great Recession. We first estimate fixed-effects (FE) models and then instrument retirement with the statutory pension age. Appendix C reports complementary event-study evidence using the same mental health outcomes. The baseline FE specification is:
 
 \begin{equation}
 \label{eq1}
 \centering
-  Y_{ijt} = \alpha_i + \beta RET_{it} + X_{it}'\gamma + Z_{jt}'\eta + \lambda_t + \varepsilon_{ijt},
+  Y_{ijt} =\alpha + \delta_{RET} RET_{itj} + \gamma_X X_{ijt} + \omega_w W_{jt} + Wave_{t} + Region_j + d_i + e_{ijt} 
 \end{equation}
 
-where $i$ indexes individuals, $j$ regions, and $t$ survey waves; $Y_{ijt}$ is one of the four main outcomes; $RET_{it}$ is a retirement indicator; $X_{it}$ collects time-varying individual and household controls; $Z_{jt}$ contains time-varying local controls, including deprivation and population-density quintiles; and $\lambda_t$ are wave fixed effects. Individual fixed effects $\alpha_i$ absorb time-invariant heterogeneity. In the baseline IV-FE model, $RET_{it}$ is instrumented with statutory pension-age eligibility, $SPA_{it}$.
+where $i$ indexes individuals, $j$ regions, and $t$ waves. The outcome $Y_{ijt}$ is either the binary depression indicator or new psychiatric diagnosis. $RET_{ijt}$ equals one once the individual has retired and zero otherwise. Individual fixed effects ($d_i$) absorb time-invariant heterogeneity. The vector $X_{ijt}$ includes age and age squared, cohabitation status, household size, outright homeownership, private pension coverage, weekly state pension income, private health insurance, never-smoking status, vigorous physical activity, and financial strain. $W_{jt}$ contains area-level deprivation and population-density controls, while $Wave_t$ and $Region_j$ denote survey-wave and current-region fixed effects.
 
-The key IV assumption is that statutory pension-age eligibility affects outcomes only through retirement. We build on the retirement literature by defining $SPA_{it}$ as an indicator equal to one when the respondent has reached or passed the relevant statutory pension age at interview. Figure 1 illustrates the resulting discontinuity in retirement behaviour, taking into account the changing pension age for women over the sample period.
+Because retirement timing may still be correlated with unobserved time-varying determinants of mental health, we instrument retirement with statutory pension-age eligibility. The key exclusion restriction is that reaching the statutory pension age affects mental health only through retirement, conditional on the included controls and fixed effects. Figure 1 shows the sharp increase in retirement around pension eligibility, including the change in the statutory pension age for women.
 
-The availability of a panel dataset covering periods before and after the 2008 Great Recession allows us to study the mental health effects of retirement changes in retirees living in areas badly hit by the economic crisis. In particular, we exploit the variation in the unemployment rate before and after the peak of the economic crisis and define badly hit regions if their unemployment rate rise is in the top 75 percentile in a given wave and region ($HIT_{jt}$).\footnote{Appendix D reports the regional distribution of unemployment changes before and after the Great Recession in England.}  
+The panel also allows us to test whether retirement has different mental health consequences in region-years with weak labour markets. We define $HIT_{jt}$ as an indicator for region-years with above-average unemployment during the period under study and interact it with retirement.\footnote{Figure A1 documents regional unemployment variation around the Great Recession.}
 
 
 \begin{equation}
 \label{eq2}
 \centering
-  Y_{ijt} = \alpha_i + \beta_1 RET_{it} + \beta_2 \left(RET_{it}\times HIT_{jt}\right) + \beta_3 HIT_{jt} + X_{it}'\gamma + Z_{jt}'\eta + \lambda_t + \varepsilon_{ijt}.
+  Y_{ijt} =\alpha + \delta_{D} D_{itj} + \delta_{RH} D_{itj}HIT_{tj} + \delta_{HIT} HIT_{tj} + \gamma_X X_{ijt} + \omega_w W_{jt} + Wave_{t} + Region_j + d_i + e_{ijt} 
 \end{equation}
 
-Equation \ref{eq2} is estimated by IV-FE, instrumenting the two endogenous terms $\{RET_{it}, RET_{it}\times HIT_{jt}\}$ with $\{SPA_{it}, SPA_{it}\times HIT_{jt}\}$. The coefficient of interest is $\beta_2$, which captures how the mental-health effect of retirement changes in region-years severely hit by the crisis. For transparency, we report separate first-stage diagnostics for the retirement equation and for the interacted endogenous term. Appendix B reports the standard under-identification and weak-instrument diagnostics, while the main text focuses on the first-stage strength of the two excluded instruments.
+Equation 2 is estimated by IV-FE using two excluded instruments: pension-age eligibility and its interaction with $HIT_{jt}$. The coefficient of interest is $\delta_{RH}$, which captures the differential effect of retirement in high-unemployment region-years. This interacted specification requires a stronger exclusion restriction than the baseline IV: statutory pension-age eligibility must not affect mental health differentially across crisis exposure except through retirement. We therefore report instrument-relevance diagnostics in the main tables and present appendix validity checks for the baseline and interacted IV specifications in Tables B1 and B2.
 
-The interaction design requires an exclusion restriction stronger than the one needed for the baseline retirement instrument. In particular, once we instrument $RET_{ijt}\times HIT_{jt}$ with $D_{ijt}\times HIT_{jt}$, pension eligibility must not affect mental health differentially in crisis-hit regions except through retirement itself. This restriction cannot be tested directly, so in the revised analysis we assess its plausibility in three ways. First, we report corrected inference for a deliberately narrow primary family consisting only of depression symptoms and new psychiatric diagnosis. Second, we document the separate first stages for both endogenous components, showing that statutory pension-age eligibility strongly predicts retirement while the interaction instrument strongly predicts the crisis-interacted retirement term. Third, we implement placebo interaction tests in the pre-crisis period using future crisis exposure and study pre-crisis trends by future exposure status. These exercises do not prove the exclusion restriction, but they make the identifying assumptions more transparent and discipline the interpretation of the interaction-IV estimates.
-
-Equations 1 and 2 are estimated separately by gender and occupational type to account for potential differences due to varying reservation wages and labour supply elasticities by gender and occupation type. We also estimate two time frames: the shorter term (2009--2013) and the longer term (2009--2019), following the post-crisis dimension in \cite{belloni2016effect}. We conducted a series of robustness checks, which are detailed in section 5.3, and the results are presented in Appendix C.
+We estimate Equation 2 for the short-run post-crisis window (2009--2013) and the longer-run period (2009--2019), and we also show subgroup estimates by gender and occupation.
 
 \section{Results} \label{sec:result}
 \subsection{The mental health effects of retirement} \label{sec:results1}
 
-Figure \ref{fig2} reports the short-run all-sample estimates from Equation \ref{eq1} for the paper's two headline outcomes. In the baseline specification, neither depression symptoms nor new psychiatric diagnosis is estimated precisely enough to support strong claims about the average effect of retirement absent local crisis heterogeneity.
+Figure 2 reports the baseline short-run estimates for the full sample. The FE and IV-FE estimates are both imprecise for the binary depression outcome and for new psychiatric diagnosis, indicating that retirement per se is not enough to explain the subsequent heterogeneity in mental health. The more informative pattern emerges once we allow retirement effects to differ by local crisis exposure.
 
-\begin{figure}[htb!]\caption{Baseline retirement estimates: short-run all-sample results}
+\begin{figure}[htb!]\caption{Results of the relationship between health and retirement (all sample): short-term analyses (2009--2013)}
 \label{fig2}
 \centering
 \includegraphics[width=0.9\textwidth]{Figure2.png}
 \vspace*{-0.4cm}
 
-\scriptsize{\singlespacing \emph{Notes:} Figure \ref{fig2} plots FE and IV-FE estimates of the coefficient on retirement using the short-run sample (2009--2013). Vertical bars denote 95\% confidence intervals. Outcomes are: (i) depression symptoms (CES-D, 0--8) and (ii) new psychiatric diagnosis. Both specifications use 10,273 observations.}
+\scriptsize{\singlespacing \emph{Notes:} Figure 2 plots the estimated effect of retirement on the two main mental health outcomes in the short-run sample (2009--2013). Red crosses report within-individual fixed effects (FE) estimates, while blue circles report instrumental-variables fixed-effects (IV-FE) estimates from Equation (1). Vertical bars denote 95\% confidence intervals. Depression is a binary indicator equal to one when the respondent reports four or more CES-D symptoms.}
 \end{figure}
 
-Table \ref{tab_main_baseline} condenses the main all-sample baseline results. We keep subgroup and broader well-being estimates out of the main text because they add scope but not much leverage for the paper's central claim.
+\begin{center}
+[Table 2 around here]
+\end{center}
 
-\begin{table}[htb!]
-\centering
-\caption{Baseline retirement effects: short-run all-sample estimates}
-\label{tab_main_baseline}
-\resizebox{0.92\textwidth}{!}{%
-\begin{tabular}{lccc}
-\toprule
-Outcome & FE & IV-FE & Observations \\
-\midrule
-Depression symptoms (CES-D, 0--8) & -0.035 & -0.160 & 10,273 \\
- & (0.046) & (0.381) & \\
-New psychiatric diagnosis & 0.002 & -0.026 & 10,273 \\
- & (0.005) & (0.042) & \\
-\bottomrule
-\end{tabular}%
-}
-\scriptsize{\singlespacing \emph{Notes:} FE and IV-FE estimates of the coefficient on retirement from Equation \ref{eq1}, using the short-run sample (2009--2013). Standard errors clustered at the individual level are in parentheses. The excluded-instrument F-statistic for the retirement first stage is 78.4 in both all-sample specifications.}
-\end{table}
+Table 2 reports the short-run interacted IV estimates. The main all-sample result is mixed across the two mental health outcomes. In the short run, retiring in high-unemployment region-years is associated with a 5.1 percentage point decline in new psychiatric diagnoses, relative to a pre-retirement mean of 1.9\%. At the same time, the corresponding coefficient for the binary depression indicator is positive, about 7.8 percentage points, and marginally significant. This pattern suggests that any short-run relief from work-related stress is not broad enough to show up as lower depressive symptom prevalence. The subgroup estimates point to larger short-run declines in psychiatric diagnoses among men and white-collar workers, but the paper treats these heterogeneous estimates as secondary to the all-sample evidence. The minimum weak-identification statistics reported in the table are comfortably above conventional thresholds.
 
-Table \ref{tab_main_crisis} reports the all-sample short-run interaction estimates from Equation \ref{eq2}. The only interaction coefficient that is clearly distinguishable from zero is the one for new psychiatric diagnosis: retiring in a high-unemployment region-year lowers the probability of a new diagnosis by around 5 percentage points. When we correct inference over the paper's two main outcomes, the adjusted $p$-value rises to 0.064. This is still not strong enough for a definitive claim, but it is substantially sharper than in the broader multi-outcome specification.
+Table 3 turns to the longer-run period. The short-run decline in new psychiatric diagnoses disappears, while the crisis interaction becomes positive and statistically significant for the binary depression indicator in the full sample. The magnitude is economically meaningful: the coefficient of 0.082 implies an increase of roughly 97\% relative to the pre-retirement mean. This longer-run result is visible for both men and women and for both white-collar and blue-collar workers, although the subgroup estimates vary in precision. The longer-run evidence therefore points away from a durable mental health improvement from retiring in harder-hit labour markets.
 
-\begin{table}[htb!]
-\centering
-\caption{Short-run crisis-interaction estimates with corrected inference}
-\label{tab_main_crisis}
-\resizebox{0.96\textwidth}{!}{%
-\begin{tabular}{lcccccc}
-\toprule
-Outcome & Retirement & Retirement $\times$ high unemployment & Raw $p$ & BH-adjusted $p$ & Holm-adjusted $p$ & Observations \\
-\midrule
-Depression symptoms (CES-D, 0--8) & -0.259 & 0.266 & 0.222 & 0.222 & 0.222 & 10,273 \\
- & (0.393) & (0.217) & & & & \\
-New psychiatric diagnosis & -0.012 & -0.051** & 0.032 & 0.064 & 0.064 & 10,273 \\
- & (0.044) & (0.024) & & & & \\
-\bottomrule
-\end{tabular}%
-}
-\scriptsize{\singlespacing \emph{Notes:} IV-FE estimates from Equation \ref{eq2} using the short-run sample (2009--2013). The reported interaction coefficient is the coefficient on $RET_{it}\times HIT_{jt}$. The main effect of high unemployment is included in every specification but omitted from the table to keep the exhibit compact. Standard errors clustered at the individual level are in parentheses. The all-sample first-stage F-statistics are 54.2 for retirement and 355.1 for the interacted endogenous term. Broader well-being outcomes are reported in the appendix.}
-\end{table}
-
-Figure \ref{fig3_revision} visualizes the two short-run interaction coefficients in Table \ref{tab_main_crisis}.
-
-\begin{figure}[htb!]\caption{Short-run crisis-interaction estimates for the two main outcomes}
-\label{fig3_revision}
-\centering
-\includegraphics[width=0.86\textwidth]{figure_primary_effects_revision.png}
-\vspace*{-0.2cm}
-\scriptsize{\singlespacing \emph{Notes:} Points are IV-FE estimates of the coefficient on $RET_{it}\times HIT_{jt}$ in the short-run sample (2009--2013). Horizontal bars show 95\% confidence intervals. Outcomes are depression symptoms (CES-D, 0--8) and new psychiatric diagnosis.}
-\end{figure}
-
-\subsection{Validation of the interaction-IV design} \label{sec:validation}
-
-The revised analysis puts more emphasis on the mechanics of the interaction-IV design. Figure 4 shows the raw first-stage relationship between pension eligibility and retirement in low- and high-shock areas. In the all-sample short-run specification, pension eligibility increases retirement by 14.2 percentage points in the retirement first stage, with a partial F-statistic of 54.2. More importantly for the interacted design, the interaction instrument strongly predicts the interacted endogenous regressor: the coefficient on $SPA \times high\ unemployment$ in the $Retired \times high\ unemployment$ first stage is 0.359 with a partial F-statistic of 355.1. By contrast, the same interaction term has little direct predictive power in the baseline retirement first stage, which is what one would expect when the interaction instrument mainly shifts the crisis-interacted treatment margin rather than retirement status on its own.
-
-\begin{figure}[htb!]\caption{Retirement rates by pension eligibility and crisis exposure}
-\label{fig4_revision}
-\centering
-\includegraphics[width=0.82\textwidth]{figure_first_stage_interaction.png}
-\vspace*{-0.2cm}
-\scriptsize{\singlespacing \emph{Notes:} Raw retirement rates in the short-run sample (2009--2013), plotted separately by statutory pension-age eligibility and local crisis exposure. The figure is descriptive and complements the regression-based first-stage estimates reported in the text and Appendix D.}
-\end{figure}
-
-To probe the exclusion restriction more directly, we also estimate placebo interactions in the pre-crisis sample using future crisis exposure. Table \ref{tab_validation} shows that these placebo interaction coefficients are small and statistically insignificant for both depression symptoms and new psychiatric diagnosis. Appendix D reports additional placebo and trend evidence for the broader well-being outcomes.
-
-\begin{table}[htb!]
-\centering
-\caption{Validation of the interaction-IV design}
-\label{tab_validation}
-\resizebox{0.96\textwidth}{!}{%
-\begin{tabular}{lccccc}
-\toprule
-\multicolumn{6}{l}{\textbf{Panel A. All-sample short-run first-stage diagnostics}} \\
-\midrule
-Dependent variable & Excluded instrument & Coefficient & SE & Partial F & Joint F \\
-\midrule
-Retirement & SPA & 0.142 & 0.019 & 54.24 & 40.18 \\
-Retirement & SPA $\times$ high unemployment & 0.023 & 0.021 & 1.23 & 40.18 \\
-Retired $\times$ high unemployment & SPA & -0.102 & 0.013 & 59.78 & 182.12 \\
-Retired $\times$ high unemployment & SPA $\times$ high unemployment & 0.359 & 0.019 & 355.09 & 182.12 \\
-\midrule
-\multicolumn{6}{l}{\textbf{Panel B. Pre-crisis placebo interaction tests}} \\
-\midrule
-Outcome & Placebo coefficient & SE & $p$-value & Observations &  \\
-\midrule
-Depression symptoms (CES-D, 0--8) & 0.226 & 0.159 & 0.156 & 6,479 &  \\
-New psychiatric diagnosis & 0.016 & 0.023 & 0.485 & 6,479 &  \\
-\bottomrule
-\end{tabular}%
-}
-
-\scriptsize{\singlespacing \emph{Notes:} Panel A reports the main first-stage diagnostics for the short-run all-sample specification. ``Partial F'' is the F-statistic for the individual excluded instrument listed in the row, while ``Joint F'' is the F-statistic for the excluded-instrument block in the corresponding first-stage equation. Panel B reports placebo reduced-form regressions estimated in the pre-crisis sample (waves 2--4) using an interaction between statutory pension-age eligibility and future crisis exposure. Additional placebo evidence for the broader well-being outcomes is reported in the appendix.}
-\end{table}
-
-Table \ref{tab_short_heterogeneity} keeps the most relevant short-run subgroup estimates in the main text without reproducing the very large legacy tables. The reduction in new psychiatric diagnosis is somewhat larger for white-collar workers, but the broader pattern remains one of imprecise heterogeneity outside the all-sample estimate.
-
-\begin{table}[htb!]
-\centering
-\caption{Short-run crisis-interaction estimates by key subgroup}
-\label{tab_short_heterogeneity}
-\resizebox{0.98\textwidth}{!}{%
-\begin{tabular}{lcccc}
-\toprule
- & All sample & White-collar & Blue-collar & Women \\
-\midrule
-\multicolumn{5}{l}{\textbf{Panel A. Retirement $\times$ high unemployment}} \\
-\midrule
-Depression symptoms (CES-D, 0--8) & 0.286 & 0.428 & 0.076 & 0.498 \\
- & (0.218) & (0.335) & (0.295) & (0.328) \\
-New psychiatric diagnosis & -0.049** & -0.062* & -0.030 & -0.044 \\
- & (0.023) & (0.037) & (0.030) & (0.035) \\
-\midrule
-\multicolumn{5}{l}{\textbf{Panel B. Min. weak-ID F-statistic}} \\
-\midrule
-Depression symptoms (CES-D, 0--8) & 53.30 & 16.17 & 51.78 & 29.42 \\
-New psychiatric diagnosis & 53.30 & 13.87 & 43.13 & 27.44 \\
-\bottomrule
-\end{tabular}%
-}
-\scriptsize{\singlespacing \emph{Notes:} Panel A reports IV-FE coefficients on $RET_{it}\times HIT_{jt}$ from Equation \ref{eq2} in the short-run sample (2009--2013). Panel B reports the smaller of the two excluded-instrument weak-identification F-statistics from the corresponding first stages, so each entry is a conservative summary of first-stage strength for that column and outcome. Standard errors clustered at the individual level are in parentheses.}
-\end{table}
-
-The longer-run estimates in Table \ref{tab_longrun_compact} do not show a persistent improvement in new psychiatric diagnoses. If anything, the longer-run evidence is more consistent with short-run relief fading over time, particularly for women and blue-collar workers on some distress measures.
-
-\begin{table}[htb!]
-\centering
-\caption{Longer-run crisis-interaction estimates by key subgroup}
-\label{tab_longrun_compact}
-\resizebox{0.98\textwidth}{!}{%
-\begin{tabular}{lcccc}
-\toprule
- & All sample & White-collar & Blue-collar & Women \\
-\midrule
-\multicolumn{5}{l}{\textbf{Panel A. Retirement $\times$ high unemployment}} \\
-\midrule
-Depression symptoms (CES-D, 0--8) & 0.340** & 0.325* & 0.301* & 0.471** \\
- & (0.125) & (0.177) & (0.179) & (0.192) \\
-New psychiatric diagnosis & -0.008 & -0.004 & -0.010 & -0.001 \\
- & (0.006) & (0.010) & (0.009) & (0.021) \\
-\midrule
-\multicolumn{5}{l}{\textbf{Panel B. Min. weak-ID F-statistic}} \\
-\midrule
-Depression symptoms (CES-D, 0--8) & 106.59 & 40.09 & 92.31 & 61.39 \\
-New psychiatric diagnosis & 106.59 & 35.43 & 80.67 & 59.40 \\
-\bottomrule
-\end{tabular}%
-}
-\scriptsize{\singlespacing \emph{Notes:} Panel A reports IV-FE coefficients on $RET_{it}\times HIT_{jt}$ from Equation \ref{eq2} in the longer-run sample (2009--2019). Panel B reports the conservative minimum weak-identification F-statistic across the two endogenous components in the corresponding interaction-IV design. Standard errors clustered at the individual level are in parentheses.}
-\end{table}
-
-\subsection{Moderator analysis} \label{sec:moderators}
-
-Table \ref{tab_moderators_compact} summarizes the moderator analysis in a format that is easier to interpret than the earlier very wide supplementary exhibit. We keep attention on the two main outcomes and on the interaction coefficient from Equation \ref{eq2}. The most consistent suggestive pattern is that new psychiatric diagnoses fall more for men who are financially secure, live with others, retire before the statutory pension age, or remain physically active. The early-retirement margin stands out most clearly, with a 30.5 percentage point reduction in new psychiatric diagnosis for men in the short run.
-
-The moderator evidence should still be read cautiously. Some strata, especially the high-wealth female subsample, have weak first stages, and the overall number of moderator tests is large relative to the paper's primary outcome family. For that reason, we use these estimates to discipline the interpretation of mechanisms rather than to expand the paper's main causal claim.
-
-\begin{table}[htb!]
-\centering
-\caption{Moderator patterns in the short-run crisis interaction}
-\label{tab_moderators_compact}
-\resizebox{0.98\textwidth}{!}{%
-\begin{tabular}{lcccc}
-\toprule
- & High wealth & Co-residence & Early retirement & Physically active \\
-\midrule
-\multicolumn{5}{l}{\textbf{Panel A. Men}} \\
-\midrule
-Depression symptoms (CES-D, 0--8) & 0.962 & 0.162 & -0.726 & -0.021 \\
- & (1.094) & (0.285) & (1.049) & (0.273) \\
-New psychiatric diagnosis & -0.144* & -0.055* & -0.305** & -0.074** \\
- & (0.084) & (0.029) & (0.131) & (0.030) \\
-Min. weak-ID F-statistic & 7.36 & 25.97 & 21.99 & 21.88 \\
-\midrule
-\multicolumn{5}{l}{\textbf{Panel B. Women}} \\
-\midrule
-Depression symptoms (CES-D, 0--8) & -0.258 & 0.361 & -5.572 & 0.482 \\
- & (1.246) & (0.351) & (30.220) & (0.347) \\
-New psychiatric diagnosis & -0.166 & -0.035 & -0.077 & -0.033 \\
- & (0.189) & (0.036) & (0.091) & (0.036) \\
-Min. weak-ID F-statistic & 1.75 & 52.94 & 10.08 & 23.08 \\
-\bottomrule
-\end{tabular}%
-}
-\scriptsize{\singlespacing \emph{Notes:} Entries are IV-FE coefficients on $RET_{it}\times HIT_{jt}$ from Equation \ref{eq2} in the short-run sample (2009--2013). ``High wealth'' refers to respondents in the top quartile of benefit-unit net financial wealth; ``co-residence'' indicates living with at least one other adult or child; ``early retirement'' indicates retirement before the statutory pension age; and ``physically active'' indicates moderate or vigorous activity. The reported weak-identification statistic is the minimum of the two excluded-instrument F-statistics for the corresponding moderator-specific specification. Standard errors clustered at the individual level are in parentheses.}
-\end{table}
+\begin{center}
+[Table 3 around here]
+\end{center}
 
 \subsection{Robustness checks} \label{sec:robustness}
 
-In this section, we examine whether our results are affected by (i) the definition of retirement, (ii) the estimation method used, (iii) the time dimension considered, (iv) the definition of severely hit regions, (v) multiple hypothesis testing, (vi) the choice of covariates, and (vii) the inclusion of broader secondary outcomes. We first explore how our findings vary based on the type of transition to retirement considered, as well as the corresponding definition of the ``retired'' dummy variable. In the IV-FE baseline model, our control group includes all individuals, both employees and self-employed, who were part of the labour market in 2002--2003. However, prior research (e.g., \cite{parker2007retirement}; \cite{zwier2020explaining}) indicates that the health effects of retirement may differ systematically for the self-employed, as they often have more flexible working conditions and greater independence in setting their schedules.
-
-In Table \ref{tabC1_retdef}, column (a), we present results after excluding self-employed workers from our sample. These results show a high degree of similarity in significance and magnitude compared to the baseline analysis. Similarly, in column (b), we report estimation results after excluding part-time workers from our sample. The rationale behind this exclusion is that part-time workers may experience less job-related stress. Our findings support this idea, as we observe a larger effect of retirement in regions severely impacted by the crisis, with a 6.3 percentage point decrease in the likelihood of reporting a new psychiatric diagnosis.
-
-The validity of our findings is assessed based on the estimation approach used. Previous literature has addressed endogeneity concerns related to retirement decisions and their effects on health through various empirical methods, such as propensity scores, regression discontinuity design (RDD), and instrumental variables. In this study, we primarily use IV fixed-effects methods while controlling for individual, household, and regional characteristics. We believe our instrument is robust and valid for addressing endogeneity issues more effectively than methods relying on observable characteristics, such as propensity score matching. Moreover, incorporating a fixed effects model enhances the assumption of independence between the instruments and the error term in the main equation. Appendix C presents complementary results from event studies, difference-in-differences (DiD), triple difference-in-differences, and propensity score matching with difference-in-differences (PSM-DiD) techniques. The triple DiD estimates show a consistent effect on mental health of retirement in a badly hit economic region, with a decrease in the probability of newly diagnosed psychiatric conditions by 5.4 percentage points. While the results consistently indicate a direction of effect of retirement on mental health during an economic crisis, the statistical significance of the estimates varies across different statistical approaches. This variation aligns with previous literature that has found inconsistent results concerning the health effects of retirement depending on the empirical methodology employed.
-
-In addition, we explore the time dimension of retirement effects by splitting the analysis into the years leading up to the crisis, the first five years after the crisis, and the medium-term horizon thereafter. Results confirm that the adverse effect of retiring in a high-unemployment region is strongest in the immediate post-crisis period, with some persistence over the longer horizon. We also test alternative definitions of severely hit regions, using different thresholds of the unemployment distribution as well as regional GDP-per-capita decreases. Across these specifications, the estimated negative effect of retirement on newly diagnosed psychiatric conditions remains evident under the main definition based on the 75th percentile of the unemployment rate.
-
-Furthermore, to account for the risk of multiple hypothesis testing, we adjust p-values using both the Benjamini--Hochberg FDR and the Holm--Bonferroni procedure over the two main outcomes highlighted in the paper. This changes the interpretation of the short-run crisis result. The all-sample estimate for new psychiatric diagnosis remains the most precise coefficient in the primary family, and its adjusted $p$-values are 0.064 under both procedures. We therefore interpret this estimate as suggestive evidence concentrated in a clinically salient endpoint rather than as conclusive evidence of a broad mental-health improvement. We also assess sensitivity to the inclusion of different covariates, such as health insurance and physical activity, and the results are broadly unaffected by these modifications. Finally, we extend our analysis to a broader range of health and well-being outcomes in the appendix.
+Appendix B reports the diagnostic evidence for the baseline and interacted IV specifications. The statutory pension age remains a strong predictor of retirement, and the interaction instrument is also highly relevant in the crisis specification. Appendix C reports two additional checks. First, Table C1 shows that using the continuous CES-D symptom count yields the same qualitative longer-run pattern as the binary depression indicator: retirement in high-unemployment region-years is associated with worse depressive symptoms rather than better mental health. Second, Figures C1--C3 present event-study evidence for the binary depression indicator and new psychiatric diagnosis in the full sample and by sex. The event-study profiles are useful for visualising the timing of effects and do not suggest a clean and persistent improvement in broader depressive symptoms.
 
 \section{Conclusion} \label{sec:discussion}
 
-This study examines the relationship between retirement, mental health, and economic crises using longitudinal data from the English Longitudinal Study of Ageing (ELSA) and a fixed-effects instrumental-variable approach. The revised results point to a narrower conclusion than in earlier drafts. In the short run, the clearest evidence is for new psychiatric diagnosis, where retiring in a crisis-hit region is associated with a lower probability of a new diagnosis. Depression symptoms are estimated less precisely, and multiple-testing adjustments imply that the psychiatric-diagnosis result should still be interpreted as suggestive rather than definitive. These effects are most pronounced in the short term and diminish over time. Broader well-being outcomes are reported in the appendix and are not central to the paper's main claim.
+This paper studies whether retirement has different mental health consequences when it occurs in weak local labour markets. Using English panel data and an IV-FE design based on statutory pension-age eligibility, we find that the answer depends on which mental health outcome is examined and over what horizon. In the short run, retirement in high-unemployment region-years is associated with fewer new psychiatric diagnoses. But this short-run decline does not extend to the broader depression indicator, and it does not persist in the longer run.
 
-Our results confirm and build on \cite{belloni2016effect}, who found that retiring shortly after an economic shock can alleviate work-related stress and improve mental health. This is consistent with our findings, which suggest that retiring during a crisis reduces mental health diagnoses by 4.9 percentage points. However, long-term results show that the initial relief diminishes over time, particularly among women and blue-collar workers whose depression symptoms statistically significantly increase, underscoring the complexity of these dynamics. In contrast to Belloni et al. (2016), our results indicate that white-collar workers benefit the most from retirement under economic strain, highlighting a socioeconomic gradient in the mental health effects of retirement in England. These differences reinforce evidence from other studies showing that the health consequences of retirement vary with macroeconomic conditions, and they point to the broader labour market and institutional context as a likely explanation for heterogeneous findings in the literature. This suggests the need for further investigation into the broader labour market implications of financial and social circumstances when retirement happens, and in long-term planning terms, for those currently unable to make a retirement choice.
+The longer-run evidence is especially important. By 2009--2019, the interaction between retirement and crisis exposure is positive and statistically significant for the binary depression measure, while the earlier decline in psychiatric diagnoses has faded. The most credible interpretation is therefore not that retirement during a crisis uniformly improves mental health, but that short-run relief from work-related strain can coexist with, and eventually be outweighed by, a deterioration in broader depressive symptoms.
 
-Our moderator analysis shows that the mental health effects of retirement during economic crises are shaped by financial, social, and lifestyle factors. Retirees with greater financial security, stronger social support, and healthier lifestyles appear better protected against the negative effects of retiring in severely hit regions, while flexibility in the timing of retirement emerges as a particularly important moderator. These moderators are not unique to downturns: previous studies have shown that financial resources, social networks, and health behaviours generally influence how retirement affects well-being \citep{bonsang2012retirement,eibich2015understanding}. We add to this literature by showing that the role of these moderators is still important under adverse macroeconomic conditions, in line with \cite{belloni2016effect}, who find that retirement effects vary with the severity of the Great Recession.
-
-While our analysis provides informative evidence, important limitations remain. First, the reliance on self-reported mental-health measures introduces the potential for measurement error or reporting bias, as individuals may underreport or overreport mental-health conditions due to stigma, recall issues, or subjective interpretation of survey questions. Although self-reported data are commonly used in mental-health research and provide valuable insights, their inherent subjectivity could influence the precision of our estimates. Second, while we address endogeneity concerns using a fixed-effects instrumental-variable strategy, the interaction design requires a stronger exclusion restriction than the baseline retirement IV. Our new placebo interaction tests provide reassurance, but they cannot fully rule out all direct differential effects of pension eligibility in harder-hit regions. Third, our corrected-inference exercise shows that the paper's main short-run psychiatric-diagnosis estimate is more fragile than the raw $p$-values alone would suggest. Finally, although the statutory pension age in England cannot be bypassed and underpins the validity of our IV strategy, some firms may have offered redundancy packages or early-retirement incentives during the crisis, potentially introducing heterogeneity in retirement behaviour that we cannot fully account for.
-
-Given the growing global ageing population, understanding these dynamics is critical for developing policies that ensure healthy ageing and mitigate the socioeconomic impacts of economic downturns on retirees. Together, these findings emphasise that a combination of financial, social, and behavioural factors shapes mental health outcomes during retirement. First, and perhaps most importantly, policies aimed at enhancing financial security for certain groups of older adults, such as strengthening pension systems and offering targeted financial support during economic downturns, especially among blue-collar workers, can mitigate the adverse effects of macroeconomic shocks on retirees' mental health. Second, our analysis indicates that the possibility of retiring earlier during a downturn can ease the transition into retirement in economically vulnerable regions, although such benefits depend on retirees being financially secure at the time of exit. Third, encouraging healthy lifestyle initiatives tailored to older populations, such as community-based wellness programs and mental health services, can bolster resilience against the psychological impacts of economic uncertainty. Finally, policies that protect timely access to retirement benefits, particularly for white-collar workers, can preserve the mental health benefits of retirement, reducing the strain on healthcare systems and improving long-term public health outcomes. These strategies not only enhance retirees' well-being but also contribute to the sustainability of public finances by potentially reducing healthcare expenditures and supporting healthy ageing.
+These findings help reconcile the mixed retirement--health literature. Retirement effects are shaped by macroeconomic conditions, and mental health outcomes that appear similar on the surface do not necessarily move together. For policy, the results suggest caution when viewing retirement as a straightforward buffer against downturns. Protecting mental health during and after labour-market shocks may require more than timely pension access; it may also require ongoing mental health support during the years that follow retirement.
 
 
 \vspace{1.25cm}
@@ -711,9 +497,9 @@ No ethics approval was needed to perform this analysis.
 \clearpage
 
 
-\iffalse
-\section*{Supplementary Tables} \label{sec:fig}
-\addcontentsline{toc}{section}{Supplementary Tables}
+
+\section*{Tables} \label{sec:fig}
+\addcontentsline{toc}{section}{Tables}
 \clearpage
 
 \begin{table}[h]
@@ -726,265 +512,114 @@ No ethics approval was needed to perform this analysis.
 \multirow{2}{*}{\textbf{Variables}} & \multicolumn{2}{c}{\textbf{Employed}} & \multicolumn{2}{c}{\textbf{Retired}} & \multirow{2}{*}{\textbf{Test for Mean Differences}} \\
  & \textit{Mean} & \textit{SD} & \textit{Mean} & \textit{SD} &  \\ \cmidrule(r){1-6} 
 \multicolumn{6}{l}{\textbf{Socio-demographics}} \\ \hline
-\textit{Female} & 0.461 & 0.499 & 0.503 & 0.500 &  \\
-\textit{Age} & 61.17 & 5.502 & 68.49 & 5.986 & *** \\
-\textit{Married/Cohabitee} & 0.770 & 0.421 & 0.731 & 0.443 & *** \\
-\textit{Number of people in the household (adults+children)} & 2.217 & 0.841 & 1.948 & 0.678 & *** \\
-\textit{Tenure (home owner outright)} & 0.578 & 0.494 & 0.818 & 0.386 & *** \\
+\textit{Female} & 0.537 & 0.499 & 0.536 & 0.499 &  \\
+\textit{Age} & 60.34 & 6.436 & 68.49 & 5.921 & *** \\
+\textit{Married/Cohabiting} & 0.776 & 0.417 & 0.707 & 0.455 & *** \\
+\textit{Household size} & 2.239 & 0.845 & 1.909 & 0.694 & *** \\
+\textit{Home owner outright} & 0.590 & 0.492 & 0.819 & 0.385 & *** \\
 \multicolumn{6}{l}{Education} \\
-\textit{never went or not yet finished} & 0.011 & 0.105 & 0.008 & 0.092 &  \\
-\textit{went to school until 14 or below} & 0.016 & 0.126 & 0.030 & 0.171 & *** \\
-\textit{O levels} & 0.488 & 0.500 & 0.506 & 0.500 &  \\
-\textit{A levels} & 0.118 & 0.323 & 0.105 & 0.306 &  \\
-\textit{Higher education below degree} & 0.148 & 0.355 & 0.149 & 0.356 & ** \\
-\textit{Degree} & 0.219 & 0.413 & 0.202 & 0.401 &  \\\hline
+\textit{Never went or not yet finished} & 0.008 & 0.091 & 0.008 & 0.088 &  \\
+\textit{Left school at 14 or below} & 0.015 & 0.122 & 0.029 & 0.167 & *** \\
+\textit{O levels} & 0.459 & 0.498 & 0.471 & 0.499 &  \\
+\textit{A levels} & 0.121 & 0.326 & 0.105 & 0.307 & *** \\
+\textit{Higher education below degree} & 0.148 & 0.356 & 0.152 & 0.359 &  \\
+\textit{Degree} & 0.248 & 0.432 & 0.235 & 0.424 & * \\\hline
+\multicolumn{6}{l}{\textbf{Heterogeneity variables}} \\\hline
+\textit{Blue-collar worker} & 0.482 & 0.500 & 0.507 & 0.500 & *** \\
+\textit{High-unemployment region-year} & 0.263 & 0.440 & 0.295 & 0.456 & *** \\
+\textit{Above state pension age} & 0.366 & 0.482 & 0.893 & 0.309 & *** \\
+\textit{Top financial wealth quartile} & 0.230 & 0.421 & 0.276 & 0.447 & *** \\\hline
 \multicolumn{6}{l}{\textbf{Regional Characteristics}} \\\hline
 \multicolumn{6}{l}{Population Density for Postcode Sectors} \\
-\textit{First quintile (least dense)} & 0.193 & 0.394 & 0.197 & 0.398 &  \\
-\textit{Second quintile} & 0.242 & 0.428 & 0.246 & 0.431 &  \\
-\textit{Third quintile} & 0.213 & 0.410 & 0.230 & 0.421 & ** \\
-\textit{Fourth quintile} & 0.195 & 0.396 & 0.183 & 0.386 &  \\
-\textit{Fifth quintile (most dense)} & 0.158 & 0.364 & 0.144 & 0.351 & *** \\
+\textit{First quintile (least dense)} & 0.201 & 0.401 & 0.202 & 0.401 &  \\
+\textit{Second quintile} & 0.245 & 0.430 & 0.253 & 0.435 &  \\
+\textit{Third quintile} & 0.219 & 0.414 & 0.238 & 0.426 & *** \\
+\textit{Fourth quintile} & 0.190 & 0.393 & 0.184 & 0.387 &  \\
+\textit{Fifth quintile (most dense)} & 0.144 & 0.351 & 0.123 & 0.329 & *** \\
 \multicolumn{6}{l}{Index of Multiple Deprivation Score} \\
-\textit{First quintile (least deprived)} & 0.263 & 0.440 & 0.271 & 0.445 &  \\
-\textit{Second quintile} & 0.263 & 0.440 & 0.257 & 0.437 &  \\
-\textit{Third quintile} & 0.207 & 0.405 & 0.200 & 0.400 & ** \\
-\textit{Fourth quintile} & 0.158 & 0.365 & 0.172 & 0.377 &  \\
-\textit{Fifth quintile (most deprived)} & 0.109 & 0.312 & 0.099 & 0.300 & ** \\\hline
+\textit{First quintile (least deprived)} & 0.278 & 0.448 & 0.286 & 0.452 &  \\
+\textit{Second quintile} & 0.268 & 0.443 & 0.267 & 0.442 &  \\
+\textit{Third quintile} & 0.206 & 0.405 & 0.199 & 0.400 &  \\
+\textit{Fourth quintile} & 0.149 & 0.356 & 0.162 & 0.368 & ** \\
+\textit{Fifth quintile (most deprived)} & 0.098 & 0.298 & 0.087 & 0.281 & ** \\\hline
 \multicolumn{6}{l}{\textit{\textbf{Pension characteristics and financial variables}}} \\\hline
-\textit{Aged equal or above the State Pension Age (SPA)} & 0.372 & 0.483 & 0.887 & 0.317 & *** \\
-\textit{Member of private pension scheme} & 0.809 & 0.393 & 0.799 & 0.401 &  \\
-\textit{\begin{tabular}[c]{@{}c@{}}Total state pension wealth \\ (£ per week)\end{tabular}} & 62.49 & 89.74 & 173.9 & 97.56 & *** \\
-\textit{Whether under financial strain} & 0.044 & 0.206 & 0.027 & 0.165 & *** \\\hline
+\textit{Member of private pension scheme} & 0.800 & 0.400 & 0.792 & 0.406 &  \\
+\textit{State pension income (£ per week)} & 64.99 & 90.45 & 176.93 & 97.20 & *** \\
+\textit{Under financial strain} & 0.044 & 0.204 & 0.028 & 0.165 & *** \\\hline
 \multicolumn{6}{l}{\textit{\textbf{Health related-behaviours}}} \\\hline
-\textit{Never smoked} & 0.354 & 0.478 & 0.353 & 0.478 &  \\
-\textit{Engages with vigorous physical activity (at least once per week)} & 0.385 & 0.487 & 0.344 & 0.475 & *** \\
-\textit{Private health insurance} & 0.191 & 0.393 & 0.096 & 0.295 & *** \\\hline
+\textit{Never smoked} & 0.380 & 0.485 & 0.362 & 0.481 & ** \\
+\textit{Vigorous physical activity at least weekly} & 0.393 & 0.488 & 0.349 & 0.477 & *** \\
+\textit{Private health insurance} & 0.197 & 0.398 & 0.100 & 0.300 & *** \\\hline
 \multicolumn{1}{l}{Observations} & \multicolumn{2}{c}{8,900} & \multicolumn{2}{c}{6,588} &  \\ \bottomrule \bottomrule
 \end{tabular}%
 
  }
 
- \tiny{{\singlespacing \emph{Notes:} Significance levels: ***p$\prec$0.01;**p$\prec$0.05;*p$\prec$0.1. T-test of equality of means between retired and employed. Last column tests for mean differences. Longitudinal sample weights are used in the mean and standard deviation (SD) figures.}}
+\tiny{{\singlespacing \emph{Notes:} Significance levels: ***p$\prec$0.01; **p$\prec$0.05; *p$\prec$0.1. The table reports sample means and standard deviations for employed and retired observations. The last column reports t-tests for equality of means. Variables shown correspond to the main regression controls and the heterogeneity variables used in the paper.}}
  
 \end{table}
 
-
-
 \newpage
-
 \begin{table}[!ht]
-
 \centering
-\renewcommand{\arraystretch}{0.7}
-\caption{Results of the relationship between health and retirement by subpopulation groups: short-term analyses (2009-2013)}
-\begin{adjustwidth}{-2cm}{}
+\renewcommand{\arraystretch}{0.9}
+\caption{Retirement in high-unemployment region-years and mental health: short-run estimates (2009--2013)}
 \label{tab2}
-\resizebox{1.15\textwidth}{!}{%
-\begin{tabular}{@{}lcccccccc@{}}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lccccc@{}}
 \toprule
-\multicolumn{1}{c}{\multirow{2}{*}{\textbf{Outcome variables}}} & \multicolumn{2}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(a) \\ All sample\end{tabular}}} & \multicolumn{2}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(b)\\ Women\end{tabular}}} & \multicolumn{2}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(c)\\ Blue-collar\end{tabular}}} & \multicolumn{2}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(d) \\ Above unemployment \\ average\end{tabular}}} \\ \cmidrule(l){2-9} 
-\multicolumn{1}{c}{} & \textbf{FE} & \textbf{IV-FE} & \textbf{FE} & \textbf{IV-FE} & \textbf{FE} & \textbf{IV-FE} & \textbf{FE} & \textbf{IV-FE} \\ \hline
-\multicolumn{9}{l}{\textbf{(1) Depression Symptoms {[}0-8{]}}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}-0.035\\ (0.046)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.160\\ (0.381)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.040\\ (0.070)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.689\\ (0.593)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.021\\ (0.070)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.036\\ (0.459)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.041\\ (0.061)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.755\\ (0.624)\end{tabular} \\
-\multicolumn{1}{r}{First stage} &  & \begin{tabular}[c]{@{}c@{}}0.151***\\ (0.017)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}0.133***\\ (0.020)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}0.198***\\ (0.025)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}0.120***\\ (0.021)\end{tabular} \\
-\multicolumn{1}{c}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test of \\ excluded instruments\end{tabular}} &  & \multicolumn{1}{r}{103.77***} &  & \multicolumn{1}{r}{57.94***} &  & \multicolumn{1}{r}{99.63***} &  & \multicolumn{1}{r}{42.27***} \\\hline
-\multicolumn{9}{l}{\textbf{(2) Newly diagnosed psychiatric condition±}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}0.002\\ (0.005)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.026\\ (0.041)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.002\\ (0.008)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.050\\ (0.065)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.004\\ (0.006)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.012\\ (0.046)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.011*\\ (0.006)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.042\\ (0.05)\end{tabular} \\
-\multicolumn{1}{r}{First stage} &  & \begin{tabular}[c]{@{}c@{}}0.151***\\ (0.017)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}0.133***\\ (0.020)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}0.198***\\ (0.025)\end{tabular} & \textbf{} & \begin{tabular}[c]{@{}c@{}}0.120***\\ (0.021)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test of \\ excluded instruments\end{tabular}} &  & \multicolumn{1}{r}{103.85***} &  & \multicolumn{1}{r}{57.94***} &  & \multicolumn{1}{r}{99.63***} & \textbf{} & \multicolumn{1}{r}{42.27***} \\\hline
-\multicolumn{9}{l}{\textbf{(3) Feeling lonely±}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}0.002\\ (0.009)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.148**\\ (0.068)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.018\\ (0.013)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.286***\\ (0.096)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.015\\ (0.015)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.140*\\ (0.081)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.010\\ (0.014)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.330**\\ (0.141)\end{tabular} \\
-\multicolumn{1}{r}{First stage} & \textbf{} & \begin{tabular}[c]{@{}c@{}}0.158***\\(0.018)\end{tabular} & \textbf{} & \begin{tabular}[c]{@{}c@{}}0.145*\\(0.022)\end{tabular} & \textbf{} & \begin{tabular}[c]{@{}c@{}}0.200***\\ (0.000)\end{tabular} & \textbf{} & \begin{tabular}[c]{@{}c@{}}0.125***\\ (0.0234)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test of \\ excluded instruments\end{tabular}} & \textbf{} & \multicolumn{1}{r}{97.17***} & \textbf{} & \multicolumn{1}{r}{58.52***} & \textbf{} & \multicolumn{1}{r}{84.75***} & \textbf{} & \multicolumn{1}{r}{38.83***} \\\hline
-\multicolumn{9}{l}{\textbf{(4) Life satisfaction±}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}0.024\\ (0.015)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.063\\ (0.110)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.031\\ (0.019)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.083\\ (0.154)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.022\\ (0.022)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.023\\ (0.131)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.039**\\ (0.019)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.143\\ (0.193)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}First stage\end{tabular}} &  & \begin{tabular}[c]{@{}c@{}}0.158***\\ (0.000)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}0.145***\\ (0.000)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}0.198***\\ (0.000)\end{tabular} &  & \begin{tabular}[c]{@{}c@{}}0.124***\\ (0.000)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test of \\ excluded instruments\end{tabular}} &  & \multicolumn{1}{r}{101.52***} &  & \multicolumn{1}{r}{60.05***} &  & \multicolumn{1}{r}{86.57***} &  & \multicolumn{1}{r}{38.17***} \\
-\multicolumn{1}{c}{\textit{Control variables}} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} \\
-\multicolumn{1}{c}{\textit{Region and Time FE}} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} \\
-\multicolumn{1}{c}{\textit{Observations}} & \multicolumn{2}{c}{10,273} & \multicolumn{2}{c}{5,480} & \multicolumn{2}{c}{5,100} & \multicolumn{2}{c}{6,531} \\
-\multicolumn{1}{c}{\textit{Number IDs}} & \multicolumn{2}{c}{2,638} & \multicolumn{2}{c}{1,409} & \multicolumn{2}{c}{1,513} & \multicolumn{2}{c}{2,298} \\ \bottomrule \bottomrule
+ & \textbf{All sample} & \textbf{Men} & \textbf{Women} & \textbf{White-collar} & \textbf{Blue-collar} \\ \midrule
+\multicolumn{6}{l}{\textbf{Panel A. Depression symptoms (CES-D $\geq$ 4)}} \\
+Retired $\times$ high unemployment & \begin{tabular}[c]{@{}c@{}}0.078*\\ (0.042)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.051)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.102\\ (0.063)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.097\\ (0.065)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.039\\ (0.060)\end{tabular} \\
+Pre-retirement mean & 0.089 & 0.067 & 0.108 & 0.078 & 0.101 \\
+Effect size (\%) & 87.5 & 1.5 & 93.8 & 124.6 & 39.2 \\
+Min. weak-ID F-statistic & 54.24 & 32.89 & 29.68 & 17.29 & 39.08 \\
+$R^2$ & 0.010 & 0.020 & 0.004 & -0.115 & 0.005 \\
+Observations & 9,951 & 4,650 & 5,301 & 5,028 & 4,718 \\ \midrule
+\multicolumn{6}{l}{\textbf{Panel B. New psychiatric diagnosis}} \\
+Retired $\times$ high unemployment & \begin{tabular}[c]{@{}c@{}}-0.051**\\ (0.023)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.052*\\ (0.029)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.044\\ (0.035)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.066*\\ (0.038)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.031\\ (0.029)\end{tabular} \\
+Pre-retirement mean & 0.019 & 0.015 & 0.023 & 0.019 & 0.020 \\
+Effect size (\%) & -265.5 & -344.7 & -190.0 & -348.1 & -158.0 \\
+Min. weak-ID F-statistic & 54.24 & 32.89 & 29.68 & 17.29 & 39.08 \\
+$R^2$ & -0.002 & 0.004 & -0.008 & 0.000 & 0.011 \\
+Observations & 9,951 & 4,650 & 5,301 & 5,028 & 4,718 \\ \bottomrule
 \end{tabular}%
 }
-\end{adjustwidth}
- \tiny{{ \renewcommand{\arraystretch}{0.2} \emph{Notes:} Significance levels: ***p$\prec$0.01;**p$\prec$0.05;*p$\prec$0.1. Fixed effect (FE) estimates (in columns 2, 4, 6 and 8) and Instrumental variables ﬁxed-effects (IV-FE) estimates (columns 3, 5, 7 and 9) for the four outcomes. The instrument is the statutory pension age. Control for exogenous individual characteristics: age, age squared, gender, marital status (whether married or cohabiting), household size, outright homeownership, private pension scheme membership, total state pension income (£ per week), current smokers, rarely engage in vigorous or moderate activities (less than once a week), and have health insurance. We also include Region characteristics (area-level deprivation quintiles based on a multiple deprivation index and population density quintiles by postcode) and Time FE. ± Dummy indicator. Clustered standard errors at individual level in parentheses. Weak identification: }}
- 
+\tiny{{\singlespacing \emph{Notes:} IV-FE estimates from Equation (2). The reported coefficient is the interaction between retirement and the high-unemployment indicator. Depression is a binary indicator equal to one when the respondent reports four or more CES-D symptoms. All specifications include individual fixed effects, wave indicators, and the full set of controls described in Section 4. Clustered standard errors at the individual level are in parentheses. Significance levels: ***p$\prec$0.01; **p$\prec$0.05; *p$\prec$0.1.}}
 \end{table}
-
-
-%\section*{Figures} \label{sec:tab}
-%\addcontentsline{toc}{section}{Figures}
-
-%\begin{figure}[hp]
-%  \centering
-%  \includegraphics[width=.6\textwidth]{../fig/placeholder.pdf}
-%  \caption{Placeholder}
-%  \label{fig:placeholder}
-%\end{figure}
-
 
 \newpage
 \begin{table}[!ht]
 \centering
-\renewcommand{\arraystretch}{0.7}
-\caption{IV-FE estimates of effects on health of retirement in economic crisis: short-term (2009-2013)}
-\begin{adjustwidth}{-1.5cm}{}
+\renewcommand{\arraystretch}{0.9}
+\caption{Retirement in high-unemployment region-years and mental health: longer-run estimates (2009--2019)}
 \label{tab3}
-\resizebox{1.1\textwidth}{!}{%
-\begin{tabular}{@{}lccccccccc@{}}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lccccc@{}}
 \toprule
-\multicolumn{1}{c}{\multirow{2}{*}{\textbf{Outcome variables}}} & \multicolumn{3}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(a)\\ All sample\end{tabular}}} & \multicolumn{3}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(b)\\ Men\end{tabular}}} & \multicolumn{3}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(c)\\ Women\end{tabular}}} \\ \cmidrule(l){2-10} 
-\multicolumn{1}{c}{} & \textbf{All} & \textbf{\begin{tabular}[c]{@{}c@{}}White-\\ collar\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Blue-\\ collar\end{tabular}} & \textbf{All Men} & \textbf{\begin{tabular}[c]{@{}c@{}}White-\\ collar\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Blue-\\ collar\end{tabular}} & \textbf{All Women} & \textbf{\begin{tabular}[c]{@{}c@{}}White-\\ collar\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Blue-\\ collar\end{tabular}} \\ \hline
-\multicolumn{10}{l}{\textbf{(1) Depression Symptoms {[}0-8{]}}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}-0.259\\ (0.392)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.483\\ (0.690)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.126\\ (0.486)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.605\\ (0.459)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.677\\ (0.737)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.651\\ (0.652)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.726\\ (0.590)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-2.042\\ (1.466)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.345\\ (0.636)\end{tabular} \\
-Retired x hit by high \\ unemployment & \begin{tabular}[c]{@{}c@{}}0.286\\ (0.218)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.428\\ (0.335)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.076\\ (0.295)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.053\\ (0.270)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.336\\ (0.375)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.609\\ (0.433)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.498\\ (0.328)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.039\\ (0.725)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.550\\ (0.375)\end{tabular} \\
-Hit by high unemployment & \begin{tabular}[c]{@{}c@{}}-0.183**\\ (0.091)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.289**\\ (0.132)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.012\\ (0.132)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.118\\ (0.111)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.270*\\ (0.147)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.166\\ (0.187)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.207\\ (0.147)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.062\\ (0.301)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.171\\ (0.178)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired)\end{tabular}} & 53.30*** & 16.17*** & 51.78*** & 33.87*** & 10.40*** & 24.96 *** & 29.42*** & 5.57*** & 29.50*** \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired x hit high unemp.)\end{tabular}} & 260.99*** & 127.44*** & 195.94*** & 157.69*** & 79.07*** & 73.51*** & 162.31*** & 44.44*** & 121.16*** \\\hline
-\multicolumn{10}{l}{\textbf{(2) Newly diagnosed psychiatric condition±}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}-0.012\\ (0.043)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.080)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.004\\ (0.051)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.046\\ (0.050)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.017\\ (0.084)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.135\\ (0.073)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-.046\\ (0.066)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.057\\ (0.154)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.087\\ (0.068)\end{tabular} \\
-Retired x hit by high \\ unemployment & \begin{tabular}[c]{@{}c@{}}-0.049**\\ (0.023)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.062*\\ (0.037)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.030\\ (0.030)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.051*\\ (0.028)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.055\\ (0.041)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.058\\ (0.043)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.044\\ (0.035)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.073\\ (0.072)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.003\\ (0.041)\end{tabular} \\
-Hit by high unemployment & \begin{tabular}[c]{@{}c@{}}0.023**\\ (0.010)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.029*\\ (0.015)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.017\\ (0.013)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.022\\ (0.011)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.021\\ (0.016)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.032*\\ (0.019)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.023\\ (0.015)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.042\\ (0.030)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.004\\ (0.017)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired)\end{tabular}} & 53.30*** & 13.87*** & 43.13*** & 25.73*** & 8.32*** & 17.74*** & 27.44*** & 7.05*** & 19.92*** \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired x hit high unemp.)\end{tabular}} & 260.99*** & 94.43*** & 165.60*** & 111.20*** & 56.95*** & 51.32*** & 157.22*** & 41.92*** & 132.14*** \\\hline
-\multicolumn{10}{l}{\textbf{(3) Feeling lonely±}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}0.147**\\ (0.070)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.163\\ (0.120)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.148*\\ (0.084)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.115\\ (0.113)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-.0176\\ (0.178)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.024\\ (0.148)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.285***\\ (0.096)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.489***\\ (0.250)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.184\\ (0.104)\end{tabular} \\
-Retired x hit by high \\ unemployment & \begin{tabular}[c]{@{}c@{}}0.007\\ (0.044)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.052\\ (0.069)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.014\\ (0.060)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.066\\ (0.071)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.014\\ (0.093)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.115\\ (0.121)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.008\\ (0.064)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.175\\ (0.147)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.054\\ (0.075)\end{tabular} \\
-Hit by high unemployment & \begin{tabular}[c]{@{}c@{}}0.009\\ (0.019)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.010\\ (0.027)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.018\\ (0.028)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.001\\ (0.026)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.006\\ (0.033)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.015\\ (0.048)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.002\\ (0.029)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.070\\ (0.060)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.017\\ (0.037)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired)\end{tabular}} & 58.24*** & 18.51*** & 20.29*** & 27.69*** & 11.07*** & 17.72*** & 29.50*** & 7.05*** & 26.89*** \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired x hit high unemp.)\end{tabular}} & 292.24*** & 124.76*** & 129.10*** & 134.62*** & 75.49*** & 53.96*** & 144.34*** & 41.92*** & 104.94*** \\\hline
-\multicolumn{10}{l}{\textbf{(4) Life satisfaction±}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}0.061\\ (0.113)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.127\\ (0.198)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.016\\ (0.137)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.021\\ (0.173)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.154\\ (0.288)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.143\\ (0.232)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.088\\ (0.155)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.420\\ (0.324)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.149\\ (0.175)\end{tabular} \\
-Retired x hit by high\\  unemployment & \begin{tabular}[c]{@{}c@{}}-0.010\\ (0.064)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.093\\ (0.099)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-.059\\ (0.094)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.034\\ (0.094)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.088\\ (0.124)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.063\\ (0.141)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.108\\ (0.091)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.073\\ (0.181)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.149\\ (0.115)\end{tabular} \\
-Hit by high unemployment & \begin{tabular}[c]{@{}c@{}}-0.015\\ (0.029)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.034\\ (0.027)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.010\\ (0.047)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.053\\ (0.040)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.065\\ (0.049)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.035\\ (0.079)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.043\\ (0.044)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.079)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.042\\ (0.057)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired)\end{tabular}} & \multicolumn{1}{r}{61.37***} & \multicolumn{1}{r}{20.29***} & \multicolumn{1}{r}{44.72***} & \multicolumn{1}{r}{30.33***} & \multicolumn{1}{r}{11.25***} & \multicolumn{1}{r}{20.40***} & \multicolumn{1}{r}{30.31***} & \multicolumn{1}{r}{8.35***} & \multicolumn{1}{r}{25.95***} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired x hit high unemp.)\end{tabular}} & \multicolumn{1}{r}{306.33***} & \multicolumn{1}{r}{129.10***} & \multicolumn{1}{r}{170.07***} & \multicolumn{1}{r}{143.54***} & \multicolumn{1}{r}{78.02***} & \multicolumn{1}{r}{60.88***} & \multicolumn{1}{r}{150.22***} & \multicolumn{1}{r}{43.73***} & \multicolumn{1}{r}{108.02***} \\
-\multicolumn{1}{c}{\textit{Control variables}} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} \\
-\multicolumn{1}{c}{\textit{Region and Time FE}} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} \\
-\multicolumn{1}{c}{\textit{Observations}} & 10,273 & 5,173 & 5,100 & 4,793 & 2,829 & 1,964 & 5,480 & 2,153 & 3,136 \\
-\multicolumn{1}{c}{\textit{Number IDs}} & 2,638 & 1,333 & 1,513 & 1,229 & 715 & 616 & 1,409 &  594 & 897 \\ \bottomrule \bottomrule
+ & \textbf{All sample} & \textbf{Men} & \textbf{Women} & \textbf{White-collar} & \textbf{Blue-collar} \\ \midrule
+\multicolumn{6}{l}{\textbf{Panel A. Depression symptoms (CES-D $\geq$ 4)}} \\
+Retired $\times$ high unemployment & \begin{tabular}[c]{@{}c@{}}0.082***\\ (0.023)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.066**\\ (0.029)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.087**\\ (0.037)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.076**\\ (0.032)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.078**\\ (0.035)\end{tabular} \\
+Pre-retirement mean & 0.084 & 0.063 & 0.103 & 0.073 & 0.097 \\
+Effect size (\%) & 97.2 & 104.2 & 84.5 & 104.2 & 80.4 \\
+Min. weak-ID F-statistic & 97.56 & 52.26 & 57.03 & 37.74 & 66.28 \\
+$R^2$ & 0.005 & 0.008 & 0.003 & -0.004 & 0.008 \\
+Observations & 14,774 & 6,857 & 7,917 & 7,520 & 7,097 \\ \midrule
+\multicolumn{6}{l}{\textbf{Panel B. New psychiatric diagnosis}} \\
+Retired $\times$ high unemployment & \begin{tabular}[c]{@{}c@{}}-0.013\\ (0.013)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.021\\ (0.016)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.001\\ (0.020)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.011\\ (0.020)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.013\\ (0.017)\end{tabular} \\
+Pre-retirement mean & 0.017 & 0.014 & 0.020 & 0.017 & 0.017 \\
+Effect size (\%) & -73.7 & -147.9 & -3.5 & -63.5 & -74.0 \\
+Min. weak-ID F-statistic & 97.56 & 52.26 & 57.03 & 37.74 & 66.28 \\
+$R^2$ & -0.010 & 0.003 & -0.015 & -0.034 & 0.007 \\
+Observations & 14,774 & 6,857 & 7,917 & 7,520 & 7,097 \\ \bottomrule
 \end{tabular}%
 }
-\end{adjustwidth}
-\tiny{{ \renewcommand{\arraystretch}{0.2} \emph{Notes:} Significance levels: ***p$\prec$0.01;**p$\prec$0.05;*p$\prec$0.1. Clustered standard errors by individual level in parentheses. The severely hit region takes the value 1 if the individual lives in a region with an unemployment rate higher or equal to the mean during the studied period. Instrumental variables ﬁxed-effects (IV-FE) estimates for mental health and wellbeing outcome. The instrument is the statutory pension age. IV-FE are estimates for the health effect of retirement in economic crisis are captured by Retired × hit by the crisis.  }}
+\tiny{{\singlespacing \emph{Notes:} IV-FE estimates from Equation (2) using the longer-run sample. The reported coefficient is the interaction between retirement and the high-unemployment indicator. Depression is a binary indicator equal to one when the respondent reports four or more CES-D symptoms. All specifications include individual fixed effects, wave indicators, and the full set of controls described in Section 4. Clustered standard errors at the individual level are in parentheses. Significance levels: ***p$\prec$0.01; **p$\prec$0.05; *p$\prec$0.1.}}
 \end{table}
 
-
-\newpage
-
-\begin{table}[!ht]
-\centering
-\renewcommand{\arraystretch}{0.7}
-\caption{IV-FE Estimates of effects on health of retirement in economic crisis: longer-term (2009-2019)}
-\begin{adjustwidth}{-1.75cm}{}
-\label{tab4}
-\resizebox{1.15\textwidth}{!}{%
-\begin{tabular}{@{}lccccccccc@{}}
-\toprule
-\multicolumn{1}{c}{\multirow{2}{*}{\textbf{Outcome variables}}} & \multicolumn{3}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(a)\\ All sample\end{tabular}}} & \multicolumn{3}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(b)\\ Men\end{tabular}}} & \multicolumn{3}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(c)\\ Women\end{tabular}}} \\ \cmidrule(l){2-10} 
-\multicolumn{1}{c}{} & \textbf{All} & \textbf{\begin{tabular}[c]{@{}c@{}}White-\\ collar\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Blue-\\ collar\end{tabular}} & \textbf{All Men} & \textbf{\begin{tabular}[c]{@{}c@{}}White-\\ collar\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Blue-\\ collar\end{tabular}} & \textbf{All Women} & \textbf{\begin{tabular}[c]{@{}c@{}}White-\\ collar\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Blue-\\ collar\end{tabular}} \\ \hline
-\multicolumn{10}{l}{\textbf{(1) Depression Symptoms {[}0-8{]}}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}-0.437\\ (0.276)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.608\\ (0.437)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.311\\ (0.344)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.075\\ (0.331)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.151\\ (0.470)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.211\\ (0.477)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.815\\ (0.389)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-1.76**\\ (0.748)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.348\\ (0.458)\end{tabular} \\
-Retired x Hit by high \\ unemployment & \begin{tabular}[c]{@{}c@{}}0.340**\\ (0.125)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.325*\\ (0.177)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.301*\\ (0.179)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.183\\ (0.154)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.288\\ (0.206)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.009\\ (0.245)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.471**\\ (0.192)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.326\\ (0.322)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.583**\\ (0.240)\end{tabular} \\
-Hit by high unemployment & \begin{tabular}[c]{@{}c@{}}-0.162**\\ (0.072)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.219**\\ (0.097)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.065\\ (0.110)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.091\\ (0.091)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.189*\\ (0.113)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.110\\ (0.161)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.212*\\ (0.113)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.191\\ (0.180)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.219\\ (0.148)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired)\end{tabular}} & 106.59*** & 40.09*** & 92.31*** & \multicolumn{1}{l}{60.10***} & 23.34*** & 42.77*** & 61.39*** & 17.55*** & 48.60*** \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired x hit high unemp.)\end{tabular}} & 618.86*** & 414.91*** & 512.37*** & 514.71*** & 265.61*** & 236.35*** & 459.52*** & 162.07*** & 290.71*** \\\hline
-\multicolumn{10}{l}{\textbf{(2) Newly diagnosed psychiatric condition±}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}-0.047*\\ (0.026)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.080*\\ (0.047)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.018\\ (0.029)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.003\\ (0.034)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.075\\ (0.053)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.084\\ (0.051)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.065\\ (0.043)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.048\\ (0.081)\end{tabular} & \textit{\begin{tabular}[c]{@{}c@{}}-0.067\\ (0.048)\end{tabular}} \\
-Retired x hit by high\\  unemployment & \begin{tabular}[c]{@{}c@{}}-0.008\\ (0.006)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.004\\ (0.010)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.010\\ (0.009)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.021\\ (0.016)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.020\\ (0.024)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.032\\ (0.023)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.001\\ (0.021)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.001\\ (0.035)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.002\\ (0.024)\end{tabular} \\
-Hit by high unemployment & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.003)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.003\\ (0.005)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.001\\ (0.004)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.008\\ (0.010)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.008\\ (0.014)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.014\\ (0.015)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.002\\ (0.012)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.003\\ (0.022)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.007\\ (0.013)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired)\end{tabular}} & 106.59*** & 35.43*** & 80.67*** & 50.38*** & 19.94*** & 34.62*** & 59.40*** & 17.00*** & 48.49*** \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired x hit high unemp.)\end{tabular}} & 618.86*** & 251.39*** & 368.54*** & 275.31*** & 142.67*** & 128.83*** & 384.23*** & 113.54*** & 305.68*** \\\hline
-\multicolumn{10}{l}{\textbf{(3) Feeling lonely±}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}0.059\\ (0.051)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.027\\ (0.084)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.085\\ (0.062)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.003\\ (0.085)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.052\\ (0.127)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.137\\ (0.116)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.076\\ (0.066)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.109\\ (0.111)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.040\\ (0.081)\end{tabular} \\
-Retired x hit by high\\  unemployment & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}0.012\\ (0.016)\end{tabular}} & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}0.016\\ (0.022)\end{tabular}} & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}0.006\\ (0.023)\end{tabular}} & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}0.023\\ (0.040)\end{tabular}} & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}0.029\\ (0.056)\end{tabular}} & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}0.015\\ (0.063)\end{tabular}} & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}0.005\\ (0.037)\end{tabular}} & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}0.001\\ (0.054)\end{tabular}} & \multicolumn{1}{l}{\begin{tabular}[c]{@{}l@{}}0.008\\ (0.054)\end{tabular}} \\
-Hit by high unemployment & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.009)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.014\\ (0.013)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.015\\ (0.014)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-.004\\ (0.022)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.017\\ (0.030)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.019\\ (0.036)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.023)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.001\\ (0.033)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.004\\ (0.034)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired)\end{tabular}} & 106.61*** & 36.54*** & 79.68*** & 47.62*** & 20.16*** & 31.51*** & 59.28*** & 17.66*** & 46.55*** \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired x hit high unemp.)\end{tabular}} & 844.00*** & 405.73*** & 422.62*** & 444.25*** & 251.87*** & 154.44*** & 415.64*** & 158.38*** & 253.44*** \\\hline
-\multicolumn{10}{l}{\textbf{(4) Life satisfaction±}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}0.174**\\ (0.074)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.307**\\ (0.137)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.055\\ (0.091)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.151\\ (0.125)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.270\\ (0.193)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.022\\ (0.189)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.110\\ (0.110)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.322\\ (0.206)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.060\\ (0.124)\end{tabular} \\
-Retired x hit by high \\ unemployment & \begin{tabular}[c]{@{}c@{}}-0.009\\ (0.022)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.027\\ (0.032)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.038\\ (0.031)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.086\\ (0.053)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.105\\ (0.073)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.070\\ (0.089)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.107*\\ (0.056)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.111\\ (0.096)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.082\\ (0.071)\end{tabular} \\
-Hit by high unemployment & \begin{tabular}[c]{@{}c@{}}-0.015\\ (0.013)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.013\\ (0.018)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.055\\ (0.091)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.036\\ (0.033)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.039\\ (0.041)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.035\\ (0.065)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.026\\ (0.035)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.061\\ (0.057)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.012\\ (0.045)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired)\end{tabular}} & 109.24*** & 37.73*** & 81.37*** & 49.86*** & 19.48*** & 35.08*** & 60.06*** & 19.43*** & 45.41*** \\
-\multicolumn{1}{c}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired x hit high unemp.)\end{tabular}} & 867.26*** & 412.35*** & 438.66*** & 458.91*** & 254.38*** & 194.58*** & 425.23*** & 161.83*** & 258.44*** \\
-\multicolumn{1}{c}{\textit{Control variables}} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} \\
-\multicolumn{1}{c}{\textit{Region and Time FE}} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} \\
-\multicolumn{1}{c}{\textit{Observations}} & 15,079 & 7,653 & 7,426 & 6,994 & 4,130 & 2,864 & 8,085 & 3,523 & 4,562 \\
-\multicolumn{1}{c}{\textit{Number IDs}} & 2,647 & 1,345 & 1,532 & 1,233 & 720 & 628 & 1,414 & 625 & 904 \\ \bottomrule \hline
-\end{tabular}%
-}
-\end{adjustwidth}
-
-\tiny{{ \renewcommand{\arraystretch}{0.2} \emph{Notes:} Significance levels: ***p$\prec$0.01;**p$\prec$0.05;*p$\prec$0.1. Clustered standard errors by individual level in parentheses. The severely hit region takes the value 1 if the individual lives in a region with an unemployment rate higher or equal to the mean during the studied period. Instrumental variables ﬁxed-effects (IV-FE) estimates for mental health and wellbeing outcome. The instrument is the statutory pension age. IV-FE are estimates for the health effect of retirement in economic crisis are captured by Retired × hit by the crisis.  }}
-
-\end{table}
-
-
-\newpage 
-\begin{table}[h]
-\centering
-\renewcommand{\arraystretch}{0.7}
-\caption{Moderator Analysis: IV-FE estimates of effects on health of retirement in economic crisis (2009-2013)}
-\begin{adjustwidth}{-1.75cm}{}
-\label{tab5}
-\resizebox{1.15\textwidth}{!}{%
-\begin{tabular}{@{}lcccccccc@{}}
-\toprule
-\multicolumn{1}{c}{\multirow{2}{*}{\textbf{Outcome variables}}} & \multicolumn{2}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(a) \\ BU Net Financial \\ Wealth (top quartile)\end{tabular}}} & \multicolumn{2}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(b)\\ Live with at least one \\ adult or child\end{tabular}}} & \multicolumn{2}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(c)\\ Retirement age before \\ SPA\end{tabular}}} & \multicolumn{2}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(d)\\ Physical activity\\ (moderate/vigorous)\end{tabular}}} \\ \cmidrule(l){2-9} 
-\multicolumn{1}{c}{} & \textit{Men} & \textit{Women} & \textit{Men} & \textit{Women} & \textit{Men} & \textit{Women} & \textit{Men} & \textit{Women} \\ \hline
-\multicolumn{9}{l}{\textbf{(1) Depression Symptoms {[}0-8{]}}} \\\hline
-\begin{tabular}[c]{@{}l@{}}Retired x hit by high \\ unemployment\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.962\\ (1.094)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.258\\ (1.246)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.162\\ (0.285)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.361\\ (0.351)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.726 \\ (1.049)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-5.572 \\ (30.22)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.021\\ (0.273)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.482\\ (0.347)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired)\end{tabular}} & 7.36*** & 1.75 & 25.97*** & 52.94*** & 21.99*** & 10.08*** & 21.88*** & 23.08*** \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired x hit by high unemp.)\end{tabular}} & 20.57*** & 4.08* & 121.65*** & 130.67*** & 44.48*** & 33.59*** & 28.02*** & 36.30*** \\\hline
-\multicolumn{9}{l}{\textbf{(2) Newly diagnosed psychiatric condition±}} \\\hline
-\begin{tabular}[c]{@{}l@{}}Retired x hit by high\\  unemployment\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.144*\\ (0.084)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.166\\ (0.189)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.055*\\ (0.029)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.035\\ (0.036)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.305**\\ (0.131)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.077 \\ (0.091)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.074**\\ (0.030)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.033\\ (0.036)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired)\end{tabular}} & 7.36*** & 1.75 & 25.97*** & 52.94*** & 21.99*** & 10.08*** & 21.88*** & 23.08*** \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired x hit by high unemp.)\end{tabular}} & 20.57*** & 4.08** & 121.65*** & 130.67*** & 44.48*** & 33.59*** & 28.02*** & 36.30*** \\\hline
-\multicolumn{9}{l}{\textbf{(3) Feeling lonely ±}} \\\hline
-\begin{tabular}[c]{@{}l@{}}Retired x hit by high \\ unemployment\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.218\\ (0.343)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.070\\ (0.459)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.096\\ (0.083)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.014\\ (0.075)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.104 \\ (0.244)\end{tabular} & \begin{tabular}[c]{@{}c@{}}8.388 \\ (60.934)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.064\\ (0.075)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.018\\ (0.072)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired)\end{tabular}} & 3.28* & 1.57 & 18.99*** & 23.36*** & 22.24*** & 10.16*** & 20.11*** & 27.37*** \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired x hit by high unemp.)\end{tabular}} & 13.69*** & 3.35* & 24.08*** & 23.70*** & 45.44*** & 51.70*** & 26.68*** & 34.50*** \\\hline
-\multicolumn{9}{l}{\textbf{(4) Life satisfaction±}} \\\hline
-\begin{tabular}[c]{@{}l@{}}Retired x hit by high\\  unemployment\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.220\\ (0.358)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.306\\ (0.597)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.062\\ (0.106)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.060\\ (0.104)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.535 \\ (0.400)\end{tabular} & \begin{tabular}[c]{@{}c@{}}11.78 \\ (131.49)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.075\\ (0.099)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.120\\ (0.099)\end{tabular} \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired)\end{tabular}} & 3.35* & 1.32 & 19.61*** & 20.68*** & 20.30*** & 9.67*** & 20.10*** & 28.08*** \\
-\multicolumn{1}{r}{\begin{tabular}[c]{@{}r@{}}Weak identification: F-test \\ (Retired x hit by high unemp.)\end{tabular}} & 10.87*** & 2.14 & 24.25*** & 23.86*** & 48.82*** & 43.77*** & 26.40*** & 34.91*** \\
-\multicolumn{1}{c}{\textit{Control variables}} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} \\
-\multicolumn{1}{c}{\textit{Time FE}} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} & \textit{\checkmark} \\
-\multicolumn{1}{c}{\textit{Observations}} & 1,074 & 1,111 & 4,230 & 4,438 & 1,236 & 483 & 4,496 & 5,284 \\
-\multicolumn{1}{c}{\textit{Number IDs}} & 449 & 477 & 1,110 & 1,217 & 278 & 108 & 1,212 & 1,395 \\ \bottomrule \hline
-\end{tabular}%
-}
-\end{adjustwidth}
-\tiny{{ \renewcommand{\arraystretch}{0.2} \emph{Notes:}  Significance levels: ***p$\prec$0.01;**p$\prec$0.05;*p$\prec$0.1. Clustered standard errors by individual level in parentheses. The severely hit region takes the value 1 if the individual lives in a region with an unemployment rate higher or equal to the mean during the studied period. Instrumental variables ﬁxed-effects (IV-FE) estimates for mental health and wellbeing outcome. The instrument is the statutory pension age. IV-FE are estimates for the health effect of retirement in economic crisis are captured by Retired × hit by the crisis.  }}
-
-\end{table}
-
-\fi
-\clearpage
-\appendix
-\section*{Appendix}
-\addcontentsline{toc}{section}{Appendix}
-\thispagestyle{empty}
-
-\begin{center}
-{\Large \textbf{Appendix}}\\[0.5em]
-{\normalsize Supporting Material for \enquote{How Do Economic Shocks Impact Upon the Mental Health of Retirees?}}
-\end{center}
-
-\noindent This appendix collects the supporting material accompanying the main text. For ease of navigation, the material is organised as follows:
-
-\begin{center}
-\renewcommand{\arraystretch}{1.15}
-\begin{tabular}{p{0.78\textwidth}r}
-Appendix A. English Longitudinal Study of Ageing (ELSA) & \pageref{sec:appendixa} \\
-Appendix B. Validity tests for the instrumental-variables approach & \pageref{sec:appendixB} \\
-Appendix C. Robustness check results & \pageref{sec:appendixC} \\
-Appendix D. Additional figures and tables & \pageref{sec:appendixD} \\
-\end{tabular}
-\end{center}
 
 \clearpage
+%\appendix
 \section*{Appendix A. English Longitudinal Study of Ageing (ELSA)} 
 \label{sec:appendixa}
 \setcounter{table}{0}
@@ -1068,7 +703,7 @@ We have an unbalanced panel dataset of individuals, with approximately 76\% of t
 \begin{table}[h]
 \begin{adjustwidth}{-1.75cm}{}
 \centering
-\caption{Unbalanced panel observations: short-term analysis (2004--2013)}
+\caption{Unbalanced panel observation (short-term analysis (2004-2013)}
 \label{tabA4}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{cccccccc}
@@ -1085,7 +720,7 @@ $Wave_{t}$ & \textbf{$Wave_{t+1}$} & \textbf{$Wave_{t+2}$} & \textbf{$Wave_{t+3}
 \end{table}
 
 \newpage
-Table A5 presents the results of two informal tests examining the severity of selective attrition. We first expand the rows in the dataset to create a nominally "balanced" format to ensure that each identifier includes the same list of time periods, filling in any waves without data with missing values. Next, we define the complete-cases selection indicator, denoted as $(s)$. We then use this indicator in two auxiliary regressions: first with new psychiatric diagnosis as the outcome, and second with attrition itself as the outcome, controlling for the main specification variables.
+Table A5 presents the results of two informal tests examining the severity of selective attrition. We first expand the rows in the dataset to create a nominally balanced format so that each identifier includes the same list of time periods, filling in waves without data with missing values. We then define a complete-cases selection indicator. The first specification uses new psychiatric diagnosis as the dependent variable, while the second uses attrition itself as the dependent variable, controlling for the main specification variables.
 
 
 \begin{table}[h]
@@ -1094,7 +729,7 @@ Table A5 presents the results of two informal tests examining the severity of se
 \renewcommand{\arraystretch}{0.7}
 \caption{Attrition tests}
 \begin{adjustwidth}{-1.25cm}{}
-\label{tabA5}
+\label{tab5}
 \resizebox{\textwidth}{!}{%
 \begin{tabular}{@{}ccccccc@{}}
 \toprule
@@ -1112,474 +747,109 @@ IDs & 2,638 & 1,229 & 1,409 & 2,638 & 1,229 & 1,409 \\ \bottomrule
 \end{table}
 
 \newpage
-\section*{Appendix B. Validity Tests for the Instrumental-Variables Approach} \label{sec:appendixB}
+\section*{Appendix B. Instrument validity diagnostics} \label{sec:appendixB}
 \setcounter{table}{0}
 \renewcommand{\thetable}{B\arabic{table}}
 \addcontentsline{toc}{section}{Appendix B}
 
-The appendix follows the same evidence hierarchy as the main text. Depression symptoms (CES-D) and new psychiatric diagnosis remain the two primary outcomes, while loneliness and life satisfaction are retained here as secondary well-being outcomes.
-
-
 \begin{table}[h]
-
 \centering
-\caption{Instrument-validity diagnostics for the baseline retirement design: short-run sample (2004--2013)}
-\begin{adjustwidth}{-1cm}{}
+\caption{Baseline IV diagnostics for the short-run sample (2009--2013)}
 \label{tabB1}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}rcccc@{}}
+\resizebox{0.92\textwidth}{!}{%
+\begin{tabular}{@{}lcccc@{}}
 \toprule
-\multicolumn{1}{c}{\textbf{Outcome variables}} & \textbf{All sample} & \textbf{Women} & \textbf{Blue-collar} & \textbf{\begin{tabular}[c]{@{}c@{}}Unemployment above \\ average\end{tabular}} \\ \midrule
-\multicolumn{5}{l}{\textbf{(1) Depression symptoms (CES-D, 0--8)}} \\
-Under identification test: Kleibergen-Paap (Chi-square) & 102.19 & 57.53 & 97.62 & 42.14 \\
-Weak identification: Sanderson–Windmeijer (F-test) & 103.77 & 57.94 & 99.63 & 42.27 \\
-Weak-instrument-robust inference: Anderson-Rubin Wald test (F-test) & 0.00 & 1.36 & 0.02 & 1.44 \\
-\multicolumn{5}{l}{\textbf{(2) New psychiatric diagnosis}} \\
-Under identification test: Kleibergen-Paap (Chi-square) & 102.26 & 57.53 & 97.62 & 42.14 \\
-Weak identification: Sanderson–Windmeijer (F-test) & 103.85 & 57.94 & 99.63 & 42.27 \\
-Weak-instrument-robust inference: Anderson-Rubin Wald test (F-test) & 0.41 & 0.66 & 0.08 & 0.51 \\
-\multicolumn{5}{l}{\textbf{(3) Loneliness indicator}} \\
-Under identification test: Kleibergen-Paap (Chi-square) & 95.28 & 58.04 & 83.15 & 38.72 \\
-Weak identification: Sanderson–Windmeijer (F-test) & 97.17 & 58.52 & 84.75 & 38.83 \\
-Weak-instrument-robust inference: Anderson-Rubin Wald test (F-test) & 5.05 & 9.13 & 2.56 & 6.24 \\
-\multicolumn{5}{l}{\textbf{(4) Life-satisfaction indicator}} \\
-Under identification test: Kleibergen-Paap (Chi-square) & 99.46 & 59.54 & 84.93 & 38.07 \\
-Weak identification: Sanderson–Windmeijer (F-test) & 101.52 & 60.05 & 86.57 & 38.17 \\
-Weak-instrument-robust inference: Anderson-Rubin Wald test (F-test) & 0.32 & 0.27 & 0.04 & 0.55 \\
-\multicolumn{1}{c}{\textit{Observations}} & 10,273 & 5,480 & 5,100 & 6,531 \\
-\multicolumn{1}{c}{\textit{Number IDs}} & 2,638 & 1,409 & 1,513 & 2,298 \\ \bottomrule
+ & \textbf{All sample} & \textbf{Women} & \textbf{Blue-collar} & \textbf{High-unemployment} \\ \midrule
+\multicolumn{5}{l}{\textbf{Panel A. Depression symptoms (CES-D $\geq$ 4)}} \\
+Kleibergen-Paap LM statistic & 102.71 & 52.58 & 77.83 & 36.30 \\
+Weak-ID F-statistic & 104.31 & 53.40 & 80.25 & 36.39 \\
+Observations & 9,951 & 5,301 & 4,718 & 6,235 \\ \midrule
+\multicolumn{5}{l}{\textbf{Panel B. New psychiatric diagnosis}} \\
+Kleibergen-Paap LM statistic & 102.71 & 52.58 & 77.83 & 36.30 \\
+Weak-ID F-statistic & 104.31 & 53.40 & 80.25 & 36.39 \\
+Observations & 9,951 & 5,301 & 4,718 & 6,235 \\ \bottomrule
 \end{tabular}%
 }
-\end{adjustwidth}
-
-\tiny{{ \renewcommand{\arraystretch}{0.2} \emph{Notes:} Rows (1) and (2) correspond to the main-paper outcomes; rows (3) and (4) are secondary well-being outcomes retained in the appendix. Underidentification test: Ho: matrix of reduced-form coefficients has rank $=K1-1$ (underidentified), Ha: matrix has rank $=K1$ (identified). Weak identification test: Ho: equation is weakly identified. Anderson-Rubin is reported as weak-instrument-robust inference. }}
+\tiny{{\singlespacing \emph{Notes:} Appendix Table B1 reports the baseline IV diagnostic statistics for the two mental-health outcomes in the short-run sample. The instrument is statutory pension-age eligibility.}}
 \end{table}
 
 \newpage
-
-
 \begin{table}[h]
-
 \centering
-\renewcommand{\arraystretch}{1}
-\caption{Instrument-validity diagnostics for the interaction-IV design: short-run sample (2004--2013)}
+\caption{Interacted IV diagnostics for the short-run crisis specification (2009--2013)}
 \label{tabB2}
-\begin{adjustwidth}{-1.5cm}{}
-\resizebox{1.05\textwidth}{!}{%
-\begin{tabular}{@{}lccccccccc@{}}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lccccc@{}}
 \toprule
-\multirow{2}{*}{\textbf{Outcome variables}} & \multicolumn{3}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(a) \\ All population\end{tabular}}} & \multicolumn{3}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(b) \\ Men\end{tabular}}} & \multicolumn{3}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(c) \\ Women\end{tabular}}} \\ \cmidrule(l){2-10} 
- & \textbf{All} & \textbf{\begin{tabular}[c]{@{}c@{}}White-\\ collar\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Blue-\\ collar\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}All \\ Men\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}White-\\ collar\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Blue-\\ collar\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}All \\ Women\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}White-\\ collar\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Blue-\\ collar\end{tabular}} \\ \hline
-\multicolumn{10}{l}{\textbf{1) Depression symptoms (CES-D, 0--8)}} \\\hline
-\begin{tabular}[c]{@{}l@{}}Under identification test: \\ Kleibergen-Paap (Chi-square)\end{tabular} & 105.04 & 31.82 & 101.07 & 66.81 & 20.21 & 48.78 & 56.98 & 8.55 & 58.10 \\
-\begin{tabular}[c]{@{}l@{}}Weak identification: \\ Sanderson–Windmeijer (F-test)\end{tabular} & 800.16 & 341.73 & 562.36 & 471.82 & 178.88 & 210.82 & 444.96 & 29.57 & 352.82 \\
-\begin{tabular}[c]{@{}l@{}}Weak-instrument-robust inference:\\  Anderson-Rubin Wald test (F-test)\end{tabular} & 1.01 & 1.08 & 0.07 & 0.85 & 0.70 & 1.05 & 1.80 & 1.38 & 1.03 \\\hline
-\multicolumn{10}{l}{\textbf{(2) New psychiatric diagnosis}} \\\hline
-\begin{tabular}[c]{@{}l@{}}Under identification test: \\ Kleibergen-Paap (Chi-square)\end{tabular} & 105.04 & 27.27 & 82.58 & 51.59 & 16.37 & 35.41 & 53.08 & 10.68 & 54.17 \\
-\begin{tabular}[c]{@{}l@{}}Weak identification: \\ Sanderson–Windmeijer (F-test)\end{tabular} & 800.16 & 254.15 & 482.45 & 328.18 & 128.66 & 149.18 & 443.85 & 34.06 & 386.79 \\
-\begin{tabular}[c]{@{}l@{}}Weak-instrument-robust inference:\\  Anderson-Rubin Wald test (F-test)\end{tabular} & 2.96 & 1.45 & 0.88 & 1.65 & 0.93 & 2.06 & 1.33 & 4.05 & 1.55 \\\hline
-\multicolumn{10}{l}{\textbf{(3) Loneliness indicator}} \\\hline
-\begin{tabular}[c]{@{}l@{}}Under identification test: \\ Kleibergen-Paap (Chi-square)\end{tabular} & 114.66 & 35.62 & 39.45 & 54.49 & 20.58 & 34.61 & 56.41 & 10.68 & 52.99 \\
-\begin{tabular}[c]{@{}l@{}}Weak identification: \\ Sanderson–Windmeijer (F-test)\end{tabular} & 881.83 & 289.58 & 328.07 & 396.51 & 131.07 & 143.68 & 372.97 & 34.06 & 305.69 \\
-\begin{tabular}[c]{@{}l@{}}Weak-instrument-robust inference:\\  Anderson-Rubin Wald test (F-test)\end{tabular} & 2.36 & 1.42 & 0.79 & 0.90 & 0.58 & 0.62 & 4.44 & 4.05 & 1.40 \\\hline
-\multicolumn{10}{l}{\textbf{(4) Life-satisfaction indicator}} \\\hline
-\begin{tabular}[c]{@{}l@{}}Under identification test: \\ Kleibergen-Paap (Chi-square)\end{tabular} & 120.82 & 39.45 & 87.45 & 59.76 & 21.72 & 39.78 & 57.79 & 12.67 & 51.21 \\
-\begin{tabular}[c]{@{}l@{}}Weak identification: \\ Sanderson–Windmeijer (F-test)\end{tabular} & 919.07 & 328.07 & 484.41 & 421.99 & 171.31 & 162.90 & 381.13 & 39.69 & 317.01 \\
-\begin{tabular}[c]{@{}l@{}}Weak-instrument-robust inference:\\  Anderson-Rubin Wald test (F-test)\end{tabular} & 0.17 & 0.79 & 0.30 & 0.07 & 0.42 & 0.20 & 0.90 & 1.06 & 1.54 \\
-\multicolumn{1}{c}{\textit{Observations}} & 10,273 & 5,173 & 5,100 & 4,793 & 2,829 & 1,964 & 5,480 & 2,153 & 3,136 \\
-\multicolumn{1}{c}{\textit{Number IDs}} & 2,638 & 1,333 & 1,513 & 1,229 & 715 & 616 & 1,409 & 594 & 897 \\ \bottomrule
+ & \textbf{All sample} & \textbf{Men} & \textbf{Women} & \textbf{White-collar} & \textbf{Blue-collar} \\ \midrule
+\multicolumn{6}{l}{\textbf{Panel A. Depression symptoms (CES-D $\geq$ 4)}} \\
+Kleibergen-Paap LM statistic & 105.19 & 51.71 & 53.10 & 27.19 & 82.93 \\
+Weak-ID F-statistic & 53.21 & 25.76 & 26.72 & 13.59 & 42.66 \\
+Observations & 9,951 & 4,650 & 5,301 & 5,028 & 4,718 \\ \midrule
+\multicolumn{6}{l}{\textbf{Panel B. New psychiatric diagnosis}} \\
+Kleibergen-Paap LM statistic & 105.19 & 51.71 & 53.10 & 27.19 & 82.93 \\
+Weak-ID F-statistic & 53.21 & 25.76 & 26.72 & 13.59 & 42.66 \\
+Observations & 9,951 & 4,650 & 5,301 & 5,028 & 4,718 \\ \bottomrule
 \end{tabular}%
 }
-\end{adjustwidth}
-
-\tiny{{ \renewcommand{\arraystretch}{0.2} \emph{Notes:} Rows (1) and (2) correspond to the main-paper outcomes; rows (3) and (4) are secondary well-being outcomes retained in the appendix. Underidentification test (Kleibergen-Paap): Ho: matrix of reduced-form coefficients has rank $=K1-1$ (underidentified), Ha: matrix has rank $=K1$ (identified). Weak identification test (Sanderson-Windmeijer multivariate F test of excluded instruments): Ho: equation is weakly identified. Anderson-Rubin is reported as weak-instrument-robust inference.}}
+\tiny{{\singlespacing \emph{Notes:} Appendix Table B2 reports diagnostic statistics for the interacted IV specification in Equation (2), where retirement and retirement $\times$ high unemployment are instrumented with pension-age eligibility and its interaction with high unemployment.}}
 \end{table}
 
-
 \newpage
-\section*{Appendix C. Robustness Check Results} \label{sec:appendixC}
+\section*{Appendix C. Alternative depression measure and event-study evidence} \label{sec:appendixC}
 \setcounter{table}{0}
 \renewcommand{\thetable}{C\arabic{table}}
 \setcounter{figure}{0}
 \renewcommand{\thefigure}{C\arabic{figure}}
 \addcontentsline{toc}{section}{Appendix C}
 
-In this section, we examine whether our results are affected by (i) the definition of retirement and (ii) the estimation method used. 
-
-\newpage
-\subsection*{AC1. Retirement definition}
+Appendix C presents two supporting pieces of evidence. First, Table C1 re-estimates the crisis specification using the continuous CES-D symptom count, which ranges from 0 to 8. Second, Figures C1--C3 report event-study estimates for the two main mental-health outcomes in the full sample and separately by sex.
 
 \begin{table}[h]
 \centering
-\renewcommand{\arraystretch}{0.7}
-\caption{Robustness to alternative retirement definitions: short-run sample (2004--2013)}
-\begin{adjustwidth}{-1.5cm}{}
-\label{tabC1_retdef}
-\resizebox{1.05\textwidth}{!}{%
-\begin{tabular}{@{}rcccccc@{}}
+\caption{Continuous CES-D symptom count as an alternative depression measure}
+\label{tabC1}
+\resizebox{0.82\textwidth}{!}{%
+\begin{tabular}{@{}lcc@{}}
 \toprule
-\multicolumn{1}{c}{\textbf{Outcome variables}} & \multicolumn{3}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(a)\\ Retirement from work\\ (drop self-employed)\end{tabular}}} & \multicolumn{3}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}(b)\\ Retirement from work \\ (drop part-time workers)\end{tabular}}} \\ \midrule
-\multicolumn{1}{c}{\textbf{}} & All & Men & Women & All & Men & Women \\\hline
-\multicolumn{7}{l}{\textbf{(1) Depression symptoms (CES-D, 0--8)}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}-0.429\\ (0.393)\end{tabular} & \begin{tabular}[c]{@{}c@{}}1.026\\ (0.487)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-1.105**\\ (0.559)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.154\\ (0.297)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.857**\\ (0.412)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.864*\\ (0.448)\end{tabular} \\
-\textit{Retired x hit by high unemployment} & \begin{tabular}[c]{@{}c@{}}0.321\\  (0.228)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.123\\ (0.029)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.446\\ (0.335)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.333\\ (0.203)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.053\\ (0.269)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.664\\ (0.448)\end{tabular} \\
-Hit by high unemployment & \begin{tabular}[c]{@{}c@{}}-0.221**\\ (0.105)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.124\\ (0.134)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.200\\ (0.162)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.354***\\ (0.107)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.224*\\ (0.123)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.560***\\ (0.231)\end{tabular} \\ \hline
-\multicolumn{7}{l}{\textbf{(2) New psychiatric diagnosis}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}-0.024\\ (0.046)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.037\\ (0.054)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.054\\ (0.066)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.014\\ (0.037)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.011\\ (0.045)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.042\\ (0.057)\end{tabular} \\
-\textit{Retired x hit by high unemployment} & \begin{tabular}[c]{@{}c@{}}-0.048*\\ (0.025)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.047*\\ (0.029)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.049\\ (0.036)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.062***\\ (0.022)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.041*\\ (0.021)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.077*\\ (0.039)\end{tabular} \\
-Hit by high unemployment & \begin{tabular}[c]{@{}c@{}}0.021*\\ (0.011)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.021\\ (0.013)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.022\\ (0.017)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.031***\\ (0.011)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.025**\\ (0.010)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.038\\ (0.024)\end{tabular} \\\hline
-\multicolumn{7}{l}{\textbf{(3) Loneliness indicator}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}0.127*\\ (0.066)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.069\\ (0.109)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.213***\\ (0.083)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.056\\ (0.057)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.078\\ (0.105)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.011\\ (0.071)\end{tabular} \\
-\textit{Retired x hit by high unemployment} & \begin{tabular}[c]{@{}c@{}}0.009\\ (0.045)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.043\\ (0.075)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.025\\ (0.063)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.040\\ (0.039)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.021\\ (0.066)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.090\\ (0.066)\end{tabular} \\
-Hit by high unemployment & \begin{tabular}[c]{@{}c@{}}0.006\\ (0.022)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.010\\ (0.033)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.013\\ (0.031)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.006\\ (0.022)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.013\\ (0.028)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.052\\ (0.043)\end{tabular} \\\hline
-\multicolumn{7}{l}{\textbf{(4) Life-satisfaction indicator}} \\\hline
-Retired & \begin{tabular}[c]{@{}c@{}}0.077\\ (0.107)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.056\\ (0.165)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.117\\ (0.140)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.052\\ (0.093)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.043\\ (0.163)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.058\\ (0.123)\end{tabular} \\
-\textit{Retired x hit by high unemployment} & \begin{tabular}[c]{@{}c@{}}0.013\\ (0.067)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.137\\ (0.098)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.116\\ (0.090)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.061\\ (0.059)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.088\\ (0.089)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.078\\ (0.110)\end{tabular} \\
-Hit by high unemployment & \begin{tabular}[c]{@{}c@{}}-0.015\\ (0.033)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.092*\\ (0.048)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.059\\ (0.046)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.063*\\ (0.035)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.075*\\ (0.044)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.017\\ (0.068)\end{tabular} \\
-\multicolumn{1}{c}{Obs} & 8,811 & 3,870 & 4,941 & 7,284 & 3,960 & 3,324 \\
-\multicolumn{1}{c}{IDs} & 2,387 & 1,064 & 1,323 & 2,288 & 1,163 & 1,125 \\ \bottomrule
+ & \textbf{Short run (2009--2013)} & \textbf{Longer run (2009--2019)} \\ \midrule
+Retired $\times$ high unemployment & \begin{tabular}[c]{@{}c@{}}0.266\\ (0.214)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.342***\\ (0.122)\end{tabular} \\
+Pre-retirement mean & 1.049 & 1.020 \\
+Effect size (\%) & 25.3 & 33.5 \\
+Min. weak-ID F-statistic & 54.24 & 97.56 \\
+$R^2$ & 0.021 & 0.009 \\
+Observations & 9,951 & 14,774 \\ \bottomrule
 \end{tabular}%
 }
-\end{adjustwidth}
-
-\scriptsize{{ \renewcommand{\arraystretch}{0.2} \emph{Notes:} Rows (1) and (2) correspond to the main-paper outcomes; rows (3) and (4) are secondary well-being outcomes retained in the appendix. Significance levels: ***$p<0.01$; **$p<0.05$; *$p<0.1$.}}
+\tiny{{\singlespacing \emph{Notes:} IV-FE estimates from Equation (2) using the continuous CES-D symptom count instead of the binary depression indicator. Clustered standard errors at the individual level are in parentheses. Significance levels: ***p$\prec$0.01; **p$\prec$0.05; *p$\prec$0.1.}}
 \end{table}
 
 \newpage
-\subsection*{AC2. Other empirical strategies }
-
-We performed other empirical methodologies to control for systematic differences between workers and retirees while still estimating the health effects of retirement in economic crisis. These include a propensity score differences in differences, event study, FE DD and triple DD. More information on how these empirical approaches are implemented and the results can be seen below.
-
-\medskip
-\textbf{a)	Event-study analysis}
-\medskip
-
-We explore the parallel-trends assumption by comparing trends in health outcomes during the years prior to the Great Recession (2004--2007) using the post-matching sample. Figures C1--C3 report the corresponding event-study evidence. Trends using the pre-matching sample for all health outcomes are available upon request.
-
-The regression is estimated using fixed effects to control for unobserved heterogeneity across individuals, and standard errors are clustered at the individual level. We show results for many physical and mental health indicators available in ELSA. Below is the equation for this model in a mathematical form:
-
-\begin{equation}
-    Y_{it}=\alpha_{i} + \beta_{1} Retirement +  \sum_{k=-1}^{4} \gamma_{k} t_{k,it} + \delta_{1} UR_{it} +\gamma_{2} Age_{it} + wave_{i} + region_{it} + \mu_{it}
-\end{equation}
-
-where:
-
-$Y_{it} =$ The dependent variable indicates whether individual I reported a new depression or anxiety diagnosis in period t.
-
-$\alpha_{i}=$ individual fixed effects, capturing time-invariant characteristics specific to each individual.
-
-$Retirement=$ A binary variable indicating whether individual i is retired in period t.
-
-$t_{k, it}=$ Event-time indicators for $k={-1,0,1,2,3,4,5}$, representing time relative to the economic crisis (e.g., $t=0$ is just before the economic crisis started (2006/07).
-
-$UR_{it}=$ The unemployment rate at the regional level is included as a control.
-
-$Age_{it}=$ The age of the individual in period t.
-
-$wave_i=$ Wave dummies for survey waves 2004/05 through 2018/19, capturing period-specific effects.
-
-$region_{it}=$ Region dummies for England regions, capturing regional fixed effects.
-
-$\mu_{it}=$ The error term, clustered at the individual level (i) to account for within-individual correlation over time.
-
-
-
-\begin{figure}[htb!]\caption{Event-study estimates for new psychiatric diagnosis}
+\begin{figure}[htb!]
+\caption{Event-study estimates in the full sample}
+\label{figC1}
 \begin{center}
-\label{figC1_event_psych}
-\includegraphics[width=0.725\textwidth]{eventstudy1.png}
-%\hspace{\fill}
-\includegraphics[width=0.725\textwidth]{eventstudy1.2.png}
+\includegraphics[width=0.72\textwidth]{eventstudy1.png}
+\includegraphics[width=0.72\textwidth]{eventstudy1.2.png}
 \end{center}
+\scriptsize{\singlespacing \emph{Notes:} The top panel reports event-study estimates for depression symptoms, defined as CES-D $\geq$ 4, and the bottom panel reports event-study estimates for new psychiatric diagnosis. Both figures are estimated on the full sample with individual fixed effects, wave effects, and the standard control set.}
 \end{figure}
 
 \newpage
-
-\begin{figure}[htb!]\caption{Event-study estimates for additional health outcomes}
-\label{figC2_event_general}
+\begin{figure}[htb!]
+\caption{Event-study estimates for men}
+\label{figC2}
 \centering
-\includegraphics[width=0.85\textwidth]{eventstudy2.png}
-\end{figure}
-
-
-\newpage
-
-\begin{figure}[htb!]\caption{Event-study estimates for broader health outcomes}
-\label{figC3_event_general}
-\centering
-\includegraphics[width=0.9\textwidth]{eventstudy3.png}
-\end{figure}
-
-\medskip
-\textbf{b)	Difference-in-differences model}
-\medskip
-
-The baseline DD specification takes the following form:
-
-\begin{equation}
- Y_{it} = \alpha + \beta_{1} Post_t + \beta_{2} Treat_i + \beta_{3}Post_t* Treat_i + Year_t + Region_i + X_{it}  + \epsilon_{it}           (1)   
-\end{equation}
-
-The dependent variable, $Y_{it}$, is the set of mental and physical health variables reported by individual i on a year t. $Post_t$ is a dummy variable that equals 1 for the post-recession period (2010-11), and 0 for the pre-recession period (2004-07). $Treat_i$ is a dummy variable that equals 1 if the respondent retires between waves. The parameter of interest is$ \beta_{3}$ corresponding to the interaction between binary variables identifying the treatment group ($Treat_i$) and the post-recession period ($Post_t$), respectively. This specification controls for a set of covariates including sex; age; age squared; marital status; number of children in the household; country of birth; and educational attainment. We also include regional (Region_i) and years ($Year_t$) fixed effects. In this case, standard errors are clustered at individual level.
-
-The Great Recession hit the UK between the second quarter of 2008 and the second quarter of 2009, leading to higher unemployment and worsening labour market conditions (Bell et al., 2010). Accordingly, the years between 2004-2007 are used as the pre-recession period and the years between 2010-11 as the post-recession period. Following the previous literature exploring the effects of the Great Recession (e.g., Parma et al., 2016; Thompson et al., 2019), the years 2008-09 are excluded to allow the recession enough time to influence the relationship between retirement and health (i.e., it is assumed that the health effects of retirement would not be instantaneously affected by the Great Recession). Accordingly, since we want to investigate whether the Great Recession affected the impact of retirement on health, the difference-in-differences estimate focuses on the effect of retiring during the post-recession years (2010-11).   
-
-We also separately run Equation (1) using as the post-recession period variable ($Post_t$),  the years between 2010-2017 to provide an average estimate on the health effects of retiring after the economic recession for a longer time period. 
-
-\medskip
-\textbf{c)	Triple difference-in-difference method }
-\medskip
-
-Here, we also perform a heterogenous analysis that exploits regional differences in the exposure to the Great Recession measured by changes in the unemployment rate (regional intensity). This allows retirement effects to depend on the extent of macroeconomic shocks varying over time and across regions, akin to a triple-difference specification.
-
-\medskip
-\textbf{d)	Kernel propensity score matching with difference-in-difference}
-\medskip
-
-A kernel propensity score matching difference-in-differences approach (KPSM-DD) is used to identify whether the Great Recession (GR) influenced the impact of retirement on health (Heckman et al., 1998).  This method involves a two-stage difference-in-differences estimation that I) computes kernel-based propensity scores matching weights using a treatment model to pre-process the data and build more comparable treatment and control groups; and II) estimates a difference-in-differences (DD) specification to identify the impact of retirement on health after the GR using the re-weighted and improved treatment and control groups. 
-
-This stage predicts the conditional probability of retiring for each observation in the data,  $p(retirement)=\hat{p}(X_i)$, and produces corresponding weights for each individual. Thus, individuals in the treatment group (retirees) receive a weight of 1, while individuals in other groups receive a weight that is defined by the probability of being in the treatment group (retirees) relative to the probability of being in the group they actually belong to. The weighting strategy used here weights the four groups (treatment groups pre- and post-recession and control groups pre- and post-recession) to be as similar as possible based on a set of key observable characteristics. We selected the following pre-treatment covariates to estimate the propensity score: sex; age; age squared; marital status; number of children in the household; country of birth; educational attainment; density and deprivation level dummies; state-pension age; benefit and contribution pension dummies; and pension wealth. This can be thought of as weighting each of the four corresponding cells to reflect the covariate distribution in the treatment group during the pre-recession period, thus removing biases due to systematic differences in the observables between the four groups. 
-
-\newpage
-\begin{table}[h]
-\centering
-\renewcommand{\arraystretch}{0.7}
-\caption{Alternative empirical strategies: short-run all-sample estimates (2004--2013)}
-\begin{adjustwidth}{-1cm}{}
-\label{tabC2_methods}
-\resizebox{\textwidth}{!}{%
-\begin{tabular}{@{}cccc@{}}
-\toprule
-\textbf{} & \textbf{\begin{tabular}[c]{@{}c@{}}2SLS DiD with \\ covariates\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Kernel Propensity Score \\ Matching-DiD\end{tabular}} & \textbf{\begin{tabular}[c]{@{}c@{}}Triple DiD with \\ covariates\end{tabular}} \\ \midrule
-\multicolumn{4}{l}{\textbf{1) Depression symptoms (CES-D, 0--8)}} \\ \hline
-Retired × Post GR & \begin{tabular}[c]{@{}c@{}}0.019 \\ (0.020)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.020   \\ (0.025)\end{tabular} &  \\
-Retired × Post GR× hit by   crisis &  &  & \begin{tabular}[c]{@{}c@{}}-0.026\\  (0.052)\end{tabular} \\
-R-squared & 0.04 &  & 0.04 \\
-Obs & 10,273 & 10,593 & 10,273 \\\hline
-\multicolumn{4}{l}{\textbf{2) New psychiatric diagnosis}} \\\hline
-Retired × Post GR & \begin{tabular}[c]{@{}c@{}}-0.014   \\ (0.009)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.011\\  (0.014)\end{tabular} &  \\
-Retired × Post GR× hit by   crisis &  &  & \begin{tabular}[c]{@{}c@{}}-0.053**\\  (0.025)\end{tabular} \\
-R-squared & 0.01 &  & 0.01 \\
-Obs & 10,273 & 9,814 & 10,273 \\\hline
-\multicolumn{4}{l}{\textbf{3) Loneliness indicator}} \\\hline
-Retired × Post GR & \begin{tabular}[c]{@{}c@{}}-0.011   \\ (0.018)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.020\\  (0.012)\end{tabular} &  \\
-Retired × Post GR× hit by   crisis &  &  & \begin{tabular}[c]{@{}c@{}}0.011\\ (0.049)\end{tabular} \\
-R-squared & 0.03 &  & 0.03 \\
-Obs & 9,130 & 7,930 & 9,130 \\\hline
-\multicolumn{4}{l}{\textbf{4) Life-satisfaction indicator}} \\\hline
-Retired × Post GR & \begin{tabular}[c]{@{}c@{}}0.039  \\ (0.035)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.012   \\ (0.048)\end{tabular} &  \\
-Retired × Post GR× hit by   crisis &  &  & \begin{tabular}[c]{@{}c@{}}0.001   \\ (0.094)\end{tabular} \\
-R-squared & 0.06 &  & 0.06 \\
-Obs & 9,308 & 8,574 & 9,308 \\
-\textit{\begin{tabular}[c]{@{}c@{}}Control for exogenous individual\\  characteristics\end{tabular}} & \checkmark & \checkmark & \checkmark \\
-\textit{Region and Time FE} & \checkmark & \checkmark & \checkmark \\ \bottomrule
-\end{tabular}%
-}
-\end{adjustwidth}
-
-
-\scriptsize{{ \renewcommand{\arraystretch}{0.2} \emph{Notes:} Rows (1) and (2) correspond to the main-paper outcomes; rows (3) and (4) are secondary well-being outcomes retained in the appendix. Significance levels: ***$p<0.01$; **$p<0.05$; *$p<0.1$.}}
-\end{table}
-
-\newpage
-\section*{Appendix D. Additional Figures and Tables} \label{sec:appendixD}
-\setcounter{table}{0}
-\renewcommand{\thetable}{D\arabic{table}}
-\setcounter{figure}{0}
-\renewcommand{\thefigure}{D\arabic{figure}}
-\addcontentsline{toc}{section}{Appendix D}
-
-This appendix collects supporting diagnostics for the main-paper outcomes together with secondary well-being and additional health outcomes that are not part of the paper's primary inference family.
-
-\begin{figure}[htb!]\caption{Pre-crisis trends by future crisis exposure}
-\label{figD1_revision}
-\centering
-\includegraphics[width=0.95\textwidth]{figure_pretrends_crisis_exposure.png}
-\vspace*{-0.2cm}
-\scriptsize{\singlespacing \emph{Notes:} Mean pre-crisis CES-D symptoms and mean new psychiatric diagnoses by future crisis exposure. The figure is descriptive and is intended to complement, rather than replace, the fixed-effects placebo regressions reported in Table \ref{tab_validation}.}
-\end{figure}
-
-
-\begin{figure}[h]\caption{Percentage point increases in unemployment rates pre- vs post-economic crisis}
-\label{figD2_unemployment_changes}
-\centering
-\includegraphics[width=0.8\textwidth]{UnempPP.png}
-
-\vspace*{-1cm}
- 
- \scriptsize {\singlespacing \emph{Notes:} These were calculated as the difference between the maximum and the minimum value (before the economic crisis) of the unemployment rate in our sample for each regional unit. Source: Office for National Statistics (ONS).}
+\includegraphics[width=0.86\textwidth]{eventstudy2.png}
+\scriptsize{\singlespacing \emph{Notes:} Figure C2 reports the event-study estimates for men for the binary depression indicator and new psychiatric diagnosis.}}
 \end{figure}
 
 \newpage
-\begin{figure}[h]\caption{Kernel distribution of unemployment rate across period of study (2004-2019)}
-\label{figD3_unemployment_density}
+\begin{figure}[htb!]
+\caption{Event-study estimates for women}
+\label{figC3}
 \centering
-\includegraphics[width=0.8\textwidth]{density.png}
+\includegraphics[width=0.90\textwidth]{eventstudy3.png}
+\scriptsize{\singlespacing \emph{Notes:} Figure C3 reports the event-study estimates for women for the binary depression indicator and new psychiatric diagnosis.}}
 \end{figure}
-
-
-\begin{figure}[h]\caption{Mean of key socioeconomic variables by regions, pre-economic crisis (2002-07)}
-\label{figD4_precrisis_maps}
-\centering
-\includegraphics[width=0.8\textwidth]{preeconcrisis.png}
-
-\vspace*{-1cm}
- 
- \scriptsize {\singlespacing \emph{Notes:} Panel (A) shows the mean of the unemployment rate (continuous variable); Panel (B) shows the mean individuals aged above the state pension age (SPA) (dummy variable that takes one if individual aged above SPA; Panel (C) shows the mean index of multiple deprivation (quintiles (5 categories): 0.59 - 8.35 [least deprived], 8.35 - 13.72, 13.72 - 21.16, 21.16 - 34.21 34.21 - 86.36 [most deprived]); Panel (D) mean of population density (quintiles (5 categories): 0 - 1.7060 [least dense] 1.7096 - 9.0886 9.0937 - 22.3248 22.3263 - 40.3440 40.3510 - 854080.368 [most dense]) . GOR= Government Office Regions; own maps based on drawn and combined data from an ELSA special license restricted dataset. Longitudinal sample weights are included in the analysis.}
-\end{figure}
-
-
-\begin{figure}[htb!]\caption{Mean of key socioeconomic variables by regions, post-economic crisis short-term period (2008-13)}
-\label{figD5_postcrisis_short_maps}
-\centering
-\includegraphics[width=0.8\textwidth]{postshortcrisis.png}
-
-\vspace*{-1cm}
- 
- \scriptsize {\singlespacing \emph{Notes:} Panel (A) shows the mean of the unemployment rate (continuous variable); Panel (B) shows the mean individuals aged above the state pension age (SPA) (dummy variable that takes one if individual aged above SPA; Panel (C) shows the mean index of multiple deprivation (quintiles (5 categories): 0.59 - 8.35 [least deprived], 8.35 - 13.72, 13.72 - 21.16, 21.16 - 34.21 34.21 - 86.36 [most deprived]); Panel (D) mean of population density (quintiles (5 categories): 0 - 1.7060 [least dense] 1.7096 - 9.0886 9.0937 - 22.3248 22.3263 - 40.3440 40.3510 - 854080.368 [most dense]) . GOR= Government Office Regions; own maps based on drawn and combined data from an ELSA special license restricted dataset. Longitudinal sample weights are included in the analysis.}
-\end{figure}
-
-
-
-\begin{figure}[h]\caption{Mean of key socioeconomic variables by regions, post-economic crisis longer-term period (2014-19)}
-\label{figD6_postcrisis_long_maps}
-\centering
-\includegraphics[width=0.8\textwidth]{postlongcrisis.png}
-
-\vspace*{-1cm}
- 
- \scriptsize {\singlespacing \emph{Notes:} Panel (A) shows the mean of the unemployment rate (continuous variable); Panel (B) shows the mean individuals aged above the state pension age (SPA) (dummy variable that takes one if individual aged above SPA; Panel (C) shows the mean index of multiple deprivation (quintiles (5 categories): 0.59 - 8.35 [least deprived], 8.35 - 13.72, 13.72 - 21.16, 21.16 - 34.21 34.21 - 86.36 [most deprived]); Panel (D) mean of population density (quintiles (5 categories): 0 - 1.7060 [least dense] 1.7096 - 9.0886 9.0937 - 22.3248 22.3263 - 40.3440 40.3510 - 854080.368 [most dense]) . GOR= Government Office Regions; own maps based on drawn and combined data from an ELSA special license restricted dataset. Longitudinal sample weights are included in the analysis.}
-\end{figure}
-
-\newpage
-
-\begin{table}[h]
-\centering
-\renewcommand{\arraystretch}{0.7}
-\caption{Estimates of newly diagnosed health conditions and retirement: short-term analyses (2004-2013)}
-\begin{adjustwidth}{-2cm}{}
-\label{tabD1}
-\resizebox{1.15\textwidth}{!}{%
-\begin{tabular}{@{}ccccccccc@{}}
-\toprule
-\multirow{2}{*}{\textbf{Outcome variables}} & \multicolumn{2}{c}{\textbf{All sample}} & \multicolumn{2}{c}{\textbf{Women}} & \multicolumn{2}{c}{\textbf{Blue-collar}} & \multicolumn{2}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Unemployment above\\ average\end{tabular}}} \\ \cmidrule(l){2-9} 
- & \textbf{FE} & \textbf{IV-FE} & \textbf{FE} & \textbf{IV-FE} & \textbf{FE} & \textbf{IV-FE} & \textbf{FE} & \textbf{IV-FE} \\ \hline
-Newly diagnosed cancer & \begin{tabular}[c]{@{}c@{}}0.012**\\ (0.005)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.017\\ (0.039)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.008\\ (0.007)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.039\\ (0.055)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.010\\ (0.007)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.002\\ (0.041)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.008\\ (0.007)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.006\\ (0.059)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed stroke, angina \\ or heart attack\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.001\\ (0.004)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.024\\ (0.029)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.005)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.015\\ (0.038)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.000\\ (0.006)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.022\\ (0.030)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.006\\ (0.005)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.000\\ (0.045)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed heart blood   \\ disease\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.015\\ (0.010)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0   .077\\ (0.078)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.006\\ (0.012)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.042\\ (0.106)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.009\\ (0.014)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.012\\ (0.090)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.000\\ (0.013)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.083\\ (0.123)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed cholesterol   \\ or diabetes\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.000\\ (0.011)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.032\\ (0.086)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.006\\ (0.014)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.080\\ (0.120)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.023\\ (0.016)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.007\\ (0.099)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.002\\ (0.014)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.304**\\ (0.147)\end{tabular} \\
-Newly diagnosed pulmonary diseases & \begin{tabular}[c]{@{}c@{}}0.005   \\ (0.005)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.000\\ (0.041)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.003\\ (0.007)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.046\\ (0.056)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.000\\ (0.008)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.057\\ (0.045)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.008\\ (0.006)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.067\\ (0.070)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed osteoporosis \\ or arthritis\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.003\\ (0.009)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.114\\ (0.073)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.003\\ (0.013)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.126\\ (0.113)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.011\\ (0.013)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.155*\\ (0.085)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.005\\ (0.011)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.088\\ (0.123)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed parkinson\\  or dementia\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.001\\ (0.002)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.006\\ (0.010)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.001)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.001\\ (0.010)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.002\\ (0.004)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.004\\ (0.012)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.002\\ (0.003)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.016\\ (0.014)\end{tabular} \\
-\textit{\begin{tabular}[c]{@{}c@{}}Control for exogenous individual\\  characteristics\end{tabular}} &  \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
-\textit{Region and Time FE} & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
-\textit{Observations} & 10,273 & 10,273 & 5,480 & 5,480 & 5,100 & 5,100 & 6,531 & 6,531 \\ \bottomrule
-\end{tabular}%
-}
-\end{adjustwidth}
-
-\tiny{{ \renewcommand{\arraystretch}{0.2} \emph{Notes:} Significance levels: ***p$\prec$0.01;**p$\prec$0.05;*p$\prec$0.1. Clustered standard errors by individual level in parentheses. Fixed effect (FE) estimates (in columns 2, 4, 6 and 8) and Instrumental variables ﬁxed-effects (IV-FE) estimates (columns 3, 5, 7 and 9) for the four outcomes. The instrument is the statutory pension age. Control for exogenous individual characteristics: age, age squared, gender, marital status (whether married or cohabiting), household size, outright homeownership, private pension scheme membership, total state pension income (£ per week), current smokers, rarely engage in vigorous or moderate activities (less than once a week), and have health insurance. We also include Region characteristics (area-level deprivation quintiles based on a multiple deprivation index and population density quintiles by postcode) and Time FE.
-
-}}
-\end{table}
-
-\newpage
-
-\begin{table}[h]
-\centering
-\renewcommand{\arraystretch}{0.7}
-\caption{Estimates of newly diagnosed health conditions and retirement: longer-term analyses (2004-2019)}
-\label{tabD2}
-\begin{adjustwidth}{-2cm}{}
-\resizebox{1.15\textwidth}{!}{%
-\begin{tabular}{@{}cllllllll@{}}
-\toprule
-\multirow{2}{*}{\textbf{Outcome variables}} & \multicolumn{2}{c}{\textbf{All sample}} & \multicolumn{2}{c}{\textbf{Women}} & \multicolumn{2}{c}{\textbf{Blue-collar}} & \multicolumn{2}{c}{\textbf{\begin{tabular}[c]{@{}c@{}}Unemployment above\\ average\end{tabular}}} \\ \cmidrule(l){2-9} 
- & \multicolumn{1}{c}{\textbf{FE}} & \multicolumn{1}{c}{\textbf{IV-FE}} & \multicolumn{1}{c}{\textbf{FE}} & \multicolumn{1}{c}{\textbf{IV-FE}} & \multicolumn{1}{c}{\textbf{FE}} & \multicolumn{1}{c}{\textbf{IV-FE}} & \multicolumn{1}{c}{\textbf{FE}} & \multicolumn{1}{c}{\textbf{IV-FE}} \\ \hline
-Newly diagnosed cancer & \begin{tabular}[c]{@{}l@{}}-0.088\\(0.123)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.029\\(0.026)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.008\\(0.007)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.003\\(0.040)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.011**\\(0.005)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.018\\(0.029)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.008\\(0.007)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.004\\(0.044)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed stroke, angina \\ or heart attack\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.016\\ (0.014)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.016\\(0.023)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.001\\(0.005)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.004\\(0.026)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.001\\(0.005)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.031\\(0.028)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.006\\ (0.005)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.027\\(0.038)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed heart blood   \\ disease\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.000\\ (0.003)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.043\\(0.053)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.006\\(0.012)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.027\\(0.066)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.008\\(0.010)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.014\\(0.063)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.000\\(0.013)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.062\\ (0.094)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed cholesterol   \\ or diabetes\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.003\\(0.011)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.013\\(0.057)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.006\\(0.014)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.089\\(0.078)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.020\\(0.011)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.020\\ (0.069)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.002\\(0.014)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.204**\\(0.100)\end{tabular} \\
-Newly diagnosed pulmonary diseases & \begin{tabular}[c]{@{}l@{}}0.005\\    (0.005)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.014\\(0.026)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.003\\ (0.007)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.008\\(0.034)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.000\\(0.008)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.018\\(0.031)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.008\\(0.006)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.039\\(0.047)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed osteoporosis \\ or arthritis\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.006\\ (0.006)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.088*\\ (0.048)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.003\\  (0.013)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.097\\ (0.072)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.003\\  (0.009)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.130**\\ (0.085)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.005\\ (0.011)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.100\\  (0.089)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed parkinson\\  or dementia\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.000\\ (0.002)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.009\\  (0.010)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.001\\  (0.001)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.010\\(0.009)\end{tabular} & \begin{tabular}[c]{@{}l@{}}-0.000\\ (0.003)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.002\\ (0.014)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.000\\  (0.003)\end{tabular} & \begin{tabular}[c]{@{}l@{}}0.012\\  (0.018)\end{tabular} \\
-\textit{\begin{tabular}[c]{@{}c@{}}Control for exogenous individual\\  characteristics\end{tabular}} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} \\
-\textit{Region and Time FE} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} & \multicolumn{1}{c}{\checkmark} \\
-\textit{Observations} & \multicolumn{1}{c}{15,079} & \multicolumn{1}{c}{15,079} & \multicolumn{1}{c}{8,085} & \multicolumn{1}{c}{8,085} & \multicolumn{1}{c}{7,426} & \multicolumn{1}{c}{7,426} & \multicolumn{1}{c}{7,900} & \multicolumn{1}{c}{7,900} \\ \bottomrule
-\end{tabular}%
-}
-\end{adjustwidth}
-
-\tiny{{ \renewcommand{\arraystretch}{0.2} \emph{Notes:} Significance levels: ***p$\prec$0.01;**p$\prec$0.05;*p$\prec$0.1. Clustered standard errors by individual level in parentheses. Fixed effect (FE) estimates (in columns 2, 4, 6 and 8) and Instrumental variables ﬁxed-effects (IV-FE) estimates (columns 3, 5, 7 and 9) for the four outcomes. The instrument is the statutory pension age. Control for exogenous individual characteristics: age, age squared, gender, marital status (whether married or cohabiting), household size, outright homeownership, private pension scheme membership, total state pension income (£ per week), current smokers, rarely engage in vigorous or moderate activities (less than once a week), and have health insurance. We also include Region characteristics (area-level deprivation quintiles based on a multiple deprivation index and population density quintiles by postcode) and Time FE. }}
-
-\end{table}
-
-\newpage
-
-\begin{table}[h]
-\centering
-\renewcommand{\arraystretch}{0.7}
-\caption{Estimates of general mental and physical health and retirement in economic crisis: short-term analyses (2004-2013) – IV-FE estimates}
-\label{tabD3}
-\begin{adjustwidth}{-2.1cm}{}
-\resizebox{1.15\textwidth}{!}{%
-\begin{tabular}{@{}ccccccc@{}}
-\toprule
-\multirow{2}{*}{\textbf{Outcome variables}} & \multicolumn{3}{c}{\textbf{Men}} & \multicolumn{3}{c}{\textbf{Women}} \\ \cmidrule(l){2-7} 
- & \textbf{All Men} & \textbf{White-collar} & \textbf{Blue-collar} & \textbf{All Women} & \textbf{White-collar} & \textbf{Blue-collar} \\ \hline
-Newly diagnosed cancer & \begin{tabular}[c]{@{}c@{}}0.033\\ (0.056)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.082*\\ (0.046)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.042\\ (0.052)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.010\\ (0.055)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.083\\ (0.152)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.021\\ (0.052)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed stroke, angina   \\ or heart attack\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.005\\ (0.028)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.011\\ (0.040)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.053\\ (0.049)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.032\\ (0.020)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.015\\ (0.035)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.024\\ (0.020)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed heart blood  \\  disease\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.077\\ (0.074)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.075\\ (0.096)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.061\\ (0.117)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.016\\ (0.054)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.090\\ (0.112)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.038\\ (0.066)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed cholesterol\\ or diabetes\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.034\\ (0.079)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.139\\ (0.120)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.070\\ (0.118)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.072\\ (0.066)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.044\\ (0.132)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.132\\ (0.083)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed pulmonary\\    diseases\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.044\\ (0.034)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.054\\ (0.046)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.048\\ (0.058)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.033\\ (0.032)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.147\\ (0.098)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.024\\ (0.032)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed Osteoporosis \\ or arthritis\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.018\\ (0.050)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.041\\ (0.070)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.078\\ (0.076)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.025\\ (0.062)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.020\\ (0.116)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.049\\ (0.080)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed parkinson\\ or dementia\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.010\\ (0.020)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.001\\ (0.026)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.027\\ (0.035)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.010)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.010\\ (0.013)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.005\\ (0.007)\end{tabular} \\
-\textit{\begin{tabular}[c]{@{}c@{}}Control for exogenous individual \\ characteristics\end{tabular}} & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
-\textit{Region and Time FE} & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
-\textit{Observations} & 4,793 & 2,829 & 1,964 & 5,480 & 2,344 & 3,136 \\ \bottomrule
-\end{tabular}%
-}
-
-\end{adjustwidth}
-
-\tiny{{ \renewcommand{\arraystretch}{0.2} \emph{Notes:} Significance levels: ***p$\prec$0.01;**p$\prec$0.05;*p$\prec$0.1. Clustered standard errors by individual level in parentheses. The severely hit region takes the value 1 if the individual lives in a region with an unemployment rate higher or equal to the mean during the studied period. Instrumental variables ﬁxed-effects (IV-FE) estimates for mental health and wellbeing outcome. The instrument is the statutory pension age. IV-FE are estimates for the health effect of retirement in economic crisis are captured by Retired × hit by the crisis. }}
-
-\end{table}
-
-\newpage
-
-
-\begin{table}[h]
-\centering
-\renewcommand{\arraystretch}{0.7}
-\caption{Estimates of general mental and physical health and retirement in economic crisis: long-term analyses (2004-2019) – IV-FE estimates}
-\label{tabD4}
-\begin{adjustwidth}{-2.1cm}{}
-\resizebox{1.15\textwidth}{!}{%
-\begin{tabular}{@{}ccccccc@{}}
-\toprule
-\multirow{2}{*}{\textbf{Outcome variables}} & \multicolumn{3}{c}{\textbf{Men}} & \multicolumn{3}{c}{\textbf{Women}} \\ \cmidrule(l){2-7} 
- & \textbf{All Men} & \textbf{White-collar} & \textbf{Blue-collar} & \textbf{All Women} & \textbf{White-collar} & \textbf{Blue-collar} \\ \hline
-Newly diagnosed cancer & \begin{tabular}[c]{@{}c@{}}-0.003\\ (0.019)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.003\\ (0.024)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.010\\ (0.031)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.001\\ (0.018)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.037\\ (0.029)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.014\\ (0.023)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed stroke, angina   \\ or heart attack\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.016\\ (0.043)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.034\\ (0.069)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.020\\ (0.032)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.012)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.003\\ (0.019)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.006\\ (0.015)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed heart blood  \\  disease\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.030\\ (0.018)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.060\\ (0.057)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.056\\ (0.085)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.018\\ (0.033)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.009\\ (0.056)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.043\\ (0.043)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed cholesterol\\ or diabetes\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.012\\ (0.045)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.007\\ (0.060)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.080)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.009\\ (0.041)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.021\\ (0.068)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.035\\ (0.052)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed pulmonary\\    diseases\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.027\\ (0.021)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.019\\ (0.027)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.050\\ (0.037)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.006\\ (0.018)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.034\\ (0.036)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.007\\ (0.042)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed Osteoporosis \\ or arthritis\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.009\\ (0.031)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.020\\ (0.041)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.026\\ (0.055)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.034\\ (0.041)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.058\\ (0.065)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.030\\ (0.054)\end{tabular} \\
-\begin{tabular}[c]{@{}c@{}}Newly diagnosed parkinson\\ or dementia\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.008\\ (0.012)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.001\\ (0.017)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.020\\ (0.019)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.002\\ (0.004)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.005\\ (0.009)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.007)\end{tabular} \\
-\textit{\begin{tabular}[c]{@{}c@{}}Control for exogenous individual \\ characteristics\end{tabular}} & \checkmark &\checkmark  & \checkmark & \checkmark  & \checkmark & \checkmark \\
-\textit{Region and Time FE} & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
-\textit{Observations} & 6,994 & 4,130 & 2,864 & 8,085 & 3,523 & 4,562 \\ \bottomrule
-\end{tabular}%
-}
-
-\end{adjustwidth}
-
-\tiny{{ \renewcommand{\arraystretch}{0.2} \emph{Notes:} Significance levels: ***p$\prec$0.01;**p$\prec$0.05;*p$\prec$0.1. Clustered standard errors by individual level in parentheses. The severely hit region takes the value 1 if the individual lives in a region with an unemployment rate higher or equal to the mean during the studied period. Instrumental variables ﬁxed-effects (IV-FE) estimates for mental health and wellbeing outcome. The instrument is the statutory pension age. IV-FE are estimates for the health effect of retirement in economic crisis are captured by Retired × hit by the crisis. }}
-
-
-\end{table}
-
-
-
 \end{document}
