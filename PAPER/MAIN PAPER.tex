@@ -359,15 +359,15 @@ To the best of our knowledge, the study by \cite{belloni2016effect} is the only 
 
 \section{Data and Measurement} \label{sec:data}
 
-The English Longitudinal Study of Ageing (ELSA) provides rich individual-level health and socioeconomic data from a representative sample of the English population aged 50 and older, collected between March 2002 and July 2019; see Appendix A, Tables A1--A2 for details. The dataset contains detailed information on mental health, employment, wealth, pensions, and local area conditions.
+The English Longitudinal Study of Ageing (ELSA) provides rich individual-level health and socioeconomic data from a representative sample of the English population aged 50 and older, collected between March 2002 and July 2019; see Appendix~\hyperref[sec:appendixa]{A}, Tables~\ref{tabA1}--\ref{tabA2} for details. The dataset contains detailed information on mental health, employment, wealth, pensions, and local area conditions.
 
-We focus on a group of individuals employed during the first wave (March 2002 – March 2003). Our starting sample comprises employees or self-employed individuals who were engaged in ‘work’ or ‘paid work during the last month’ in this first wave. We exclude those who, despite being classified as ‘in paid work’, also identify as ‘retired’, ‘caring for home or family’, ‘semi-retired’, ‘unemployed’, or ‘disabled’. Our analysis focuses on retirement occurring between consecutive waves, which we define as dependent on employment in the previous wave. Retiree individuals will classify themselves as ‘retired’ and ‘not in work during the last month’ in the subsequent wave. We consider only the initial exits from the labour market and, therefore, perceive retirement as an “absorbing state." Consequently, our retirement variable is a binary indicator, marked as 1 if the individual retires between waves and 0 if still employed between consecutive waves. The main analysis uses an unbalanced sample, with 2,638 individuals; refer to Appendix A, Tables A3--A4 for more details.
+We focus on a group of individuals employed during the first wave (March 2002 – March 2003). Our starting sample comprises employees or self-employed individuals who were engaged in ‘work’ or ‘paid work during the last month’ in this first wave. We exclude those who, despite being classified as ‘in paid work’, also identify as ‘retired’, ‘caring for home or family’, ‘semi-retired’, ‘unemployed’, or ‘disabled’. Our analysis focuses on retirement occurring between consecutive waves, which we define as dependent on employment in the previous wave. Retiree individuals will classify themselves as ‘retired’ and ‘not in work during the last month’ in the subsequent wave. We consider only the initial exits from the labour market and, therefore, perceive retirement as an “absorbing state." Consequently, our retirement variable is a binary indicator, marked as 1 if the individual retires between waves and 0 if still employed between consecutive waves. The main analysis uses an unbalanced sample, with 2,638 individuals; refer to Appendix~\hyperref[sec:appendixa]{A}, Tables~\ref{tabA3}--\ref{tabA4} for more details.
 
-Attrition in the English Longitudinal Study of Ageing may be a matter of concern if it affects mental health through sample selection bias. If the likelihood of respondents participating in the survey is negatively related to their mental health, this can skew the retention rate based on our variable of interest. To assess selective attrition, we follow the methodology proposed by \cite{lindeboom2002econometric} and perform two informal tests. The first test relates new psychiatric diagnosis to an attrition dummy (coded as 1 if the respondent is absent from the panel for any wave), the retirement dummy, and several control variables, including individual fixed effects. The findings indicate that neither the attrition dummy nor its interaction with retirement is statistically significant. In the second test, we regress the attrition dummy on new psychiatric diagnosis, again controlling for additional variables and individual fixed effects, and find no significant relationship. This suggests that those experiencing a decline in mental health are not more likely to exit the panel. More details can be found in Appendix A, Table A5.
+Attrition in the English Longitudinal Study of Ageing may be a matter of concern if it affects mental health through sample selection bias. If the likelihood of respondents participating in the survey is negatively related to their mental health, this can skew the retention rate based on our variable of interest. To assess selective attrition, we follow the methodology proposed by \cite{lindeboom2002econometric} and perform two informal tests. The first test relates new psychiatric diagnosis to an attrition dummy (coded as 1 if the respondent is absent from the panel for any wave), the retirement dummy, and several control variables, including individual fixed effects. The findings indicate that neither the attrition dummy nor its interaction with retirement is statistically significant. In the second test, we regress the attrition dummy on new psychiatric diagnosis, again controlling for additional variables and individual fixed effects, and find no significant relationship. This suggests that those experiencing a decline in mental health are not more likely to exit the panel. More details can be found in Appendix~\hyperref[sec:appendixa]{A}, Table~\ref{tab5}.
 
 \subsection{Mental-health outcomes and other key variables} \label{sec:outcomes}
 
-We focus on mental health outcomes, which are likely to respond more quickly than physical health to the transition out of work \citep{fleischmann2020mental}. Our first outcome is a binary depression indicator based on the 8-item Centre for Epidemiological Studies Depression Scale (CES-D): it equals one when respondents report four or more symptoms and zero otherwise. The underlying symptom count ranges from 0 to 8 and is reported as an alternative outcome in Appendix C. Our second outcome is a new psychiatric diagnosis indicator, which captures whether the respondent reports a new depression or anxiety diagnosis after retirement. This diagnosis measure helps distinguish new onset conditions from persistent pre-retirement mental health problems, although it may still understate prevalence if respondents do not report diagnoses during the interview.\footnote{The diagnosis measure may still underestimate prevalence because some individuals may not report their condition during face-to-face interviews.}
+We focus on mental health outcomes, which are likely to respond more quickly than physical health to the transition out of work \citep{fleischmann2020mental}. Our first outcome is a binary depression indicator based on the 8-item Centre for Epidemiological Studies Depression Scale (CES-D): it equals one when respondents report four or more symptoms and zero otherwise. The underlying symptom count ranges from 0 to 8 and is reported as an alternative outcome in Appendix~\hyperref[sec:appendixC]{C}. Our second outcome is a new psychiatric diagnosis indicator, which captures whether the respondent reports a new depression or anxiety diagnosis after retirement. This diagnosis measure helps distinguish new onset conditions from persistent pre-retirement mental health problems, although it may still understate prevalence if respondents do not report diagnoses during the interview.\footnote{The diagnosis measure may still underestimate prevalence because some individuals may not report their condition during face-to-face interviews.}
 
 Our analysis controls for a variety of characteristics at the individual, household, and regional levels. These include age, gender, marital status (whether individuals are married or cohabiting), household size (which encompasses both children and adults), outright homeownership, and educational attainment based on the International Standard Classification of Education (ISCED). In terms of pension characteristics, we focus on private pension scheme membership, the total state pension income (measured in pounds per week), and the statutory pension age. We also assess health behaviours by determining whether individuals are current smokers, whether they engage in vigorous or moderate physical activities less than once a week, and if they have health insurance. Moreover, we consider geographical factors, such as area-level deprivation quintiles derived from a multiple deprivation index and population density quintiles based on postcode.
 
@@ -393,113 +393,9 @@ In terms of macroeconomic conditions, we use the annual unemployment rate within
 
 \subsection{Descriptive statistics}
 
-Table 1 reports descriptive statistics for the two labour-market states observed in the panel and includes the full set of individual and area-level controls used in the regressions, together with the main heterogeneity variables used later in the paper. Retirees are substantially older and much more likely to be above the statutory pension age, but they also differ from employed observations in household structure, housing tenure, pension income, financial strain, physical activity, and local labour-market conditions. The table makes clear that retirement is correlated with a broad set of observed characteristics, which motivates the fixed-effects design and the use of statutory pension-age eligibility as an instrument for retirement timing.
+Table~\ref{tab1} reports descriptive statistics for the two labour-market states observed in the panel and includes the full set of individual and area-level controls used in the regressions, together with the main heterogeneity variables used later in the paper. Retirees are substantially older and much more likely to be above the statutory pension age, but they also differ from employed observations in household structure, housing tenure, pension income, financial strain, physical activity, and local labour-market conditions. The table makes clear that retirement is correlated with a broad set of observed characteristics, which motivates the fixed-effects design and the use of statutory pension-age eligibility as an instrument for retirement timing.
 
-\begin{center}
-[Table 1 around here]
-\end{center}
-
-
-\section{Empirical Strategy} \label{sec:empirical}
-
-Our empirical design compares changes in mental health within individuals as they move from work into retirement and asks whether those changes differ in region-years more exposed to the Great Recession. We begin with within-person fixed-effects (FE) models and then address endogenous retirement timing using statutory pension-age eligibility as an instrument. Appendix C reports complementary event-study evidence using the same two mental-health outcomes. The baseline specification is:
-
-\begin{equation}
-\label{eq1}
-\centering
-  Y_{ijt} =\alpha + \delta_{RET} RET_{itj} + \gamma_X X_{ijt} + \omega_w W_{jt} + Wave_{t} + Region_j + d_i + e_{ijt} 
-\end{equation}
-
-where $i$ indexes individuals, $j$ regions, and $t$ waves. The outcome $Y_{ijt}$ is either the binary depression indicator or the new psychiatric diagnosis indicator. $RET_{ijt}$ equals one once the individual has retired and zero otherwise. Individual fixed effects ($d_i$) absorb time-invariant heterogeneity, while $Wave_t$ and $Region_j$ denote survey-wave and current-region fixed effects. The vector $X_{ijt}$ includes age and age squared, cohabitation status, household size, outright homeownership, private pension coverage, weekly state pension income, private health insurance, never-smoking status, vigorous physical activity, and financial strain. $W_{jt}$ contains area-level deprivation and population-density controls.
-
-Because retirement timing may still be correlated with unobserved time-varying determinants of mental health, we instrument retirement with statutory pension-age eligibility. The identifying assumption in the baseline IV specification is that, conditional on the included controls and fixed effects, crossing the statutory pension-age threshold affects mental health only through retirement. Figure 1 shows the sharp increase in retirement around pension eligibility, including the legislated change in women's eligibility age.
-
-The panel also allows us to test whether retirement has different mental-health consequences in region-years with weak labour markets. We define $HIT_{jt}$ as an indicator for region-years with above-average unemployment during the period under study and interact it with retirement.\footnote{Figure A1 documents regional unemployment variation around the Great Recession.}
-
-
-\begin{equation}
-\label{eq2}
-\centering
-  Y_{ijt} =\alpha + \delta_{D} D_{itj} + \delta_{RH} D_{itj}HIT_{tj} + \delta_{HIT} HIT_{tj} + \gamma_X X_{ijt} + \omega_w W_{jt} + Wave_{t} + Region_j + d_i + e_{ijt} 
-\end{equation}
-
-Equation 2 is estimated by IV-FE using two excluded instruments: pension-age eligibility and its interaction with $HIT_{jt}$. The coefficient of interest is $\delta_{RH}$, which captures the differential effect of retirement in high-unemployment region-years. This interacted specification requires a stronger exclusion restriction than the baseline IV: statutory pension-age eligibility must not affect mental health differentially across crisis exposure except through retirement. We therefore report weak-instrument diagnostics in the main tables and provide appendix evidence on first-stage strength and instrument validity in Tables B1 and B2. Interpreted causally, the IV estimates identify a local average treatment effect for individuals whose retirement responds to pension-age eligibility, with additional heterogeneity generated by local crisis exposure.
-
-We estimate Equation 2 for the short-run post-crisis window (2009--2013) and for the longer-run period (2009--2019). The paper emphasises the all-sample results and treats the subgroup estimates by gender and occupation as secondary evidence.
-
-\section{Results} \label{sec:result}
-\subsection{Main estimates} \label{sec:results1}
-
-Figure 2 reports the baseline short-run estimates for the full sample. The FE and IV-FE estimates are both imprecise for the binary depression outcome and for new psychiatric diagnosis, indicating that retirement per se is not enough to explain the subsequent heterogeneity in mental health. The more informative pattern emerges once we allow retirement effects to differ by local crisis exposure.
-
-\begin{figure}[htb!]\caption{Baseline retirement effects: short-run full-sample estimates (2009--2013)}
-\label{fig2}
-\centering
-\includegraphics[width=0.9\textwidth]{Figure2.png}
-\vspace*{-0.4cm}
-
-\scriptsize{\singlespacing \emph{Notes:} Figure 2 plots the estimated effect of retirement on the two main mental health outcomes in the short-run sample (2009--2013). Red crosses report within-individual fixed effects (FE) estimates, while blue circles report instrumental-variables fixed-effects (IV-FE) estimates from Equation (1). Vertical bars denote 95\% confidence intervals. Depression is a binary indicator equal to one when the respondent reports four or more CES-D symptoms.}
-\end{figure}
-
-\begin{center}
-[Table 2 around here]
-\end{center}
-
-Table 2 reports the short-run interacted IV estimates. The main all-sample result is mixed across the two mental-health outcomes. In the short run, retiring in high-unemployment region-years is associated with a 5.1 percentage point decline in the probability of a new psychiatric diagnosis, relative to a pre-retirement mean of 1.9\%. At the same time, the corresponding coefficient for the binary depression indicator is positive, about 7.8 percentage points, and marginally significant. This pattern suggests that any short-run relief from work-related stress is not broad enough to show up as lower depressive-symptom prevalence. The subgroup estimates point to larger short-run declines in the probability of a new psychiatric diagnosis among men and white-collar workers, but the paper treats these heterogeneous estimates as secondary to the all-sample evidence. The Kleibergen-Paap rk Wald F statistics reported in the table remain comfortably above conventional weak-instrument thresholds.
-
-Table 3 turns to the longer-run period. The short-run decline in the probability of a new psychiatric diagnosis disappears, while the crisis interaction becomes positive and statistically significant for the binary depression indicator in the full sample. The magnitude is economically meaningful: the coefficient of 0.082 implies an increase of roughly 97\% relative to the pre-retirement mean. This longer-run result is visible for both men and women and for both white-collar and blue-collar workers, although the subgroup estimates vary in precision. The longer-run evidence therefore points away from a durable mental-health improvement from retiring in harder-hit labour markets.
-
-\begin{center}
-[Table 3 around here]
-\end{center}
-
-\subsection{Diagnostics and supporting evidence} \label{sec:robustness}
-
-Appendix B reports the first-stage and weak-instrument diagnostics for both the baseline and interacted IV specifications. In all cases, statutory pension-age eligibility strongly predicts retirement, and the interacted instrument remains relevant in the crisis specification. The main tables report the Kleibergen-Paap rk Wald F statistic for each column so that instrument strength is transparent in the headline results.
-
-Appendix C provides two further pieces of evidence. First, Table C1 shows that replacing the binary depression measure with the continuous CES-D symptom count yields the same qualitative longer-run pattern: retirement in high-unemployment region-years is associated with worse depressive symptoms rather than better mental health. Second, Figures C1--C3 present event-study evidence for the binary depression indicator and new psychiatric diagnosis in the full sample and by sex. These profiles help visualise timing and do not suggest a clean or persistent improvement in broader depressive symptoms.
-
-\section{Conclusion} \label{sec:discussion}
-
-This paper studies whether the mental-health consequences of retirement depend on the macroeconomic environment in which retirement occurs. Using English panel data and an IV-FE design based on statutory pension-age eligibility, we find that they do. In the short run, retirement in high-unemployment region-years is associated with a lower probability of a new psychiatric diagnosis, but not with lower depression prevalence. In the longer run, that decline disappears, while depressive symptoms rise in harder-hit region-years.
-
-The main implication is that retirement during a downturn should not be interpreted as a uniform mental-health buffer. The evidence is more consistent with a short-run easing of stress at the diagnosis margin that does not translate into broader or persistent improvements in mental health. This helps reconcile the mixed retirement--health literature: retirement effects depend on local economic conditions, and mental-health outcomes that appear similar on the surface need not move together.
-
-For policy, the results suggest that pension access alone is unlikely to protect mental health during adverse macroeconomic episodes. If retirement occurs in weak labour markets, targeted support after labour-force exit may matter as much as the timing of retirement itself. More broadly, the paper shows that understanding retirement in later life requires integrating labour-market conditions, institutional pension rules, and outcome-specific measures of mental health.
-
-
-\vspace{1.25cm}
-\singlespacing
-\section*{Conflict of interest statement}
-
-The authors declare that they have no conflict of interest.
-
-\section*{Data statement}
-
-All databases are available under UK Data Services (UKDS) conditions.
-
-\section*{Ethics statement}
-
-No ethics approval was needed to perform this analysis. 
-
-
-\newpage
-\singlespacing
-\setlength\bibsep{0pt}
-\bibliographystyle{apalike}
-\bibliography{bibliography.bib}
-
-
-
-\clearpage
-
-
-
-\section*{Tables} \label{sec:fig}
-\addcontentsline{toc}{section}{Tables}
-\clearpage
-
-\begin{table}[h]
+\begin{table}[!htbp]
 \centering
 \caption{Descriptive statistics by labour-market status}
 \label{tab1}
@@ -509,7 +405,7 @@ No ethics approval was needed to perform this analysis.
 \begin{tabular}{@{}cccccc@{}}
 \toprule
 \multirow{2}{*}{\textbf{Variables}} & \multicolumn{2}{c}{\textbf{Employed}} & \multicolumn{2}{c}{\textbf{Retired}} & \multirow{2}{*}{\textbf{Difference test}} \\
- & \textit{Mean} & \textit{SD} & \textit{Mean} & \textit{SD} &  \\ \cmidrule(r){1-6} 
+ & \textit{Mean} & \textit{SD} & \textit{Mean} & \textit{SD} &  \\ \cmidrule(r){1-6}
 \multicolumn{6}{l}{\textbf{Socio-demographics}} \\ \hline
 \textit{Female} & 0.537 & 0.499 & 0.536 & 0.499 &  \\
 \textit{Age} & 60.34 & 6.436 & 68.49 & 5.921 & *** \\
@@ -551,15 +447,53 @@ No ethics approval was needed to perform this analysis.
 \textit{Private health insurance} & 0.197 & 0.398 & 0.100 & 0.300 & *** \\\hline
 \multicolumn{1}{l}{Observations} & \multicolumn{2}{c}{8,900} & \multicolumn{2}{c}{6,588} &  \\ \bottomrule \bottomrule
 \end{tabular}%
-
- }
-
+}
 \tiny{{\singlespacing \emph{Notes:} Significance levels: ***p$\prec$0.01; **p$\prec$0.05; *p$\prec$0.1. The table reports sample means and standard deviations for employed and retired person-wave observations. The final column reports tests of equality of means. Variables shown correspond to the main regression controls and the heterogeneity variables used in the paper.}}
- 
 \end{table}
 
-\newpage
-\begin{table}[!ht]
+
+\section{Empirical Strategy} \label{sec:empirical}
+
+Our empirical design compares changes in mental health within individuals as they move from work into retirement and asks whether those changes differ in region-years more exposed to the Great Recession. We begin with within-person fixed-effects (FE) models and then address endogenous retirement timing using statutory pension-age eligibility as an instrument. \hyperref[sec:appendixC]{Appendix C} reports complementary event-study evidence using the same two mental-health outcomes. The baseline specification is:
+
+\begin{equation}
+\label{eq1}
+\centering
+  Y_{ijt} =\alpha + \delta_{RET} RET_{itj} + \gamma_X X_{ijt} + \omega_w W_{jt} + Wave_{t} + Region_j + d_i + e_{ijt} 
+\end{equation}
+
+where $i$ indexes individuals, $j$ regions, and $t$ waves. The outcome $Y_{ijt}$ is either the binary depression indicator or the new psychiatric diagnosis indicator. $RET_{ijt}$ equals one once the individual has retired and zero otherwise. Individual fixed effects ($d_i$) absorb time-invariant heterogeneity, while $Wave_t$ and $Region_j$ denote survey-wave and current-region fixed effects. The vector $X_{ijt}$ includes age and age squared, cohabitation status, household size, outright homeownership, private pension coverage, weekly state pension income, private health insurance, never-smoking status, vigorous physical activity, and financial strain. $W_{jt}$ contains area-level deprivation and population-density controls.
+
+Because retirement timing may still be correlated with unobserved time-varying determinants of mental health, we instrument retirement with statutory pension-age eligibility. The identifying assumption in the baseline IV specification is that, conditional on the included controls and fixed effects, crossing the statutory pension-age threshold affects mental health only through retirement. Figure~\ref{fig1} shows the sharp increase in retirement around pension eligibility, including the legislated change in women's eligibility age.
+
+The panel also allows us to test whether retirement has different mental-health consequences in region-years with weak labour markets. We define $HIT_{jt}$ as an indicator for region-years with above-average unemployment during the period under study and interact it with retirement.
+
+
+\begin{equation}
+\label{eq2}
+\centering
+  Y_{ijt} =\alpha + \delta_{D} D_{itj} + \delta_{RH} D_{itj}HIT_{tj} + \delta_{HIT} HIT_{tj} + \gamma_X X_{ijt} + \omega_w W_{jt} + Wave_{t} + Region_j + d_i + e_{ijt} 
+\end{equation}
+
+Equation~\ref{eq2} is estimated by IV-FE using two excluded instruments: pension-age eligibility and its interaction with $HIT_{jt}$. The coefficient of interest is $\delta_{RH}$, which captures the differential effect of retirement in high-unemployment region-years. This interacted specification requires a stronger exclusion restriction than the baseline IV: statutory pension-age eligibility must not affect mental health differentially across crisis exposure except through retirement. We therefore report weak-instrument diagnostics in the main tables and provide appendix evidence on first-stage strength and instrument validity in Tables~\ref{tabB1} and \ref{tabB2}. Interpreted causally, the IV estimates identify a local average treatment effect for individuals whose retirement responds to pension-age eligibility, with additional heterogeneity generated by local crisis exposure.
+
+We estimate Equation~\ref{eq2} for the short-run post-crisis window (2009--2013) and for the longer-run period (2009--2019). The paper emphasises the all-sample results and treats the subgroup estimates by gender and occupation as secondary evidence.
+
+\section{Results} \label{sec:result}
+\subsection{Main estimates} \label{sec:results1}
+
+Figure~\ref{fig2} reports the baseline short-run estimates for the full sample. The FE and IV-FE estimates are both imprecise for the binary depression outcome and for new psychiatric diagnosis, indicating that retirement per se is not enough to explain the subsequent heterogeneity in mental health. The more informative pattern emerges once we allow retirement effects to differ by local crisis exposure.
+
+\begin{figure}[htb!]\caption{Baseline retirement effects: short-run full-sample estimates (2009--2013)}
+\label{fig2}
+\centering
+\includegraphics[width=0.9\textwidth]{Figure2.png}
+\vspace*{-0.4cm}
+
+\scriptsize{\singlespacing \emph{Notes:} Figure 2 plots the estimated effect of retirement on the two main mental health outcomes in the short-run sample (2009--2013). Red crosses report within-individual fixed effects (FE) estimates, while blue circles report instrumental-variables fixed-effects (IV-FE) estimates from Equation (1). Vertical bars denote 95\% confidence intervals. Depression is a binary indicator equal to one when the respondent reports four or more CES-D symptoms.}
+\end{figure}
+
+\begin{table}[!htbp]
 \centering
 \renewcommand{\arraystretch}{0.9}
 \caption{Retirement in high-unemployment region-years and mental health: short-run estimates (2009--2013)}
@@ -573,24 +507,27 @@ No ethics approval was needed to perform this analysis.
 \multicolumn{6}{l}{\textbf{Panel A. Depression symptoms (CES-D $\geq$ 4)}} \\
 Retired $\times$ high unemployment & \begin{tabular}[c]{@{}c@{}}0.078*\\ (0.042)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.051)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.102\\ (0.063)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.097\\ (0.065)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.039\\ (0.060)\end{tabular} \\
 Pre-retirement mean & 0.089 & 0.067 & 0.108 & 0.078 & 0.101 \\
-Effect size (\%) & 87.5 & 1.5 & 93.8 & 124.6 & 39.2 \\
+Adjusted p-value (Holm/BH, full sample) & 0.067 &  &  &  &  \\
 Kleibergen-Paap rk Wald F & 54.24 & 32.89 & 29.68 & 17.29 & 39.08 \\
-$R^2$ & 0.010 & 0.020 & 0.004 & -0.115 & 0.005 \\
+Within $R^2$ & 0.010 & 0.020 & 0.004 & -0.115 & 0.005 \\
 Observations & 9,951 & 4,650 & 5,301 & 5,028 & 4,718 \\ \midrule
 \multicolumn{6}{l}{\textbf{Panel B. New psychiatric diagnosis}} \\
 Retired $\times$ high unemployment & \begin{tabular}[c]{@{}c@{}}-0.051**\\ (0.023)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.052*\\ (0.029)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.044\\ (0.035)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.066*\\ (0.038)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.031\\ (0.029)\end{tabular} \\
 Pre-retirement mean & 0.019 & 0.015 & 0.023 & 0.019 & 0.020 \\
-Effect size (\%) & -265.5 & -344.7 & -190.0 & -348.1 & -158.0 \\
+Adjusted p-value (Holm/BH, full sample) & 0.064 &  &  &  &  \\
 Kleibergen-Paap rk Wald F & 54.24 & 32.89 & 29.68 & 17.29 & 39.08 \\
-$R^2$ & -0.002 & 0.004 & -0.008 & 0.000 & 0.011 \\
+Within $R^2$ & -0.002 & 0.004 & -0.008 & 0.000 & 0.011 \\
 Observations & 9,951 & 4,650 & 5,301 & 5,028 & 4,718 \\ \bottomrule
 \end{tabular}%
 }
-\tiny{{\singlespacing \emph{Notes:} IV-FE estimates from Equation (2). The reported coefficient is the interaction between retirement and the high-unemployment indicator. Depression is a binary indicator equal to one when the respondent reports four or more CES-D symptoms. ``Pre-retirement mean'' is the outcome mean among observations prior to retirement in each sample. ``Effect size (\%)'' scales the coefficient by that mean. ``Kleibergen-Paap rk Wald F'' reports the weak-instrument statistic for the excluded instrument set. All specifications include individual fixed effects, wave indicators, and the full set of controls described in Section 4. Clustered standard errors at the individual level are in parentheses. Significance levels: ***p$\prec$0.01; **p$\prec$0.05; *p$\prec$0.1.}}
+\tiny{{\singlespacing \emph{Notes:} IV-FE estimates from Equation~\ref{eq2}. The reported coefficient is the interaction between retirement and the high-unemployment indicator. Depression is a binary indicator equal to one when the respondent reports four or more CES-D symptoms. ``Pre-retirement mean'' is the outcome mean among observations prior to retirement in each sample. ``Adjusted p-value (Holm/BH, full sample)'' reports familywise-adjusted p-values for the two headline outcomes in the full sample; Holm and Benjamini-Hochberg corrections coincide in this two-outcome family. ``Kleibergen-Paap rk Wald F'' reports the weak-instrument statistic for the excluded instrument set. ``Within $R^2$'' is the fitted-value measure returned by FE-IV estimation and can be negative in instrumental-variables models, so it should not be interpreted as a conventional goodness-of-fit statistic. All specifications include individual fixed effects, wave indicators, and the full set of controls described in Section~\ref{sec:empirical}. Clustered standard errors at the individual level are in parentheses. Significance levels: ***p$\prec$0.01; **p$\prec$0.05; *p$\prec$0.1.}}
 \end{table}
 
-\newpage
-\begin{table}[!ht]
+Table~\ref{tab2} reports the short-run interacted IV estimates. The main all-sample result is mixed across the two mental-health outcomes. In the short run, retiring in high-unemployment region-years is associated with a 5.1 percentage point decline in the probability of a new psychiatric diagnosis, relative to a pre-retirement mean of 1.9\%. At the same time, the corresponding coefficient for the binary depression indicator is positive, about 7.8 percentage points, and only marginally precise. Once we adjust for testing the two headline outcomes jointly, the Holm and Benjamini-Hochberg adjusted p-values are 0.064 for new psychiatric diagnosis and 0.067 for depression, so the short-run evidence should be read as suggestive rather than definitive. The subgroup estimates point to larger short-run declines in the probability of a new psychiatric diagnosis among men and white-collar workers, but the paper treats these heterogeneous estimates as secondary to the all-sample evidence. The Kleibergen-Paap rk Wald F statistics reported in the table remain comfortably above conventional weak-instrument thresholds.
+
+Table~\ref{tab3} turns to the longer-run period. The short-run decline in the probability of a new psychiatric diagnosis disappears, while the crisis interaction becomes positive and statistically significant for the binary depression indicator in the full sample. This longer-run result is visible for both men and women and for both white-collar and blue-collar workers, although the subgroup estimates vary in precision. The longer-run evidence therefore points away from a durable mental-health improvement from retiring in harder-hit labour markets.
+
+\begin{table}[!htbp]
 \centering
 \renewcommand{\arraystretch}{0.9}
 \caption{Retirement in high-unemployment region-years and mental health: longer-run estimates (2009--2019)}
@@ -604,25 +541,61 @@ Observations & 9,951 & 4,650 & 5,301 & 5,028 & 4,718 \\ \bottomrule
 \multicolumn{6}{l}{\textbf{Panel A. Depression symptoms (CES-D $\geq$ 4)}} \\
 Retired $\times$ high unemployment & \begin{tabular}[c]{@{}c@{}}0.082***\\ (0.023)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.066**\\ (0.029)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.087**\\ (0.037)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.076**\\ (0.032)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.078**\\ (0.035)\end{tabular} \\
 Pre-retirement mean & 0.084 & 0.063 & 0.103 & 0.073 & 0.097 \\
-Effect size (\%) & 97.2 & 104.2 & 84.5 & 104.2 & 80.4 \\
 Kleibergen-Paap rk Wald F & 97.56 & 52.26 & 57.03 & 37.74 & 66.28 \\
-$R^2$ & 0.005 & 0.008 & 0.003 & -0.004 & 0.008 \\
+Within $R^2$ & 0.005 & 0.008 & 0.003 & -0.004 & 0.008 \\
 Observations & 14,774 & 6,857 & 7,917 & 7,520 & 7,097 \\ \midrule
 \multicolumn{6}{l}{\textbf{Panel B. New psychiatric diagnosis}} \\
 Retired $\times$ high unemployment & \begin{tabular}[c]{@{}c@{}}-0.013\\ (0.013)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.021\\ (0.016)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.001\\ (0.020)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.011\\ (0.020)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.013\\ (0.017)\end{tabular} \\
 Pre-retirement mean & 0.017 & 0.014 & 0.020 & 0.017 & 0.017 \\
-Effect size (\%) & -73.7 & -147.9 & -3.5 & -63.5 & -74.0 \\
 Kleibergen-Paap rk Wald F & 97.56 & 52.26 & 57.03 & 37.74 & 66.28 \\
-$R^2$ & -0.010 & 0.003 & -0.015 & -0.034 & 0.007 \\
+Within $R^2$ & -0.010 & 0.003 & -0.015 & -0.034 & 0.007 \\
 Observations & 14,774 & 6,857 & 7,917 & 7,520 & 7,097 \\ \bottomrule
 \end{tabular}%
 }
-\tiny{{\singlespacing \emph{Notes:} IV-FE estimates from Equation (2) using the longer-run sample. The reported coefficient is the interaction between retirement and the high-unemployment indicator. Depression is a binary indicator equal to one when the respondent reports four or more CES-D symptoms. ``Pre-retirement mean'' is the outcome mean among observations prior to retirement in each sample. ``Effect size (\%)'' scales the coefficient by that mean. ``Kleibergen-Paap rk Wald F'' reports the weak-instrument statistic for the excluded instrument set. All specifications include individual fixed effects, wave indicators, and the full set of controls described in Section 4. Clustered standard errors at the individual level are in parentheses. Significance levels: ***p$\prec$0.01; **p$\prec$0.05; *p$\prec$0.1.}}
+\tiny{{\singlespacing \emph{Notes:} IV-FE estimates from Equation~\ref{eq2} using the longer-run sample. The reported coefficient is the interaction between retirement and the high-unemployment indicator. Depression is a binary indicator equal to one when the respondent reports four or more CES-D symptoms. ``Pre-retirement mean'' is the outcome mean among observations prior to retirement in each sample. ``Kleibergen-Paap rk Wald F'' reports the weak-instrument statistic for the excluded instrument set. ``Within $R^2$'' is the fitted-value measure returned by FE-IV estimation and can be negative in instrumental-variables models, so it should not be interpreted as a conventional goodness-of-fit statistic. All specifications include individual fixed effects, wave indicators, and the full set of controls described in Section~\ref{sec:empirical}. Clustered standard errors at the individual level are in parentheses. Significance levels: ***p$\prec$0.01; **p$\prec$0.05; *p$\prec$0.1.}}
 \end{table}
+
+\subsection{Diagnostics and supporting evidence} \label{sec:robustness}
+
+Instrument validity is also strongest where it matters most for the crisis design. In the high-unemployment subsample, crossing the statutory pension age raises retirement by 12.0 percentage points (s.e. 0.021) and yields a Kleibergen-Paap rk Wald F statistic of 36.39 in Table~\ref{tabB1}. In the full interacted specification, the excluded instrument set delivers a Kleibergen-Paap rk Wald F statistic of 53.21 in the full sample and remains above 13.59 in every subgroup in Table~\ref{tabB2}. Appendix~\hyperref[sec:appendixB]{B} therefore supports the view that weak identification is not driving the main crisis results, including in the region-years most exposed to the downturn.
+
+Appendix~\hyperref[sec:appendixC]{C} provides two further pieces of evidence. First, Table~\ref{tabC1} shows that replacing the binary depression measure with the continuous CES-D symptom count yields the same qualitative longer-run pattern: retirement in high-unemployment region-years is associated with worse depressive symptoms rather than better mental health. Second, Figures~\ref{figC1}--\ref{figC3} present event-study evidence for the binary depression indicator and new psychiatric diagnosis in the full sample and by sex. These profiles help visualise timing and do not suggest a clean or persistent improvement in broader depressive symptoms.
+
+\section{Conclusion} \label{sec:discussion}
+
+This paper studies whether the mental-health consequences of retirement depend on the macroeconomic environment in which retirement occurs. Using English panel data and an IV-FE design based on statutory pension-age eligibility, we find that they do. In the short run, retirement in high-unemployment region-years is associated with a lower probability of a new psychiatric diagnosis, but not with lower depression prevalence. In the longer run, that decline disappears, while depressive symptoms rise in harder-hit region-years.
+
+The main implication is that retirement during a downturn should not be interpreted as a uniform mental-health buffer. The evidence is more consistent with a short-run easing of stress at the diagnosis margin that does not translate into broader or persistent improvements in mental health. This helps reconcile the mixed retirement--health literature: retirement effects depend on local economic conditions, and mental-health outcomes that appear similar on the surface need not move together.
+
+For policy, the results suggest that pension access alone is unlikely to protect mental health during adverse macroeconomic episodes. If retirement occurs in weak labour markets, targeted support after labour-force exit may matter as much as the timing of retirement itself. More broadly, the paper shows that understanding retirement in later life requires integrating labour-market conditions, institutional pension rules, and outcome-specific measures of mental health.
+
+
+\vspace{1.25cm}
+\singlespacing
+\section*{Conflict of interest statement}
+
+The authors declare that they have no conflict of interest.
+
+\section*{Data statement}
+
+All databases are available under UK Data Services (UKDS) conditions.
+
+\section*{Ethics statement}
+
+No ethics approval was needed to perform this analysis. 
+
+
+\newpage
+\singlespacing
+\setlength\bibsep{0pt}
+\bibliographystyle{apalike}
+\bibliography{bibliography.bib}
+
 
 
 \clearpage
 %\appendix
+\phantomsection
 \section*{Appendix A. English Longitudinal Study of Ageing (ELSA)} 
 \label{sec:appendixa}
 \setcounter{table}{0}
@@ -654,7 +627,7 @@ The English Longitudinal Study of Ageing (ELSA) began in 2002 as a large-scale l
 \end{table}
 
 
-Table A2 summarises the number of productive interviews archived at each wave, along with the counts of Core Member and Partner interviews. It also provides a detailed analysis of response rates, including field contact rates, overall response rates, and cohort response rates for each ELSA wave.
+Table~\ref{tabA2} summarises the number of productive interviews archived at each wave, along with the counts of Core Member and Partner interviews. It also provides a detailed analysis of response rates, including field contact rates, overall response rates, and cohort response rates for each ELSA wave.
 
 \begin{table}[htb!]
 \centering
@@ -679,7 +652,7 @@ Table A2 summarises the number of productive interviews archived at each wave, a
 
 
 \newpage
-In our analysis, we selected a subsample of active individuals who defined their employment status as employee, self-employed, temporarily sick or disabled, or seeking work. They also need not have any kind of chronic condition—please refer to Table A3. We then follow this subsample across time and record them when they retire from working. Table A3 shows the number of observations and individuals available in the dataset.
+In our analysis, we selected a subsample of active individuals who defined their employment status as employee, self-employed, temporarily sick or disabled, or seeking work. They also need not have any kind of chronic condition—please refer to Table~\ref{tabA3}. We then follow this subsample across time and record them when they retire from working. Table~\ref{tabA3} shows the number of observations and individuals available in the dataset.
 
 \begin{table}[htb!]
 
@@ -723,7 +696,7 @@ $Wave_{t}$ & \textbf{$Wave_{t+1}$} & \textbf{$Wave_{t+2}$} & \textbf{$Wave_{t+3}
 \end{table}
 
 \newpage
-Table A5 presents the results of two informal tests examining the severity of selective attrition. We first expand the rows in the dataset to create a nominally balanced format so that each identifier includes the same list of time periods, filling in waves without data with missing values. We then define a complete-cases selection indicator. The first specification uses new psychiatric diagnosis as the dependent variable, while the second uses attrition itself as the dependent variable, controlling for the main specification variables.
+Table~\ref{tab5} presents the results of two informal tests examining the severity of selective attrition. We first expand the rows in the dataset to create a nominally balanced format so that each identifier includes the same list of time periods, filling in waves without data with missing values. We then define a complete-cases selection indicator. The first specification uses new psychiatric diagnosis as the dependent variable, while the second uses attrition itself as the dependent variable, controlling for the main specification variables.
 
 
 \begin{table}[h]
@@ -750,6 +723,7 @@ IDs & 2,638 & 1,229 & 1,409 & 2,638 & 1,229 & 1,409 \\ \bottomrule
 \end{table}
 
 \newpage
+\phantomsection
 \section*{Appendix B. Instrument validity diagnostics} \label{sec:appendixB}
 \setcounter{table}{0}
 \renewcommand{\thetable}{B\arabic{table}}
@@ -801,6 +775,7 @@ Observations & 9,951 & 4,650 & 5,301 & 5,028 & 4,718 \\ \bottomrule
 \end{table}
 
 \newpage
+\phantomsection
 \section*{Appendix C. Alternative depression measure and event-study evidence} \label{sec:appendixC}
 \setcounter{table}{0}
 \renewcommand{\thetable}{C\arabic{table}}
@@ -808,7 +783,7 @@ Observations & 9,951 & 4,650 & 5,301 & 5,028 & 4,718 \\ \bottomrule
 \renewcommand{\thefigure}{C\arabic{figure}}
 \addcontentsline{toc}{section}{Appendix C}
 
-Appendix C presents two supporting pieces of evidence. First, Table C1 re-estimates the crisis specification using the continuous CES-D symptom count, which ranges from 0 to 8. Second, Figures C1--C3 report event-study estimates for the two main mental-health outcomes in the full sample and separately by sex.
+Appendix~\hyperref[sec:appendixC]{C} presents two supporting pieces of evidence. First, Table~\ref{tabC1} re-estimates the crisis specification using the continuous CES-D symptom count, which ranges from 0 to 8. Second, Figures~\ref{figC1}--\ref{figC3} report event-study estimates for the two main mental-health outcomes in the full sample and separately by sex.
 
 \begin{table}[h]
 \centering
@@ -820,13 +795,12 @@ Appendix C presents two supporting pieces of evidence. First, Table C1 re-estima
  & \textbf{Short run (2009--2013)} & \textbf{Longer run (2009--2019)} \\ \midrule
 Retired $\times$ high unemployment & \begin{tabular}[c]{@{}c@{}}0.266\\ (0.214)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.342***\\ (0.122)\end{tabular} \\
 Pre-retirement mean & 1.049 & 1.020 \\
-Effect size (\%) & 25.3 & 33.5 \\
 Kleibergen-Paap rk Wald F & 54.24 & 97.56 \\
-$R^2$ & 0.021 & 0.009 \\
+Within $R^2$ & 0.021 & 0.009 \\
 Observations & 9,951 & 14,774 \\ \bottomrule
 \end{tabular}%
 }
-\tiny{{\singlespacing \emph{Notes:} IV-FE estimates from Equation (2) using the continuous CES-D symptom count instead of the binary depression indicator. ``Pre-retirement mean'' is the outcome mean among observations prior to retirement. ``Effect size (\%)'' scales the coefficient by that mean. Clustered standard errors at the individual level are in parentheses. Significance levels: ***p$\prec$0.01; **p$\prec$0.05; *p$\prec$0.1.}}
+\tiny{{\singlespacing \emph{Notes:} IV-FE estimates from Equation~\ref{eq2} using the continuous CES-D symptom count instead of the binary depression indicator. ``Pre-retirement mean'' is the outcome mean among observations prior to retirement. ``Within $R^2$'' is the fitted-value measure returned by FE-IV estimation and can be negative in instrumental-variables models, so it should not be interpreted as a conventional goodness-of-fit statistic. Clustered standard errors at the individual level are in parentheses. Significance levels: ***p$\prec$0.01; **p$\prec$0.05; *p$\prec$0.1.}}
 \end{table}
 
 \newpage
