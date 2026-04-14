@@ -482,6 +482,8 @@ We estimate Equation~\ref{eq2} for the short-run post-crisis window (2009--2013)
 
 Figure~\ref{fig2} reports the baseline short-run estimates for the full sample. The FE and IV-FE estimates are both imprecise for the binary depression outcome and for new psychiatric diagnosis, indicating that retirement per se is not enough to explain the subsequent heterogeneity in mental health. The higher raw prevalence of both outcomes among near-threshold retired observations in Table~\ref{tabA5} is consistent with negative selection into retirement and helps explain why the FE contrast in Figure~\ref{fig2} should not be given the same causal interpretation as the IV-FE estimates. The more informative pattern emerges once we allow retirement effects to differ by local crisis exposure.
 
+Table~\ref{tabBaselineSubgroups} reports the subgroup counterpart to Figure~\ref{fig2}. The baseline FE and IV-FE estimates remain mostly imprecise across men, women, white-collar workers, and blue-collar workers, which reinforces the paper's main point that crisis exposure, rather than retirement alone, is what generates the more informative heterogeneity in the mental-health results.
+
 \begin{figure}[htb!]\caption{Baseline retirement effects: short-run full-sample estimates (2009--2013)}
 \label{fig2}
 \centering
@@ -490,6 +492,34 @@ Figure~\ref{fig2} reports the baseline short-run estimates for the full sample. 
 
 \scriptsize{\singlespacing \emph{Notes:} Figure 2 plots the estimated effect of retirement on the two main mental health outcomes in the short-run sample (2009--2013). Red crosses report within-individual fixed effects (FE) estimates, while blue circles report instrumental-variables fixed-effects (IV-FE) estimates from Equation (1). Vertical bars denote 95\% confidence intervals. Depression is a binary indicator equal to one when the respondent reports four or more CES-D symptoms.}
 \end{figure}
+
+\begin{table}[!htbp]
+\centering
+\renewcommand{\arraystretch}{0.9}
+\caption{Baseline retirement effects by subgroup: short-run estimates (2009--2013)}
+\label{tabBaselineSubgroups}
+\footnotesize
+\setlength{\tabcolsep}{6pt}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+ & \textbf{Full sample} & \textbf{Men} & \textbf{Women} & \textbf{White-collar} & \textbf{Blue-collar} \\ \midrule
+\multicolumn{6}{l}{\textbf{Panel A. Depression symptoms (CES-D $\geq$ 4)}} \\
+FE: Retired & \begin{tabular}[c]{@{}c@{}}0.000\\ (0.009)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.000\\ (0.011)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.001\\ (0.014)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.011\\ (0.013)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.013\\ (0.015)\end{tabular} \\
+IV-FE: Retired & \begin{tabular}[c]{@{}c@{}}-0.029\\ (0.079)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.045\\ (0.078)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.103\\ (0.125)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.285*\\ (0.149)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.110\\ (0.099)\end{tabular} \\
+Pre-retirement mean & 0.089 & 0.067 & 0.108 & 0.078 & 0.101 \\
+Kleibergen-Paap rk Wald F & 78.42 & 39.11 & 41.43 & 20.37 & 62.18 \\
+Observations & 10,273 & 4,793 & 5,480 & 5,173 & 5,100 \\ \midrule
+\multicolumn{6}{l}{\textbf{Panel B. New psychiatric diagnosis}} \\
+FE: Retired & \begin{tabular}[c]{@{}c@{}}0.002\\ (0.005)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.007\\ (0.006)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.002\\ (0.008)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.009\\ (0.008)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.005\\ (0.007)\end{tabular} \\
+IV-FE: Retired & \begin{tabular}[c]{@{}c@{}}-0.026\\ (0.042)\end{tabular} & \begin{tabular}[c]{@{}c@{}}0.022\\ (0.047)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.050\\ (0.066)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.020\\ (0.080)\end{tabular} & \begin{tabular}[c]{@{}c@{}}-0.012\\ (0.047)\end{tabular} \\
+Pre-retirement mean & 0.019 & 0.015 & 0.023 & 0.019 & 0.020 \\
+Kleibergen-Paap rk Wald F & 78.42 & 39.11 & 41.43 & 20.37 & 62.18 \\
+Observations & 10,273 & 4,793 & 5,480 & 5,173 & 5,100 \\ \bottomrule
+\end{tabular}%
+}
+\tiny{{\singlespacing \emph{Notes:} FE and IV-FE estimates from Equation~\ref{eq1} in the short-run sample. Figure~\ref{fig2} plots the full-sample coefficients; this table reports the underlying subgroup estimates for the same baseline specification. ``Pre-retirement mean'' is the outcome mean among observations prior to retirement in each sample. ``Kleibergen-Paap rk Wald F'' reports the first-stage relevance of statutory pension-age eligibility in the corresponding IV-FE specification. All specifications include individual fixed effects, wave indicators, and the full set of controls described in Section~\ref{sec:empirical}. Clustered standard errors at the individual level are in parentheses. Significance levels: ***p$\prec$0.01; **p$\prec$0.05; *p$\prec$0.1.}}
+\end{table}
 
 \begin{table}[!htbp]
 \centering
